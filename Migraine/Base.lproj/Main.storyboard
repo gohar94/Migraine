@@ -53,7 +53,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="X9Y-cI-3TD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="J9v-1t-HeT"/>
                             <constraint firstItem="X9Y-cI-3TD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nwl-Bv-iQD"/>
@@ -109,7 +109,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Mcd-eD-RfC" firstAttribute="centerY" secondItem="f0u-Rp-zXg" secondAttribute="centerY" id="5vf-LT-biU"/>
                             <constraint firstItem="Mcd-eD-RfC" firstAttribute="centerX" secondItem="f0u-Rp-zXg" secondAttribute="centerX" id="j7P-py-tdx"/>
@@ -144,11 +144,24 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zH8-dj-8I0">
+                                        <rect key="frame" x="243" y="303" width="115" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="115" id="2Yj-36-3D0"/>
+                                            <constraint firstAttribute="height" constant="30" id="gVK-iK-F3C"/>
+                                        </constraints>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="5wS-ng-zVY" firstAttribute="centerX" secondItem="rKP-XN-QpC" secondAttribute="centerX" id="IIG-q6-Qos"/>
+                                    <constraint firstAttribute="bottom" secondItem="zH8-dj-8I0" secondAttribute="bottom" constant="30" id="VUK-jR-ADp"/>
                                     <constraint firstItem="5wS-ng-zVY" firstAttribute="top" secondItem="rKP-XN-QpC" secondAttribute="top" constant="10" id="XTu-rY-Cx8"/>
+                                    <constraint firstItem="zH8-dj-8I0" firstAttribute="centerX" secondItem="rKP-XN-QpC" secondAttribute="centerX" id="pWd-JM-J4p"/>
                                 </constraints>
                             </view>
                         </subviews>
