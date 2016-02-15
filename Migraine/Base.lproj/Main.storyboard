@@ -397,7 +397,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ZhL-2F-l1W" firstAttribute="centerX" secondItem="Gkc-UK-78n" secondAttribute="centerX" id="Vqi-mP-Y4Z"/>
                             <constraint firstItem="ZhL-2F-l1W" firstAttribute="centerY" secondItem="Gkc-UK-78n" secondAttribute="centerY" id="hBD-De-paZ"/>
@@ -472,7 +472,7 @@
                                                             <constraint firstAttribute="width" constant="250" id="uS8-7X-nFC"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Dk-3P-qLI">
                                                         <rect key="frame" x="0.0" y="30" width="250" height="30"/>
@@ -491,6 +491,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="dateOfLMPAction:" destination="Grk-ht-PwG" eventType="editingDidBegin" id="0A3-fK-Nd7"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Anticipated date of next period" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b4P-Jt-Voa">
                                                         <rect key="frame" x="0.0" y="90" width="250" height="30"/>
@@ -500,6 +503,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="dateOfNextPeriodAction:" destination="Grk-ht-PwG" eventType="editingDidBegin" id="lzE-4S-M2i"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Methods of birth control" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4jY-Jk-qbe">
                                                         <rect key="frame" x="0.0" y="120" width="250" height="30"/>
@@ -562,6 +568,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="dateOfLMP" destination="9xv-pj-ktP" id="zaw-Ny-3rG"/>
+                        <outlet property="dateOfNextPeriod" destination="b4P-Jt-Voa" id="Ofw-dV-LRJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h51-rf-37T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
