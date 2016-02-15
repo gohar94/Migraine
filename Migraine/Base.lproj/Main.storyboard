@@ -39,7 +39,8 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWk-L7-NV6">
                                         <rect key="frame" x="88" y="148" width="115" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90671073719999995" green="0.47915620279999999" blue="0.20150967850000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -48,14 +49,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.093495678220000003" green="0.59565304490000004" blue="0.30523242090000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="290" id="KmB-6a-nch"/>
                                     <constraint firstAttribute="height" constant="198" id="YGt-oc-TQC"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.054028215480000003" green="0.48707502349999998" blue="0.8602564103" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Mcd-eD-RfC" firstAttribute="centerY" secondItem="f0u-Rp-zXg" secondAttribute="centerY" id="5vf-LT-biU"/>
                             <constraint firstItem="Mcd-eD-RfC" firstAttribute="centerX" secondItem="f0u-Rp-zXg" secondAttribute="centerX" id="j7P-py-tdx"/>
@@ -64,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEZ-Bj-GcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="87" y="1173"/>
+            <point key="canvasLocation" x="763" y="1197"/>
         </scene>
         <!--View Controller3-->
         <scene sceneID="UFa-dL-eEt">
@@ -94,7 +95,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv5-2z-Qqz" userLabel="Description">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv5-2z-Qqz" userLabel="Description">
                                         <rect key="frame" x="51" y="44" width="499" height="212"/>
                                         <string key="text">This app is designed to help you log your migraines as well as possible triggers. This will help us get a better understanding of your migraines and what brings them on. This will also help us to give you individualized techniques to prevent or alleviate your migraines.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -103,7 +104,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCR-Ha-XN2">
                                         <rect key="frame" x="243" y="276" width="115" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90671073719999995" green="0.47915620279999999" blue="0.20150967850000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Al5-zi-WDx"/>
                                             <constraint firstAttribute="width" constant="115" id="EbB-Su-bya"/>
@@ -116,7 +117,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.054028215480000003" green="0.48707502349999998" blue="0.8602564103" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="BCR-Ha-XN2" secondAttribute="bottom" constant="10" id="2uo-Xb-0oB"/>
                                     <constraint firstItem="BCR-Ha-XN2" firstAttribute="centerX" secondItem="ZXE-jQ-luW" secondAttribute="centerX" id="3uG-NR-HEX"/>
@@ -137,7 +138,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.054028215480000003" green="0.48707502349999998" blue="0.8602564103" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="N8x-zz-fat" firstAttribute="top" secondItem="6cR-YI-gAj" secondAttribute="bottom" id="1fj-2o-79C"/>
                             <constraint firstItem="N8x-zz-fat" firstAttribute="centerX" secondItem="F7T-U9-Vzp" secondAttribute="centerX" id="I2O-8w-ydX"/>
@@ -160,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nx-WG-8ub" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1827" y="757"/>
+            <point key="canvasLocation" x="1403" y="1197"/>
         </scene>
         <!--View Controller4-->
         <scene sceneID="djw-Ml-imw">
@@ -190,7 +191,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0s0-uO-e4V" userLabel="Description">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0s0-uO-e4V" userLabel="Description">
                                         <rect key="frame" x="51" y="44" width="499" height="212"/>
                                         <string key="text">Your privacy is our biggest concern. Your data is shared only if you chose to. We are asking for data that is critical to predicting migraines for you. You can skip any information that you want to but it will make is harder for us to recognize the pattern of your migraines and accurately predict it.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -199,7 +200,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2Q-oR-QnM">
                                         <rect key="frame" x="243" y="276" width="115" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90671073719999995" green="0.47915620279999999" blue="0.20150967850000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="115" id="U8h-uv-tQp"/>
                                             <constraint firstAttribute="height" constant="30" id="bGr-Qg-NP7"/>
@@ -212,7 +213,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.054028215480000003" green="0.48707502349999998" blue="0.8602564103" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="T2Q-oR-QnM" firstAttribute="top" secondItem="0s0-uO-e4V" secondAttribute="bottom" constant="20" id="1G4-Pv-YQj"/>
                                     <constraint firstItem="0s0-uO-e4V" firstAttribute="top" secondItem="dJm-No-ccb" secondAttribute="bottom" constant="10" id="4Ga-86-V6q"/>
@@ -233,7 +234,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.054028215480000003" green="0.48707502349999998" blue="0.8602564103" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qbC-i6-d8O" secondAttribute="trailing" id="03u-Z0-Ep7"/>
                             <constraint firstItem="qbC-i6-d8O" firstAttribute="leading" secondItem="37L-si-WCm" secondAttribute="leading" id="2iz-V7-p87"/>
@@ -256,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBo-lc-gVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2471" y="757"/>
+            <point key="canvasLocation" x="2047" y="1197"/>
         </scene>
         <!--View Controller5-->
         <scene sceneID="n3D-kc-cQp">
@@ -279,7 +280,7 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4K-Dt-Ze6" userLabel="Description">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4K-Dt-Ze6" userLabel="Description">
                                         <rect key="frame" x="51" y="44" width="499" height="432"/>
                                         <string key="text">This app is designed to help you log your migraines as well as possible triggers. This will help us get a better understanding of your migraines and what brings them on. This will also help us to give you individualized techniques to prevent or alleviate your migraines.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -288,7 +289,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6Q-5d-Ygh">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90671073719999995" green="0.47915620279999999" blue="0.20150967850000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="115" id="QdF-r0-p1Y"/>
                                             <constraint firstAttribute="height" constant="30" id="mGC-HM-rDb"/>
@@ -301,7 +302,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.054028215480000003" green="0.48707502349999998" blue="0.8602564103" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="vfG-lM-8R2" firstAttribute="leading" secondItem="gCO-z0-bfu" secondAttribute="leading" constant="50" id="BHU-JC-TsT"/>
                                     <constraint firstItem="vfG-lM-8R2" firstAttribute="centerX" secondItem="gCO-z0-bfu" secondAttribute="centerX" id="GSt-Lg-Q69"/>
@@ -322,7 +323,7 @@
                                 </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.054028215480000003" green="0.48707502349999998" blue="0.8602564103" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="gCO-z0-bfu" secondAttribute="trailing" id="5Hm-We-fdI"/>
                             <constraint firstItem="7CT-zC-kPQ" firstAttribute="top" secondItem="gCO-z0-bfu" secondAttribute="bottom" id="DRn-HY-fn0"/>
@@ -342,7 +343,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3QO-J7-oah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3111" y="757"/>
+            <point key="canvasLocation" x="2687" y="1197"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3Rl-OB-1nM">
@@ -366,17 +367,14 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ys-Iz-Eiu">
                                         <rect key="frame" x="20" y="103" width="115" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90671073717948714" green="0.47915620275722692" blue="0.20150967845744647" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="aeL-vu-a8X" kind="show" id="6Ga-DF-atv"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8XC-Fs-bL5">
                                         <rect key="frame" x="155" y="103" width="115" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90671073719999995" green="0.47915620279999999" blue="0.20150967850000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -390,14 +388,14 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.093495678215167202" green="0.59565304487179493" blue="0.30523242086075825" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="153" id="lEh-b2-gia"/>
                                     <constraint firstAttribute="width" constant="290" id="uiM-8Q-l17"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.05402821547848724" green="0.48707502349532106" blue="0.86025641025641031" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ZhL-2F-l1W" firstAttribute="centerX" secondItem="Gkc-UK-78n" secondAttribute="centerX" id="Vqi-mP-Y4Z"/>
                             <constraint firstItem="ZhL-2F-l1W" firstAttribute="centerY" secondItem="Gkc-UK-78n" secondAttribute="centerY" id="hBD-De-paZ"/>
@@ -430,7 +428,7 @@
         <!--View Controller6-->
         <scene sceneID="po5-58-k3e">
             <objects>
-                <viewController id="Grk-ht-PwG" customClass="ViewController6" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Grk-ht-PwG" customClass="ViewController6" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ytz-V7-A4K"/>
                         <viewControllerLayoutGuide type="bottom" id="dnP-Y7-Mj9"/>
@@ -450,7 +448,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qks-4u-mYb">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.90671073719999995" green="0.47915620279999999" blue="0.20150967850000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="YX0-Qo-nmY"/>
                                             <constraint firstAttribute="width" constant="115" id="mif-G2-I8a"/>
@@ -473,6 +471,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <connections>
+                                                            <action selector="ageAction:" destination="Grk-ht-PwG" eventType="editingDidEnd" id="8xK-EH-wbe"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Dk-3P-qLI">
                                                         <rect key="frame" x="0.0" y="30" width="250" height="30"/>
@@ -482,6 +483,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="genderAction:" destination="Grk-ht-PwG" eventType="editingDidBegin" id="lTp-Jc-uWL"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date of LMP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9xv-pj-ktP">
                                                         <rect key="frame" x="0.0" y="60" width="250" height="30"/>
@@ -507,7 +511,7 @@
                                                             <action selector="dateOfNextPeriodAction:" destination="Grk-ht-PwG" eventType="editingDidBegin" id="lzE-4S-M2i"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Methods of birth control" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4jY-Jk-qbe">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Methods of birth control" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4jY-Jk-qbe">
                                                         <rect key="frame" x="0.0" y="120" width="250" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="250" id="AtQ-QN-dy0"/>
@@ -515,6 +519,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="birthControlAction:" destination="Grk-ht-PwG" eventType="editingDidBegin" id="qWf-La-EGv"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -527,7 +534,7 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.054028215480000003" green="0.48707502349999998" blue="0.8602564103" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="1hc-CS-sxP"/>
                                             <constraint firstItem="nAw-vh-nKg" firstAttribute="centerY" secondItem="JXr-5U-TzV" secondAttribute="centerY" id="4zV-9P-WLf"/>
@@ -536,7 +543,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.054028215480000003" green="0.48707502349999998" blue="0.8602564103" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="zj6-wH-04c" firstAttribute="top" secondItem="TTf-LX-XQE" secondAttribute="top" constant="10" id="6Q1-KQ-WUA"/>
                                     <constraint firstAttribute="bottom" secondItem="Qks-4u-mYb" secondAttribute="bottom" constant="10" id="6TJ-L0-ywv"/>
@@ -553,36 +560,28 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="TTf-LX-XQE" secondAttribute="trailing" id="0f2-aa-hfU"/>
-                            <constraint firstItem="TTf-LX-XQE" firstAttribute="leading" secondItem="jc6-DA-ssy" secondAttribute="leadingMargin" id="6mx-36-DkH"/>
                             <constraint firstItem="dnP-Y7-Mj9" firstAttribute="top" secondItem="TTf-LX-XQE" secondAttribute="bottom" id="Q7K-2f-kj5"/>
                             <constraint firstItem="dnP-Y7-Mj9" firstAttribute="top" secondItem="TTf-LX-XQE" secondAttribute="bottom" id="egr-cU-guM"/>
                             <constraint firstAttribute="trailing" secondItem="TTf-LX-XQE" secondAttribute="trailing" id="qCX-gN-OXB"/>
                             <constraint firstItem="TTf-LX-XQE" firstAttribute="top" secondItem="Ytz-V7-A4K" secondAttribute="bottom" id="qCr-ec-x0h"/>
                             <constraint firstItem="TTf-LX-XQE" firstAttribute="leading" secondItem="jc6-DA-ssy" secondAttribute="leading" id="u6g-Zl-3Qi"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="0f2-aa-hfU"/>
-                                <exclude reference="6mx-36-DkH"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
+                        <outlet property="age" destination="Grj-sQ-NX2" id="ruQ-YN-6GW"/>
+                        <outlet property="birthControl" destination="4jY-Jk-qbe" id="1na-z4-qzg"/>
                         <outlet property="dateOfLMP" destination="9xv-pj-ktP" id="zaw-Ny-3rG"/>
                         <outlet property="dateOfNextPeriod" destination="b4P-Jt-Voa" id="Ofw-dV-LRJ"/>
+                        <outlet property="gender" destination="7Dk-3P-qLI" id="QWi-7w-7uf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h51-rf-37T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3788" y="757"/>
+            <point key="canvasLocation" x="3332" y="1197"/>
         </scene>
     </scenes>
     <resources>
         <image name="brain" width="300" height="197"/>
         <image name="privacy" width="300" height="197"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="6Ga-DF-atv"/>
-    </inferredMetricsTieBreakers>
 </document>
