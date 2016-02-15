@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HPI-ke-pQf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -7,18 +7,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-267" y="757"/>
-        </scene>
-        <!--View Controller-->
+        <!--View Controller2-->
         <scene sceneID="KoZ-xT-P9X">
             <objects>
-                <viewController id="HTm-Wx-u3T" sceneMemberID="viewController">
+                <viewController id="HTm-Wx-u3T" customClass="ViewController2" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="udZ-yg-KU6"/>
                         <viewControllerLayoutGuide type="bottom" id="0Py-jZ-cNT"/>
@@ -51,6 +43,9 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="aeL-vu-a8X" kind="show" id="uGU-Co-ebP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -69,12 +64,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEZ-Bj-GcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="373" y="1088"/>
+            <point key="canvasLocation" x="87" y="1173"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller3-->
         <scene sceneID="UFa-dL-eEt">
             <objects>
-                <viewController id="aeL-vu-a8X" sceneMemberID="viewController">
+                <viewController id="aeL-vu-a8X" customClass="ViewController3" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6cR-YI-gAj"/>
                         <viewControllerLayoutGuide type="bottom" id="S1R-Z4-pmD"/>
@@ -116,6 +111,9 @@
                                         <state key="normal" title="Next">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="cKS-Pi-Jd3" kind="show" id="En5-uN-Def"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -164,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="1015" y="757"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller4-->
         <scene sceneID="djw-Ml-imw">
             <objects>
-                <viewController id="cKS-Pi-Jd3" sceneMemberID="viewController">
+                <viewController id="cKS-Pi-Jd3" customClass="ViewController4" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tLW-2X-ZSg"/>
                         <viewControllerLayoutGuide type="bottom" id="fWG-v7-f6s"/>
@@ -209,6 +207,9 @@
                                         <state key="normal" title="Next">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="MwD-Lf-adg" kind="show" id="F6d-Pg-xlc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -257,10 +258,10 @@
             </objects>
             <point key="canvasLocation" x="1659" y="757"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller5-->
         <scene sceneID="n3D-kc-cQp">
             <objects>
-                <viewController id="MwD-Lf-adg" sceneMemberID="viewController">
+                <viewController id="MwD-Lf-adg" customClass="ViewController5" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I3B-lI-Y9f"/>
                         <viewControllerLayoutGuide type="bottom" id="7CT-zC-kPQ"/>
@@ -366,6 +367,9 @@
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="aeL-vu-a8X" kind="show" id="6Ga-DF-atv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8XC-Fs-bL5">
                                         <rect key="frame" x="155" y="103" width="115" height="30"/>
@@ -373,6 +377,9 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="HTm-Wx-u3T" kind="show" id="4Ow-zc-vFB"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="now-SY-AtU">
                                         <rect key="frame" x="20" y="62" width="250" height="30"/>
@@ -396,11 +403,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NoW-0e-aam" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="373" y="426"/>
+            <point key="canvasLocation" x="87" y="371"/>
         </scene>
     </scenes>
     <resources>
         <image name="brain" width="300" height="197"/>
         <image name="privacy" width="300" height="197"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="uGU-Co-ebP"/>
+    </inferredMetricsTieBreakers>
 </document>
