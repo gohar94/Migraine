@@ -511,7 +511,7 @@
                                                             <action selector="dateOfNextPeriodAction:" destination="Grk-ht-PwG" eventType="editingDidBegin" id="lzE-4S-M2i"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Methods of birth control" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4jY-Jk-qbe">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Methods of birth control" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4jY-Jk-qbe">
                                                         <rect key="frame" x="0.0" y="120" width="250" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="250" id="AtQ-QN-dy0"/>
