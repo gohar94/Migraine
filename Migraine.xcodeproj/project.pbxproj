@@ -18,6 +18,7 @@
 		1726F6F61C71AC0900AAF671 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F51C71AC0800AAF671 /* ViewController3.swift */; };
 		1726F6F81C71AC1100AAF671 /* ViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F71C71AC1100AAF671 /* ViewController4.swift */; };
 		1726F6FA1C71AC1A00AAF671 /* ViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F91C71AC1A00AAF671 /* ViewController5.swift */; };
+		17CD29D11C71BC20006CC2A1 /* ViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD29D01C71BC20006CC2A1 /* ViewController6.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		1726F6F51C71AC0800AAF671 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		1726F6F71C71AC1100AAF671 /* ViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController4.swift; sourceTree = "<group>"; };
 		1726F6F91C71AC1A00AAF671 /* ViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController5.swift; sourceTree = "<group>"; };
+		17CD29D01C71BC20006CC2A1 /* ViewController6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController6.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				1726F6F51C71AC0800AAF671 /* ViewController3.swift */,
 				1726F6F71C71AC1100AAF671 /* ViewController4.swift */,
 				1726F6F91C71AC1A00AAF671 /* ViewController5.swift */,
+				17CD29D01C71BC20006CC2A1 /* ViewController6.swift */,
 				1726F6C91C70492600AAF671 /* Main.storyboard */,
 				1726F6CC1C70492600AAF671 /* Assets.xcassets */,
 				1726F6CE1C70492600AAF671 /* LaunchScreen.storyboard */,
@@ -273,6 +276,7 @@
 			files = (
 				1726F6C81C70492600AAF671 /* ViewController.swift in Sources */,
 				1726F6C61C70492600AAF671 /* AppDelegate.swift in Sources */,
+				17CD29D11C71BC20006CC2A1 /* ViewController6.swift in Sources */,
 				1726F6F61C71AC0900AAF671 /* ViewController3.swift in Sources */,
 				1726F6F41C71ABFF00AAF671 /* ViewController2.swift in Sources */,
 				1726F6FA1C71AC1A00AAF671 /* ViewController5.swift in Sources */,
@@ -503,6 +507,7 @@
 				1726F6EC1C70492700AAF671 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1726F6ED1C70492700AAF671 /* Build configuration list for PBXNativeTarget "MigraineTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +516,7 @@
 				1726F6EF1C70492700AAF671 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1726F6F01C70492700AAF671 /* Build configuration list for PBXNativeTarget "MigraineUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +525,7 @@
 				1726F6F21C70492700AAF671 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
