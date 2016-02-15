@@ -21,8 +21,8 @@ class ViewController6: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     
     enum PickerViewTag: Int {
         // Integer values will be implicitly supplied; you could optionally set your own values
-        case PickerView1
-        case PickerView2
+        case PickerViewGender
+        case PickerViewBirthControl
     }
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class ViewController6: UIViewController, UIPickerViewDataSource, UIPickerViewDel
 
     @IBAction func genderAction(sender: UITextField) {
         let pickerView = UIPickerView()
-        pickerView.tag = PickerViewTag.PickerView1.rawValue
+        pickerView.tag = PickerViewTag.PickerViewGender.rawValue
         pickerView.delegate = self
         gender.inputView = pickerView
         let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
@@ -56,7 +56,7 @@ class ViewController6: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     
     @IBAction func birthControlAction(sender: UITextField) {
         let pickerView = UIPickerView()
-        pickerView.tag = PickerViewTag.PickerView2.rawValue
+        pickerView.tag = PickerViewTag.PickerViewBirthControl.rawValue
         pickerView.delegate = self
         birthControl.inputView = pickerView
         let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
@@ -102,9 +102,9 @@ class ViewController6: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if let tag = PickerViewTag(rawValue: pickerView.tag) {
             switch tag {
-            case .PickerView1:
+            case .PickerViewGender:
                 return genderOptions.count
-            case .PickerView2:
+            case .PickerViewBirthControl:
                 return birthControlOptions.count
             default:
                 print("Unknown picker view.")
@@ -116,9 +116,9 @@ class ViewController6: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if let tag = PickerViewTag(rawValue: pickerView.tag) {
             switch tag {
-            case .PickerView1:
+            case .PickerViewGender:
                 return genderOptions[row]
-            case .PickerView2:
+            case .PickerViewBirthControl:
                 return birthControlOptions[row]
             default:
                 print("Unknown picker view.")
@@ -130,9 +130,9 @@ class ViewController6: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if let tag = PickerViewTag(rawValue: pickerView.tag) {
             switch tag {
-            case .PickerView1:
+            case .PickerViewGender:
                 gender.text = genderOptions[row]
-            case .PickerView2:
+            case .PickerViewBirthControl:
                 birthControl.text = birthControlOptions[row]
             default:
                 print("Unknown picker view.")
