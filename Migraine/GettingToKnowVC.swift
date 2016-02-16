@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController6: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    let userDefaults = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet var dateOfLMP: UITextField!
     @IBOutlet var dateOfNextPeriod: UITextField!
@@ -106,8 +108,6 @@ class ViewController6: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 return genderOptions.count
             case .PickerViewBirthControl:
                 return birthControlOptions.count
-            default:
-                print("Unknown picker view.")
             }
         }
         return genderOptions.count
@@ -120,8 +120,6 @@ class ViewController6: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 return genderOptions[row]
             case .PickerViewBirthControl:
                 return birthControlOptions[row]
-            default:
-                print("Unknown picker view.")
             }
         }
         return birthControlOptions[row]
@@ -134,8 +132,6 @@ class ViewController6: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 gender.text = genderOptions[row]
             case .PickerViewBirthControl:
                 birthControl.text = birthControlOptions[row]
-            default:
-                print("Unknown picker view.")
             }
         }
     }

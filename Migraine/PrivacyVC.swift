@@ -1,5 +1,5 @@
 //
-//  ViewController3.swift
+//  ViewController5.swift
 //  Migraine
 //
 //  Created by Gohar Irfan on 2/15/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController3: UIViewController {
+class PrivacyVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

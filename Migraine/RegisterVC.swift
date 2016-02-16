@@ -1,5 +1,5 @@
 //
-//  ViewController2.swift
+//  ViewController3.swift
 //  Migraine
 //
 //  Created by Gohar Irfan on 2/15/16.
@@ -8,8 +8,12 @@
 
 import UIKit
 
-class ViewController2: UIViewController {
+class RegisterVC: UIViewController {
 
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +25,10 @@ class ViewController2: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func registerAction(sender: UIButton) {
+        // TODO register, and sign in on success, store prefs data
+        self.performSegueWithIdentifier("goto_appintro", sender: self)
+    }
 
     /*
     // MARK: - Navigation

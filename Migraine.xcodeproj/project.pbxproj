@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		1726F6C61C70492600AAF671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6C51C70492600AAF671 /* AppDelegate.swift */; };
-		1726F6C81C70492600AAF671 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6C71C70492600AAF671 /* ViewController.swift */; };
+		1726F6C81C70492600AAF671 /* GettingToKnow2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6C71C70492600AAF671 /* GettingToKnow2VC.swift */; };
 		1726F6CB1C70492600AAF671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1726F6C91C70492600AAF671 /* Main.storyboard */; };
 		1726F6CD1C70492600AAF671 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1726F6CC1C70492600AAF671 /* Assets.xcassets */; };
 		1726F6D01C70492600AAF671 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1726F6CE1C70492600AAF671 /* LaunchScreen.storyboard */; };
 		1726F6DB1C70492600AAF671 /* MigraineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6DA1C70492600AAF671 /* MigraineTests.swift */; };
 		1726F6E61C70492700AAF671 /* MigraineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6E51C70492700AAF671 /* MigraineUITests.swift */; };
-		1726F6F41C71ABFF00AAF671 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F31C71ABFF00AAF671 /* ViewController2.swift */; };
-		1726F6F61C71AC0900AAF671 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F51C71AC0800AAF671 /* ViewController3.swift */; };
-		1726F6F81C71AC1100AAF671 /* ViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F71C71AC1100AAF671 /* ViewController4.swift */; };
-		1726F6FA1C71AC1A00AAF671 /* ViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F91C71AC1A00AAF671 /* ViewController5.swift */; };
-		17CD29D11C71BC20006CC2A1 /* ViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD29D01C71BC20006CC2A1 /* ViewController6.swift */; };
+		1726F6F41C71ABFF00AAF671 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F31C71ABFF00AAF671 /* SignInVC.swift */; };
+		1726F6F61C71AC0900AAF671 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F51C71AC0800AAF671 /* RegisterVC.swift */; };
+		1726F6F81C71AC1100AAF671 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F71C71AC1100AAF671 /* IntroVC.swift */; };
+		1726F6FA1C71AC1A00AAF671 /* PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F91C71AC1A00AAF671 /* PrivacyVC.swift */; };
+		1745A3351C72F116006DFF16 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745A3341C72F116006DFF16 /* WelcomeVC.swift */; };
+		1745A3371C72F31F006DFF16 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745A3361C72F31F006DFF16 /* TermsVC.swift */; };
+		17CD29D11C71BC20006CC2A1 /* GettingToKnowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD29D01C71BC20006CC2A1 /* GettingToKnowVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,7 @@
 /* Begin PBXFileReference section */
 		1726F6C21C70492600AAF671 /* Migraine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Migraine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1726F6C51C70492600AAF671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1726F6C71C70492600AAF671 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1726F6C71C70492600AAF671 /* GettingToKnow2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingToKnow2VC.swift; sourceTree = "<group>"; };
 		1726F6CA1C70492600AAF671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1726F6CC1C70492600AAF671 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1726F6CF1C70492600AAF671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,11 +54,13 @@
 		1726F6E11C70492700AAF671 /* MigraineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MigraineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1726F6E51C70492700AAF671 /* MigraineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigraineUITests.swift; sourceTree = "<group>"; };
 		1726F6E71C70492700AAF671 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1726F6F31C71ABFF00AAF671 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
-		1726F6F51C71AC0800AAF671 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
-		1726F6F71C71AC1100AAF671 /* ViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController4.swift; sourceTree = "<group>"; };
-		1726F6F91C71AC1A00AAF671 /* ViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController5.swift; sourceTree = "<group>"; };
-		17CD29D01C71BC20006CC2A1 /* ViewController6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController6.swift; sourceTree = "<group>"; };
+		1726F6F31C71ABFF00AAF671 /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		1726F6F51C71AC0800AAF671 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		1726F6F71C71AC1100AAF671 /* IntroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
+		1726F6F91C71AC1A00AAF671 /* PrivacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyVC.swift; sourceTree = "<group>"; };
+		1745A3341C72F116006DFF16 /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeVC.swift; path = ../WelcomeVC.swift; sourceTree = "<group>"; };
+		1745A3361C72F31F006DFF16 /* TermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
+		17CD29D01C71BC20006CC2A1 /* GettingToKnowVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GettingToKnowVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,12 +112,14 @@
 			isa = PBXGroup;
 			children = (
 				1726F6C51C70492600AAF671 /* AppDelegate.swift */,
-				1726F6C71C70492600AAF671 /* ViewController.swift */,
-				1726F6F31C71ABFF00AAF671 /* ViewController2.swift */,
-				1726F6F51C71AC0800AAF671 /* ViewController3.swift */,
-				1726F6F71C71AC1100AAF671 /* ViewController4.swift */,
-				1726F6F91C71AC1A00AAF671 /* ViewController5.swift */,
-				17CD29D01C71BC20006CC2A1 /* ViewController6.swift */,
+				1745A3341C72F116006DFF16 /* WelcomeVC.swift */,
+				1726F6F31C71ABFF00AAF671 /* SignInVC.swift */,
+				1726F6F51C71AC0800AAF671 /* RegisterVC.swift */,
+				1726F6F71C71AC1100AAF671 /* IntroVC.swift */,
+				1726F6F91C71AC1A00AAF671 /* PrivacyVC.swift */,
+				1745A3361C72F31F006DFF16 /* TermsVC.swift */,
+				17CD29D01C71BC20006CC2A1 /* GettingToKnowVC.swift */,
+				1726F6C71C70492600AAF671 /* GettingToKnow2VC.swift */,
 				1726F6C91C70492600AAF671 /* Main.storyboard */,
 				1726F6CC1C70492600AAF671 /* Assets.xcassets */,
 				1726F6CE1C70492600AAF671 /* LaunchScreen.storyboard */,
@@ -274,13 +280,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1726F6C81C70492600AAF671 /* ViewController.swift in Sources */,
+				1745A3351C72F116006DFF16 /* WelcomeVC.swift in Sources */,
+				1726F6C81C70492600AAF671 /* GettingToKnow2VC.swift in Sources */,
 				1726F6C61C70492600AAF671 /* AppDelegate.swift in Sources */,
-				17CD29D11C71BC20006CC2A1 /* ViewController6.swift in Sources */,
-				1726F6F61C71AC0900AAF671 /* ViewController3.swift in Sources */,
-				1726F6F41C71ABFF00AAF671 /* ViewController2.swift in Sources */,
-				1726F6FA1C71AC1A00AAF671 /* ViewController5.swift in Sources */,
-				1726F6F81C71AC1100AAF671 /* ViewController4.swift in Sources */,
+				17CD29D11C71BC20006CC2A1 /* GettingToKnowVC.swift in Sources */,
+				1726F6F61C71AC0900AAF671 /* RegisterVC.swift in Sources */,
+				1726F6F41C71ABFF00AAF671 /* SignInVC.swift in Sources */,
+				1745A3371C72F31F006DFF16 /* TermsVC.swift in Sources */,
+				1726F6FA1C71AC1A00AAF671 /* PrivacyVC.swift in Sources */,
+				1726F6F81C71AC1100AAF671 /* IntroVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +435,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.goharirfan.Migraine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Migraine/Migraine-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -441,7 +449,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.goharirfan.Migraine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Migraine/Migraine-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

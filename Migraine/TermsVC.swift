@@ -1,14 +1,14 @@
 //
-//  ViewController5.swift
+//  ViewController6.swift
 //  Migraine
 //
-//  Created by Gohar Irfan on 2/15/16.
+//  Created by Gohar Irfan on 2/16/16.
 //  Copyright © 2016 Gohar Irfan. All rights reserved.
 //
 
 import UIKit
 
-class ViewController5: UIViewController {
+class TermsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
