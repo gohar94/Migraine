@@ -12,7 +12,7 @@ class OtherMedicalConditionsVC: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
-    var conditions = ["A", "B", "C"]
+    var conditions = ["HTN", "DM", "MI, Heart Disease", "Cancer", "Stroke", "COPD/Emphysema", "Thyroid Problem", "BPH", "STDs", "Eating Disorders", "PCOS", "Obesity", "HIV", "Mental Disorders/Depression/Anxiety/Bipolar"]
     var selectedConditions = [String]()
     
     override func viewDidLoad() {
