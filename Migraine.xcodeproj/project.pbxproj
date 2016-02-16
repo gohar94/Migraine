@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1726F6C61C70492600AAF671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6C51C70492600AAF671 /* AppDelegate.swift */; };
-		1726F6C81C70492600AAF671 /* GettingToKnow2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6C71C70492600AAF671 /* GettingToKnow2VC.swift */; };
+		1726F6C81C70492600AAF671 /* OtherMedicalConditionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6C71C70492600AAF671 /* OtherMedicalConditionsVC.swift */; };
 		1726F6CB1C70492600AAF671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1726F6C91C70492600AAF671 /* Main.storyboard */; };
 		1726F6CD1C70492600AAF671 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1726F6CC1C70492600AAF671 /* Assets.xcassets */; };
 		1726F6D01C70492600AAF671 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1726F6CE1C70492600AAF671 /* LaunchScreen.storyboard */; };
@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		1726F6C21C70492600AAF671 /* Migraine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Migraine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1726F6C51C70492600AAF671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1726F6C71C70492600AAF671 /* GettingToKnow2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingToKnow2VC.swift; sourceTree = "<group>"; };
+		1726F6C71C70492600AAF671 /* OtherMedicalConditionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMedicalConditionsVC.swift; sourceTree = "<group>"; };
 		1726F6CA1C70492600AAF671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1726F6CC1C70492600AAF671 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1726F6CF1C70492600AAF671 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 				1726F6F91C71AC1A00AAF671 /* PrivacyVC.swift */,
 				1745A3361C72F31F006DFF16 /* TermsVC.swift */,
 				17CD29D01C71BC20006CC2A1 /* GettingToKnowVC.swift */,
-				1726F6C71C70492600AAF671 /* GettingToKnow2VC.swift */,
+				1726F6C71C70492600AAF671 /* OtherMedicalConditionsVC.swift */,
 				1726F6C91C70492600AAF671 /* Main.storyboard */,
 				1726F6CC1C70492600AAF671 /* Assets.xcassets */,
 				1726F6CE1C70492600AAF671 /* LaunchScreen.storyboard */,
@@ -281,7 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1745A3351C72F116006DFF16 /* WelcomeVC.swift in Sources */,
-				1726F6C81C70492600AAF671 /* GettingToKnow2VC.swift in Sources */,
+				1726F6C81C70492600AAF671 /* OtherMedicalConditionsVC.swift in Sources */,
 				1726F6C61C70492600AAF671 /* AppDelegate.swift in Sources */,
 				17CD29D11C71BC20006CC2A1 /* GettingToKnowVC.swift in Sources */,
 				1726F6F61C71AC0900AAF671 /* RegisterVC.swift in Sources */,

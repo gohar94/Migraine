@@ -203,6 +203,11 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         print(str)
         age.resignFirstResponder()
     }
+    
+    @IBAction func nextAction(sender: UIButton) {
+//        TODO pass on data to next section
+        self.performSegueWithIdentifier("goto_othermedicalconditions", sender: self)
+    }
     /*
     // MARK: - Navigation
 
