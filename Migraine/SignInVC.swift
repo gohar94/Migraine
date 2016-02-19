@@ -36,6 +36,7 @@ class SignInVC: UIViewController {
         prefs.synchronize()
 //        self.performSegueWithIdentifier("goto_welcomefromsignin", sender: self)
         print("signed in")
+//        TODO update all the user prefs from downloaded data from server
     }
 
     /*

@@ -15,10 +15,16 @@ class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDat
     
     var medication = [String]()
     
+    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let medicationsInPrefs = prefs.valueForKey("MEDICATION") as? [String]
+        if medicationsInPrefs != nil {
+            medication = prefs.valueForKey("MEDICATION") as! [String]
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,20 +43,34 @@ class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        let deletedRow:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            medication.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            deletedRow.accessoryType = UITableViewCellAccessoryType.None
+            prefs.setObject(medication, forKey: "MEDICATION")
+            prefs.synchronize()
+        }
+    }
+    
     @IBAction func addButtonAction(sender: UIButton) {
         let newItem = addedMedicine.text
         medication.append(newItem!)
         addedMedicine.text = ""
         addedMedicine.resignFirstResponder()
         tableView.reloadData()
+        prefs.setObject(medication, forKey: "MEDICATION")
+        prefs.synchronize()
     }
 
     @IBAction func nextButtonAction(sender: UIButton) {
-        // TODO save mediciation
+        // TODO save mediciation and update on server
         for medicine in medication {
             print(medicine)
         }
     }
+    
     /*
     // MARK: - Navigation
 

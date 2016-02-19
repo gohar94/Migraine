@@ -21,6 +21,8 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     let genderOptions = ["Female", "Male"]
     let birthControlOptions = ["A", "B", "C"]
     
+    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    
     enum PickerViewTag: Int {
         // Integer values will be implicitly supplied; you could optionally set your own values
         case PickerViewGender
@@ -31,6 +33,28 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let birthControlInPrefs = prefs.valueForKey("BIRTHCONTROL") as? String
+        if birthControlInPrefs != nil {
+            birthControl.text = birthControlInPrefs
+        }
+        let ageInPrefs = prefs.valueForKey("AGE") as? String
+        if ageInPrefs != nil {
+            age.text = ageInPrefs
+        }
+        let genderInPrefs = prefs.valueForKey("GENDER") as? String
+        if genderInPrefs != nil {
+            gender.text = genderInPrefs
+            if genderInPrefs?.lowercaseString == "female" {
+                let dateOfLMPInPrefs = prefs.valueForKey("LMP") as? String
+                if dateOfLMPInPrefs != nil {
+                    dateOfLMP.text = dateOfLMPInPrefs
+                }
+                let dateOfNextPeriodInPrefs = prefs.valueForKey("NEXTPERIOD") as? String
+                if dateOfNextPeriodInPrefs != nil {
+                    dateOfNextPeriod.text = dateOfNextPeriodInPrefs
+                }
+            }
+        }
     }
 
     @IBAction func genderAction(sender: UITextField) {
@@ -103,10 +127,15 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
             dateOfNextPeriod.enabled = false
         }
         gender.resignFirstResponder()
+        prefs.setValue(gender.text, forKey: "GENDER")
+        prefs.synchronize()
     }
     
     func doneBirthControlPressed(sender: UIBarButtonItem) {
+//        TODO if birth control multiple then this needs to be an array
         birthControl.resignFirstResponder()
+        prefs.setValue(birthControl.text, forKey: "BIRTHCONTROL")
+        prefs.synchronize()
     }
 
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -177,6 +206,8 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     func doneLMPButtonPressed(sender: UIButton) {
         dateOfLMP.resignFirstResponder() // To resign the inputView on clicking done.
         // TODO dateOfLMP here
+        prefs.setValue(dateOfLMP.text, forKey: "LMP")
+        prefs.synchronize()
     }
     
     @IBAction func dateOfNextPeriodAction(sender: UITextField) {
@@ -208,12 +239,16 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     func doneNextPeriodButtonPressed(sender: UIButton) {
         dateOfNextPeriod.resignFirstResponder() // To resign the inputView on clicking done.
         // TODO dateOfNextPeriod
+        prefs.setValue(dateOfNextPeriod.text, forKey: "NEXTPERIOD")
+        prefs.synchronize()
     }
 
     @IBAction func ageAction(sender: UITextField) {
         let str = String(age.text!)
         print(str)
         age.resignFirstResponder()
+        prefs.setValue(age.text, forKey: "AGE")
+        prefs.synchronize()
     }
     
     @IBAction func nextAction(sender: UIButton) {
