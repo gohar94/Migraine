@@ -24,7 +24,6 @@ class OtherMedicalConditionsVC: UIViewController, UITableViewDelegate, UITableVi
         if conditionsInPrefs != nil {
             selectedConditions = prefs.valueForKey("CONDITIONS") as! [String]
         }
-//        TODO need to show tick marks on previously stored conditions
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,6 +40,15 @@ class OtherMedicalConditionsVC: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         cell.textLabel!.text = conditions[indexPath.row]
         return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if selectedConditions.contains((cell.textLabel?.text)!) {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            cell.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
