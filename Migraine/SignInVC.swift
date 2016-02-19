@@ -15,8 +15,9 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {

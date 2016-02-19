@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
@@ -27,11 +26,10 @@
                                     <constraint firstAttribute="width" constant="250" id="iCN-XP-sAG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.054028215480000003" green="0.48707502349999998" blue="0.8602564103" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.69803921570000005" green="0.63137254899999995" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="OZn-pc-p2h" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BWI-mi-onA"/>
                             <constraint firstItem="5SL-Mi-JWg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="UP9-MN-wdy"/>

@@ -30,8 +30,10 @@ class WelcomeVC: UIViewController {
         if (isLoggedIn != 1) {
             self.performSegueWithIdentifier("goto_signin", sender: self)
         } else {
-            // TODO should be "welcome, username"
-            self.welcomeLabel.text = "Welcome \((prefs.valueForKey("NAME") as? String))"
+            let name = (prefs.valueForKey("NAME") as? String)
+            if name != nil {
+                self.welcomeLabel.text = "Welcome, \(name!)"
+            }
         }
     }
     

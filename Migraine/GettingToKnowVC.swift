@@ -208,6 +208,7 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
 //        TODO pass on data to next section
         self.performSegueWithIdentifier("goto_othermedicalconditions", sender: self)
     }
+
     /*
     // MARK: - Navigation
 
