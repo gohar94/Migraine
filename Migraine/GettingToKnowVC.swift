@@ -89,6 +89,19 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     }
     
     func doneGenderPressed(sender: UIBarButtonItem) {
+        if gender.text == "Female" {
+            // Female specific inputs show 
+            // TODO change birth control settings
+            dateOfLMP.enabled = true
+            dateOfNextPeriod.enabled = true
+        } else {
+            // Male specefic input show
+            // TODO change birth control settings back here
+            dateOfNextPeriod.text = ""
+            dateOfLMP.text = ""
+            dateOfLMP.enabled = false
+            dateOfNextPeriod.enabled = false
+        }
         gender.resignFirstResponder()
     }
     
@@ -96,7 +109,6 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         birthControl.resignFirstResponder()
     }
 
-    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }

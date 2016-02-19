@@ -54,9 +54,11 @@ class OtherMedicalConditionsVC: UIViewController, UITableViewDelegate, UITableVi
     }
 
     @IBAction func nextAction(sender: UIButton) {
+        // TODO save these conditions
         for condition in selectedConditions {
             print(condition)
         }
+        self.performSegueWithIdentifier("goto_listofmedications", sender: self)
     }
 }
 
