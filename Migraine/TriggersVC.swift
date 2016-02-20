@@ -1,38 +1,38 @@
 //
-//  ViewController.swift
+//  TriggersVC.swift
 //  Migraine
 //
-//  Created by Gohar Irfan on 2/14/16.
+//  Created by Gohar Irfan on 2/20/16.
 //  Copyright © 2016 Gohar Irfan. All rights reserved.
 //
 
 import UIKit
 
-class OtherMedicalConditionsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
-    var conditions = ["HTN", "DM", "MI, Heart Disease", "Cancer", "Stroke", "COPD/Emphysema", "Thyroid Problem", "BPH", "STDs", "Eating Disorders", "PCOS", "Obesity", "HIV", "Mental Disorders/Depression/Anxiety/Bipolar"]
+    var conditions = [""]
     var selectedConditions = [String]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
-        
-        let conditionsInPrefs = prefs.valueForKey("CONDITIONS") as? [String]
+
+        // Do any additional setup after loading the view.
+        let conditionsInPrefs = prefs.valueForKey("TRIGGERS") as? [String]
         if conditionsInPrefs != nil {
-            selectedConditions = prefs.valueForKey("CONDITIONS") as! [String]
+            selectedConditions = prefs.valueForKey("TRIGGERS") as! [String]
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return conditions.count
     }
@@ -59,30 +59,27 @@ class OtherMedicalConditionsVC: UIViewController, UITableViewDelegate, UITableVi
             selectedRow.accessoryType = UITableViewCellAccessoryType.Checkmark
             selectedRow.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
             selectedConditions.append(conditions[indexPath.row])
-            prefs.setObject(selectedConditions, forKey: "CONDITIONS")
+            prefs.setObject(selectedConditions, forKey: "TRIGGERS")
             prefs.synchronize()
         } else {
             selectedRow.accessoryType = UITableViewCellAccessoryType.None
             let removeIndex = selectedConditions.indexOf(conditions[indexPath.row])
             if (removeIndex != nil) {
                 selectedConditions.removeAtIndex(removeIndex!)
-                prefs.setObject(selectedConditions, forKey: "CONDITIONS")
+                prefs.setObject(selectedConditions, forKey: "TRIGGERS")
                 prefs.synchronize()
             }
         }
     }
-
-    @IBAction func nextAction(sender: UIButton) {
-        // TODO save these conditions
-        for condition in selectedConditions {
-            print(condition)
-        }
-        self.performSegueWithIdentifier("goto_listofmedications", sender: self)
-    }
     
-    func skipTapped() {
-        // TODO save, upload data and skip
-        print("skip")
-    }
-}
+    /*
+    // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

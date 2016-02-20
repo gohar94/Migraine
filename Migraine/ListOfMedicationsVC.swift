@@ -21,6 +21,8 @@ class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+        
         let medicationsInPrefs = prefs.valueForKey("MEDICATION") as? [String]
         if medicationsInPrefs != nil {
             medication = prefs.valueForKey("MEDICATION") as! [String]
@@ -70,6 +72,11 @@ class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDat
             print(medicine)
         }
         self.performSegueWithIdentifier("goto_headachedetails", sender: self)
+    }
+    
+    func skipTapped() {
+        // TODO save, upload data and skip
+        print("skip")
     }
     
     /*

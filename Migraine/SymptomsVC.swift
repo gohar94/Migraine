@@ -20,6 +20,8 @@ class SymptomsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+        
         let conditionsInPrefs = prefs.valueForKey("SYMPTOMS") as? [String]
         if conditionsInPrefs != nil {
             selectedConditions = prefs.valueForKey("SYMPTOMS") as! [String]
@@ -71,7 +73,12 @@ class SymptomsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
-        
+        self.performSegueWithIdentifier("goto_headachelocations", sender: self)
+    }
+    
+    func skipTapped() {
+        // TODO save, upload data and skip
+        print("skip")
     }
 
     /*

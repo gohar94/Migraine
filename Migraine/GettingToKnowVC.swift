@@ -33,6 +33,8 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+
         let birthControlInPrefs = prefs.valueForKey("BIRTHCONTROL") as? String
         if birthControlInPrefs != nil {
             birthControl.text = birthControlInPrefs
@@ -264,6 +266,11 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         prefs.setValue(birthControl.text, forKey: "BIRTHCONTROL")
         prefs.synchronize()
         self.performSegueWithIdentifier("goto_othermedicalconditions", sender: self)
+    }
+    
+    func skipTapped() {
+        // TODO save, upload data and skip
+        print("skip")
     }
 
     /*

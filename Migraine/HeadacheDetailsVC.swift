@@ -22,6 +22,8 @@ class HeadacheDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+        
         let conditionsInPrefs = prefs.valueForKey("HEADACHECONDITIONS") as? [String]
         if conditionsInPrefs != nil {
             selectedConditions = prefs.valueForKey("HEADACHECONDITIONS") as! [String]
@@ -89,6 +91,11 @@ class HeadacheDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
         prefs.setObject(selectedConditions, forKey: "HEADACHECONDITIONS")
         prefs.synchronize()
         self.performSegueWithIdentifier("goto_symptoms", sender: self)
+    }
+    
+    func skipTapped() {
+        // TODO save, upload data and skip
+        print("skip")
     }
     
     /*
