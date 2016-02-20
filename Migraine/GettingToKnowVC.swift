@@ -113,7 +113,7 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     }
     
     func doneGenderPressed(sender: UIBarButtonItem) {
-        if gender.text == "Female" {
+        if gender.text?.lowercaseString == "female" {
             // Female specific inputs show 
             // TODO change birth control settings
             dateOfLMP.enabled = true
@@ -126,9 +126,9 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
             dateOfLMP.enabled = false
             dateOfNextPeriod.enabled = false
         }
-        gender.resignFirstResponder()
         prefs.setValue(gender.text, forKey: "GENDER")
         prefs.synchronize()
+        gender.resignFirstResponder()
     }
     
     func doneBirthControlPressed(sender: UIBarButtonItem) {
@@ -247,12 +247,22 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         let str = String(age.text!)
         print(str)
         age.resignFirstResponder()
-        prefs.setValue(age.text, forKey: "AGE")
-        prefs.synchronize()
+        if age.text != "" {
+            prefs.setValue(age.text, forKey: "AGE")
+            prefs.synchronize()
+        }
     }
     
     @IBAction func nextAction(sender: UIButton) {
 //        TODO pass on data to next section
+        prefs.setValue(age.text, forKey: "AGE")
+        prefs.setValue(gender.text, forKey: "GENDER")
+        if gender.text?.lowercaseString == "female" {
+            prefs.setValue(dateOfNextPeriod.text, forKey: "NEXTPERIOD")
+            prefs.setValue(dateOfLMP.text, forKey: "LMP")
+        }
+        prefs.setValue(birthControl.text, forKey: "BIRTHCONTROL")
+        prefs.synchronize()
         self.performSegueWithIdentifier("goto_othermedicalconditions", sender: self)
     }
 

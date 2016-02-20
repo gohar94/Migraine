@@ -69,6 +69,7 @@ class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDat
         for medicine in medication {
             print(medicine)
         }
+        self.performSegueWithIdentifier("goto_headachedetails", sender: self)
     }
     
     /*
