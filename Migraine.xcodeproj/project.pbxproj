@@ -20,6 +20,7 @@
 		1726F6FA1C71AC1A00AAF671 /* PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F91C71AC1A00AAF671 /* PrivacyVC.swift */; };
 		1745A3351C72F116006DFF16 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745A3341C72F116006DFF16 /* WelcomeVC.swift */; };
 		1745A3371C72F31F006DFF16 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745A3361C72F31F006DFF16 /* TermsVC.swift */; };
+		17B5B1601C78AB06007F46E1 /* SymptomsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5B15F1C78AB06007F46E1 /* SymptomsVC.swift */; };
 		17CD29D11C71BC20006CC2A1 /* GettingToKnowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CD29D01C71BC20006CC2A1 /* GettingToKnowVC.swift */; };
 		17D6FDD51C776A2900740B32 /* ListOfMedicationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D6FDD41C776A2900740B32 /* ListOfMedicationsVC.swift */; };
 		17D6FDD71C77A55C00740B32 /* HeadacheDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D6FDD61C77A55C00740B32 /* HeadacheDetailsVC.swift */; };
@@ -62,6 +63,7 @@
 		1726F6F91C71AC1A00AAF671 /* PrivacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyVC.swift; sourceTree = "<group>"; };
 		1745A3341C72F116006DFF16 /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeVC.swift; path = ../WelcomeVC.swift; sourceTree = "<group>"; };
 		1745A3361C72F31F006DFF16 /* TermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
+		17B5B15F1C78AB06007F46E1 /* SymptomsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomsVC.swift; sourceTree = "<group>"; };
 		17CD29D01C71BC20006CC2A1 /* GettingToKnowVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GettingToKnowVC.swift; sourceTree = "<group>"; };
 		17D6FDD41C776A2900740B32 /* ListOfMedicationsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfMedicationsVC.swift; sourceTree = "<group>"; };
 		17D6FDD61C77A55C00740B32 /* HeadacheDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadacheDetailsVC.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				1726F6C71C70492600AAF671 /* OtherMedicalConditionsVC.swift */,
 				17D6FDD41C776A2900740B32 /* ListOfMedicationsVC.swift */,
 				17D6FDD61C77A55C00740B32 /* HeadacheDetailsVC.swift */,
+				17B5B15F1C78AB06007F46E1 /* SymptomsVC.swift */,
 				1726F6C91C70492600AAF671 /* Main.storyboard */,
 				1726F6CC1C70492600AAF671 /* Assets.xcassets */,
 				1726F6CE1C70492600AAF671 /* LaunchScreen.storyboard */,
@@ -286,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17B5B1601C78AB06007F46E1 /* SymptomsVC.swift in Sources */,
 				1745A3351C72F116006DFF16 /* WelcomeVC.swift in Sources */,
 				1726F6C81C70492600AAF671 /* OtherMedicalConditionsVC.swift in Sources */,
 				1726F6C61C70492600AAF671 /* AppDelegate.swift in Sources */,

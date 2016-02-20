@@ -1,5 +1,5 @@
 //
-//  HeadacheDetailsVC.swift
+//  SymptomsVC.swift
 //  Migraine
 //
 //  Created by Gohar Irfan on 2/20/16.
@@ -8,27 +8,21 @@
 
 import UIKit
 
-class HeadacheDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var duration: UITextField!
-    @IBOutlet weak var tableView: UITableView!
+class SymptomsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
-    var conditions = ["One side of the head", "Both sides of the head", "Pulsating", "Stabbing", "Throbbing"]
+    var conditions = ["Sensitivity to Light", "Sensitivity to Sound", "Sensitivity to Smells", "Dizziness", "Moodiness/Irritability", "Fatigue", "Cravings", "Tinnitus", "Fever", "Decreased Appetite", "Nausea", "Pale", "Hot/Cold", "Body Pain"]
     var selectedConditions = [String]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let conditionsInPrefs = prefs.valueForKey("HEADACHECONDITIONS") as? [String]
+        let conditionsInPrefs = prefs.valueForKey("SYMPTOMS") as? [String]
         if conditionsInPrefs != nil {
-            selectedConditions = prefs.valueForKey("HEADACHECONDITIONS") as! [String]
-        }
-        let durationInPrefs = prefs.valueForKey("HEADACHEDURATION") as? String
-        if durationInPrefs != nil {
-            duration.text = prefs.valueForKey("HEADACHEDURATION") as? String
+            selectedConditions = prefs.valueForKey("SYMPTOMS") as! [String]
         }
     }
 
@@ -63,34 +57,23 @@ class HeadacheDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
             selectedRow.accessoryType = UITableViewCellAccessoryType.Checkmark
             selectedRow.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
             selectedConditions.append(conditions[indexPath.row])
-            prefs.setObject(selectedConditions, forKey: "HEADACHECONDITIONS")
+            prefs.setObject(selectedConditions, forKey: "SYMPTOMS")
             prefs.synchronize()
         } else {
             selectedRow.accessoryType = UITableViewCellAccessoryType.None
             let removeIndex = selectedConditions.indexOf(conditions[indexPath.row])
             if (removeIndex != nil) {
                 selectedConditions.removeAtIndex(removeIndex!)
-                prefs.setObject(selectedConditions, forKey: "HEADACHECONDITIONS")
+                prefs.setObject(selectedConditions, forKey: "SYMPTOMS")
                 prefs.synchronize()
             }
         }
     }
     
-    @IBAction func doneButtonAction(sender: UIButton) {
-        duration.resignFirstResponder()
-        if duration.text != "" {
-            prefs.setValue(duration.text, forKey: "HEADACHEDURATION")
-            prefs.synchronize()
-        }
-    }
-    
     @IBAction func nextButtonAction(sender: UIButton) {
-        prefs.setValue(duration.text, forKey: "HEADACHEDURATION")
-        prefs.setObject(selectedConditions, forKey: "HEADACHECONDITIONS")
-        prefs.synchronize()
-        self.performSegueWithIdentifier("goto_symptoms", sender: self)
+        
     }
-    
+
     /*
     // MARK: - Navigation
 
