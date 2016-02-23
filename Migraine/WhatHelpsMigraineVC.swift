@@ -1,5 +1,5 @@
 //
-//  TriggersVC.swift
+//  WhatHelpsMigraineVC.swift
 //  Migraine
 //
 //  Created by Gohar Irfan on 2/20/16.
@@ -8,22 +8,36 @@
 
 import UIKit
 
-class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class WhatHelpsMigraineVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var other: UITextField!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
-    var conditions = [""]
+    var conditions = [String]()
+    var conditionsDefault = ["Sleep", "Yoga", "Exercise", "Medications", "Hydration", "Glasses to prevent glare"]
     var selectedConditions = [String]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let conditionsInPrefs = prefs.valueForKey("TRIGGERS") as? [String]
+        other.delegate = self
+        
+        let conditionsInPrefs = prefs.valueForKey("HELPMIGRAINE") as? [String]
         if conditionsInPrefs != nil {
-            selectedConditions = prefs.valueForKey("TRIGGERS") as! [String]
+            selectedConditions = prefs.valueForKey("HELPMIGRAINE") as! [String]
+        }
+        for item in selectedConditions {
+            print(item)
+        }
+        // jugaar
+        let conditionsAllInPrefs = prefs.valueForKey("HELPMIGRAINEALL") as? [String]
+        if conditionsAllInPrefs != nil {
+            conditions = prefs.valueForKey("HELPMIGRAINEALL") as! [String]
+        } else {
+            conditions = conditionsDefault
         }
     }
 
@@ -32,7 +46,6 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return conditions.count
     }
@@ -59,22 +72,56 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             selectedRow.accessoryType = UITableViewCellAccessoryType.Checkmark
             selectedRow.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
             selectedConditions.append(conditions[indexPath.row])
-            prefs.setObject(selectedConditions, forKey: "TRIGGERS")
+            prefs.setObject(selectedConditions, forKey: "HELPMIGRAINE")
             prefs.synchronize()
         } else {
             selectedRow.accessoryType = UITableViewCellAccessoryType.None
             let removeIndex = selectedConditions.indexOf(conditions[indexPath.row])
             if (removeIndex != nil) {
                 selectedConditions.removeAtIndex(removeIndex!)
-                prefs.setObject(selectedConditions, forKey: "TRIGGERS")
+                prefs.setObject(selectedConditions, forKey: "HELPMIGRAINE")
                 prefs.synchronize()
+                if !conditionsDefault.contains(conditions[indexPath.row]) {
+                    conditions.removeAtIndex(indexPath.row)
+                    prefs.setObject(conditions, forKey: "HELPMIGRAINEALL")
+                    prefs.synchronize()
+                }
             }
         }
     }
     
-    @IBAction func nextButtonAction(sender: UIButton) {
-        self.performSegueWithIdentifier("goto_whathelpsmigraine", sender: self)
+    func saveAddedItem() {
+        if other.text != "" {
+            let newItem = other.text
+            if !selectedConditions.contains(newItem!) {
+                conditions.append(newItem!)
+                selectedConditions.append(newItem!)
+                tableView.reloadData()
+                prefs.setObject(selectedConditions, forKey: "HELPMIGRAINE")
+                prefs.setObject(conditions, forKey: "HELPMIGRAINEALL") // jugaar
+                prefs.synchronize()
+            } else {
+                // TODO Alert that this item is already in the list
+                print("already added")
+            }
+            other.text = ""
+        }
     }
+    
+    @IBAction func doneButtonAction(sender: UIButton) {
+        saveAddedItem()
+        other.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        saveAddedItem()
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    // TODO add other
+
     /*
     // MARK: - Navigation
 
