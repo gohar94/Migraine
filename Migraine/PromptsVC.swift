@@ -20,6 +20,44 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var numbers = ["1", "2"]
     var selectedNumber = String()
     
+    func notifications(key: String) {
+        guard let settings = UIApplication.sharedApplication().currentUserNotificationSettings() else { return }
+        
+        if settings.types == .None {
+            let ac = UIAlertController(title: "Can't prompt!", message: "Notifications not enabled by user. Go to settings to enable them.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            return
+        }
+        
+        let inPrefs = prefs.valueForKey(key) as? NSDate
+        if inPrefs != nil {
+            print(inPrefs)
+            print("Setting stress notif")
+            for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
+                if (notification.userInfo!["TYPE"]) != nil {
+                    if (notification.userInfo!["TYPE"] as! String == key) {
+                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                        print("deleting notif")
+                        break
+                    }
+                }
+            }
+            let notification = UILocalNotification()
+            notification.fireDate = inPrefs
+            notification.repeatInterval = NSCalendarUnit.Day
+            notification.timeZone = NSCalendar.currentCalendar().timeZone
+            notification.alertBody = "Please write your migraine diary. Thanks!"
+            notification.hasAction = true
+            notification.alertAction = "open"
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.userInfo = ["TYPE": key ]
+            notification.category = "PROMPT"
+            notification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,14 +79,41 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let sleepInPrefs = prefs.valueForKey("SLEEP") as? NSDate
         if sleepInPrefs != nil {
             sleepTime.text = dateFormatter.stringFromDate(sleepInPrefs!)
+        } else {
+            // set default value here
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat =  "hh:mm a"
+            let date = dateFormatter.dateFromString("10:00 AM")
+            prefs.setObject(date, forKey: "SLEEP")
+            prefs.synchronize()
+            notifications("SLEEP")
+            sleepTime.text = dateFormatter.stringFromDate(date!)
         }
         let stressInPrefs = prefs.valueForKey("STRESS") as? NSDate
         if stressInPrefs != nil {
             stressTime.text = dateFormatter.stringFromDate(stressInPrefs!)
+        } else {
+            // set default value here
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat =  "hh:mm a"
+            let date = dateFormatter.dateFromString("07:30 PM")
+            prefs.setObject(date, forKey: "STRESS")
+            prefs.synchronize()
+            notifications("STRESS")
+            stressTime.text = dateFormatter.stringFromDate(date!)
         }
         let headacheInPrefs = prefs.valueForKey("HEADACHE") as? NSDate
         if headacheInPrefs != nil {
             headacheTime.text = dateFormatter.stringFromDate(headacheInPrefs!)
+        } else {
+            // set default value here
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat =  "hh:mm a"
+            let date = dateFormatter.dateFromString("07:30 PM")
+            prefs.setObject(date, forKey: "HEADACHE")
+            prefs.synchronize()
+            notifications("HEADACHE")
+            headacheTime.text = dateFormatter.stringFromDate(date!)
         }
     }
 
@@ -93,44 +158,6 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             prefs.setObject(selectedNumber, forKey: "NUMBERPROMPTS")
             prefs.synchronize()
             print(selectedNumber)
-        }
-    }
-    
-    func notifications(key: String) {
-        guard let settings = UIApplication.sharedApplication().currentUserNotificationSettings() else { return }
-        
-        if settings.types == .None {
-            let ac = UIAlertController(title: "Can't prompt!", message: "Notifications not enabled by user. Go to settings to enable them.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentViewController(ac, animated: true, completion: nil)
-            return
-        }
-        
-        let sleepInPrefs = prefs.valueForKey(key) as? NSDate
-        if sleepInPrefs != nil {
-            print(sleepInPrefs)
-            print("Setting stress notif")
-            for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
-                if (notification.userInfo!["TYPE"]) != nil {
-                    if (notification.userInfo!["TYPE"] as! String == key) {
-                        UIApplication.sharedApplication().cancelLocalNotification(notification)
-                        print("deleting notif")
-                        break
-                    }
-                }
-            }
-            let notification = UILocalNotification()
-            notification.fireDate = sleepInPrefs
-            notification.repeatInterval = NSCalendarUnit.Day
-            notification.timeZone = NSCalendar.currentCalendar().timeZone
-            notification.alertBody = "Hahah"
-            notification.hasAction = true
-            notification.alertAction = "open"
-            notification.soundName = UILocalNotificationDefaultSoundName
-            notification.userInfo = ["TYPE": key ]
-            notification.category = "PROMPT"
-            notification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
         }
     }
 

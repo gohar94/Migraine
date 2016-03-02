@@ -47,6 +47,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let type = userInfo["TYPE"] as! String
             print("didReceiveLocalNotification: \(type)")
             application.applicationIconBadgeNumber = 0
+            // do something neat here
+            if (type == "SLEEP") {
+                
+            } else if (type == "STRESS") {
+                
+            } else {
+                
+            }
         }
     }
 
