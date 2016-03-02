@@ -20,8 +20,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.blackColor()
         
         // for local notifications
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        
+        if let options = launchOptions {
+            if let notification = options[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+                if let userInfo = notification.userInfo {
+                    let type = userInfo["TYPE"] as! String
+                    // do something neat here
+                    if (type == "SLEEP") {
+                        
+                    } else if (type == "STRESS") {
+                        
+                    } else {
+                        
+                    }
+                }
+            }
+        }
+        
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        if let userInfo = notification.userInfo {
+            let type = userInfo["TYPE"] as! String
+            print("didReceiveLocalNotification: \(type)")
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

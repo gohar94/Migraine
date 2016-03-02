@@ -33,17 +33,22 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             prefs.setObject(selectedNumber, forKey: "NUMBERPROMPTS")
         }
         print(selectedNumber)
-        let sleepInPrefs = prefs.valueForKey("SLEEPPROMPT") as? String
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        let sleepInPrefs = prefs.valueForKey("SLEEP") as? NSDate
         if sleepInPrefs != nil {
-            sleepTime.text = sleepInPrefs
+            sleepTime.text = dateFormatter.stringFromDate(sleepInPrefs!)
         }
-        let stressInPrefs = prefs.valueForKey("STRESSPROMPT") as? String
+        let stressInPrefs = prefs.valueForKey("STRESS") as? NSDate
         if stressInPrefs != nil {
-            stressTime.text = stressInPrefs
+            stressTime.text = dateFormatter.stringFromDate(stressInPrefs!)
         }
-        let headacheInPrefs = prefs.valueForKey("HEADACHEPROMPT") as? String
+        let headacheInPrefs = prefs.valueForKey("HEADACHE") as? NSDate
         if headacheInPrefs != nil {
-            headacheTime.text = headacheInPrefs
+            headacheTime.text = dateFormatter.stringFromDate(headacheInPrefs!)
         }
     }
 
@@ -90,6 +95,43 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print(selectedNumber)
         }
     }
+    
+    func notifications(key: String) {
+        guard let settings = UIApplication.sharedApplication().currentUserNotificationSettings() else { return }
+        
+        if settings.types == .None {
+            let ac = UIAlertController(title: "Can't prompt!", message: "Notifications not enabled by user. Go to settings to enable them.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+            return
+        }
+        
+        let sleepInPrefs = prefs.valueForKey(key) as? NSDate
+        if sleepInPrefs != nil {
+            print(sleepInPrefs)
+            print("Setting stress notif")
+            for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
+                if (notification.userInfo!["TYPE"]) != nil {
+                    if (notification.userInfo!["TYPE"] as! String == key) {
+                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                        print("deleting notif")
+                        break
+                    }
+                }
+            }
+            let notification = UILocalNotification()
+            notification.fireDate = sleepInPrefs
+            notification.repeatInterval = NSCalendarUnit.Day
+            notification.timeZone = NSCalendar.currentCalendar().timeZone
+            notification.alertBody = ""
+            notification.hasAction = true
+            notification.alertAction = "open"
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.userInfo = ["TYPE": key ]
+            notification.category = "PROMPT"
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
+    }
 
     @IBAction func sleepAction(sender: UITextField) {
         let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
@@ -115,12 +157,13 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let selectedDateStr = dateFormatter.stringFromDate(sender.date)
         print(selectedDateStr)
         sleepTime.text = dateFormatter.stringFromDate(sender.date)
+        prefs.setValue(sender.date, forKey: "SLEEP")
+        prefs.synchronize()
     }
     
     func doneSleepButtonPressed(sender: UIButton) {
         sleepTime.resignFirstResponder() // To resign the inputView on clicking done.
-        prefs.setValue(sleepTime.text, forKey: "SLEEPPROMPT")
-        prefs.synchronize()
+        notifications("SLEEP")
     }
     
     @IBAction func stressAction(sender: UITextField) {
@@ -137,7 +180,7 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         doneButton.addTarget(self, action: "doneStressButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         sender.inputView = inputView
         datePickerView.addTarget(self, action: Selector("datePickerStressValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        datePickerSleepValueChanged(datePickerView) // Set the date on start.
+        datePickerStressValueChanged(datePickerView) // Set the date on start.
     }
     
     func datePickerStressValueChanged(sender: UIDatePicker) {
@@ -147,14 +190,15 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let selectedDateStr = dateFormatter.stringFromDate(sender.date)
         print(selectedDateStr)
         stressTime.text = dateFormatter.stringFromDate(sender.date)
+        prefs.setValue(sender.date, forKey: "STRESS")
+        prefs.synchronize()
     }
     
     func doneStressButtonPressed(sender: UIButton) {
         stressTime.resignFirstResponder() // To resign the inputView on clicking done.
-        prefs.setValue(stressTime.text, forKey: "STRESSPROMPT")
-        prefs.synchronize()
-        // TODO remove previous notification for stress if any
-            }
+        // TODO remove previous notification for stress if
+        notifications("STRESS")
+    }
     
     @IBAction func headacheAction(sender: UITextField) {
         let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
@@ -170,7 +214,7 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         doneButton.addTarget(self, action: "doneHeadacheButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         sender.inputView = inputView
         datePickerView.addTarget(self, action: Selector("datePickerHeadacheValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        datePickerSleepValueChanged(datePickerView) // Set the date on start.
+        datePickerHeadacheValueChanged(datePickerView) // Set the date on start.
 
     }
     
@@ -181,12 +225,13 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let selectedDateStr = dateFormatter.stringFromDate(sender.date)
         print(selectedDateStr)
         headacheTime.text = dateFormatter.stringFromDate(sender.date)
+        prefs.setValue(sender.date, forKey: "HEADACHE")
+        prefs.synchronize()
     }
     
     func doneHeadacheButtonPressed(sender: UIButton) {
         headacheTime.resignFirstResponder() // To resign the inputView on clicking done.
-        prefs.setValue(headacheTime.text, forKey: "HEADACHEPROMPT")
-        prefs.synchronize()
+        notifications("HEADACHE")
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
