@@ -123,12 +123,13 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             notification.fireDate = sleepInPrefs
             notification.repeatInterval = NSCalendarUnit.Day
             notification.timeZone = NSCalendar.currentCalendar().timeZone
-            notification.alertBody = ""
+            notification.alertBody = "Hahah"
             notification.hasAction = true
             notification.alertAction = "open"
             notification.soundName = UILocalNotificationDefaultSoundName
             notification.userInfo = ["TYPE": key ]
             notification.category = "PROMPT"
+            notification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
         }
     }

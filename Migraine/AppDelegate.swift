@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let userInfo = notification.userInfo {
             let type = userInfo["TYPE"] as! String
             print("didReceiveLocalNotification: \(type)")
+            application.applicationIconBadgeNumber = 0
         }
     }
 
