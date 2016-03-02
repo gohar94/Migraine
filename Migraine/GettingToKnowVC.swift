@@ -10,8 +10,6 @@ import UIKit
 
 class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    let userDefaults = NSUserDefaults.standardUserDefaults()
-    
     @IBOutlet var dateOfLMP: UITextField!
     @IBOutlet var dateOfNextPeriod: UITextField!
     @IBOutlet weak var gender: UITextField!

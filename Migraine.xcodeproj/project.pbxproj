@@ -19,6 +19,7 @@
 		1726F6F81C71AC1100AAF671 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F71C71AC1100AAF671 /* IntroVC.swift */; };
 		1726F6FA1C71AC1A00AAF671 /* PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F91C71AC1A00AAF671 /* PrivacyVC.swift */; };
 		1745A3371C72F31F006DFF16 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745A3361C72F31F006DFF16 /* TermsVC.swift */; };
+		176DCDEC1C86AF7C00551697 /* PromptsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176DCDEB1C86AF7C00551697 /* PromptsVC.swift */; };
 		17B5B1601C78AB06007F46E1 /* SymptomsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5B15F1C78AB06007F46E1 /* SymptomsVC.swift */; };
 		17B5B1621C78C5CC007F46E1 /* HeadacheLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5B1611C78C5CC007F46E1 /* HeadacheLocationVC.swift */; };
 		17B5B1641C78C5E3007F46E1 /* TriggersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5B1631C78C5E3007F46E1 /* TriggersVC.swift */; };
@@ -65,6 +66,7 @@
 		1726F6F71C71AC1100AAF671 /* IntroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 		1726F6F91C71AC1A00AAF671 /* PrivacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyVC.swift; sourceTree = "<group>"; };
 		1745A3361C72F31F006DFF16 /* TermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
+		176DCDEB1C86AF7C00551697 /* PromptsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptsVC.swift; sourceTree = "<group>"; };
 		17B5B15F1C78AB06007F46E1 /* SymptomsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomsVC.swift; sourceTree = "<group>"; };
 		17B5B1611C78C5CC007F46E1 /* HeadacheLocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadacheLocationVC.swift; sourceTree = "<group>"; };
 		17B5B1631C78C5E3007F46E1 /* TriggersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggersVC.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				17B5B1611C78C5CC007F46E1 /* HeadacheLocationVC.swift */,
 				17B5B1631C78C5E3007F46E1 /* TriggersVC.swift */,
 				17B5B1671C78D2E9007F46E1 /* WhatHelpsMigraineVC.swift */,
+				176DCDEB1C86AF7C00551697 /* PromptsVC.swift */,
 				1726F6C91C70492600AAF671 /* Main.storyboard */,
 				1726F6CC1C70492600AAF671 /* Assets.xcassets */,
 				1726F6CE1C70492600AAF671 /* LaunchScreen.storyboard */,
@@ -306,6 +309,7 @@
 				1726F6F61C71AC0900AAF671 /* RegisterVC.swift in Sources */,
 				17B5B1661C78D274007F46E1 /* WelcomeVC.swift in Sources */,
 				1726F6F41C71ABFF00AAF671 /* SignInVC.swift in Sources */,
+				176DCDEC1C86AF7C00551697 /* PromptsVC.swift in Sources */,
 				1745A3371C72F31F006DFF16 /* TermsVC.swift in Sources */,
 				1726F6FA1C71AC1A00AAF671 /* PrivacyVC.swift in Sources */,
 				17D6FDD71C77A55C00740B32 /* HeadacheDetailsVC.swift in Sources */,

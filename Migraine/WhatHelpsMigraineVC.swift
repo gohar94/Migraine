@@ -113,11 +113,14 @@ class WhatHelpsMigraineVC: UIViewController, UITableViewDelegate, UITableViewDat
         other.resignFirstResponder()
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
-    {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         saveAddedItem()
         textField.resignFirstResponder()
         return true;
+    }
+    
+    @IBAction func nextButtonAction(sender: UIButton) {
+        self.performSegueWithIdentifier("goto_prompts", sender: self)
     }
     
     // TODO add other

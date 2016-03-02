@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addedMedicine: UITextField!
@@ -21,6 +21,8 @@ class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        addedMedicine.delegate = self
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
         
         let medicationsInPrefs = prefs.valueForKey("MEDICATION") as? [String]
@@ -56,14 +58,25 @@ class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    func saveAddedItem() {
+        if addedMedicine.text != "" {
+            let newItem = addedMedicine.text
+            if !medication.contains(newItem!) {
+                medication.append(newItem!)
+                tableView.reloadData()
+                prefs.setObject(medication, forKey: "MEDICATION")
+                prefs.synchronize()
+            } else {
+                // TODO Alert that this item is already in the list
+                print("already added")
+            }
+            addedMedicine.text = ""
+        }
+    }
+    
     @IBAction func addButtonAction(sender: UIButton) {
-        let newItem = addedMedicine.text
-        medication.append(newItem!)
-        addedMedicine.text = ""
+        saveAddedItem()
         addedMedicine.resignFirstResponder()
-        tableView.reloadData()
-        prefs.setObject(medication, forKey: "MEDICATION")
-        prefs.synchronize()
     }
 
     @IBAction func nextButtonAction(sender: UIButton) {
@@ -77,6 +90,12 @@ class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDat
     func skipTapped() {
         // TODO save, upload data and skip
         print("skip")
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        saveAddedItem()
+        textField.resignFirstResponder()
+        return true;
     }
     
     /*
