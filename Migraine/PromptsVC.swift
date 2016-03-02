@@ -16,24 +16,40 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var headacheTime: UITextField!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    var toAlert = true
     
     var numbers = ["1", "2"]
     var selectedNumber = String()
     
-    func notifications(key: String) {
-        guard let settings = UIApplication.sharedApplication().currentUserNotificationSettings() else { return }
+    func checkNotificationsEnabled() -> Bool {
+        guard let settings = UIApplication.sharedApplication().currentUserNotificationSettings() else { return false }
         
         if settings.types == .None {
-            let ac = UIAlertController(title: "Can't prompt!", message: "Notifications not enabled by user. Go to settings to enable them.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentViewController(ac, animated: true, completion: nil)
+            print("settings none")
+            // make sure this warning comes up only once on one app launch
+            if toAlert {
+                let ac = UIAlertController(title: "Can't prompt!", message: "Notifications not enabled by user. Enable them from Settings > Notifications > Migraine", preferredStyle: .Alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                presentViewController(ac, animated: true, completion: nil)
+                toAlert = false
+            } else {
+                print("to alert is false")
+            }
+            return false
+        } else {
+            return true
+        }
+    }
+    func notifications(key: String) {
+        if !checkNotificationsEnabled() {
+            print("notifications not enabled")
             return
         }
-        
+        print("notifications enabled")
         let inPrefs = prefs.valueForKey(key) as? NSDate
         if inPrefs != nil {
             print(inPrefs)
-            print("Setting stress notif")
+            print("Setting notif")
             for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
                 if (notification.userInfo!["TYPE"]) != nil {
                     if (notification.userInfo!["TYPE"] as! String == key) {
@@ -71,6 +87,8 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             prefs.setObject(selectedNumber, forKey: "NUMBERPROMPTS")
         }
         print(selectedNumber)
+        
+        checkNotificationsEnabled() // remind user to turn on notification
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
