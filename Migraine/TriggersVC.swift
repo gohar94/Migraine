@@ -88,7 +88,6 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let headerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 40))
         headerView.backgroundColor = UIColor.cyanColor()
         headerView.tag = section
@@ -104,8 +103,6 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func sectionHeaderTapped(recognizer: UITapGestureRecognizer) {
-        print("Tapping working")
-        
         let indexPath : NSIndexPath = NSIndexPath(forRow: 0, inSection:(recognizer.view?.tag as Int!)!)
         if (indexPath.row == 0) {
             
@@ -118,11 +115,9 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let sectionToReload = NSIndexSet(indexesInRange: range)
             self.tableView .reloadSections(sectionToReload, withRowAnimation:UITableViewRowAnimation.Fade)
         }
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         cell.textLabel!.text = sectionsArray[indexPath.section].items[indexPath.row]
         return cell
