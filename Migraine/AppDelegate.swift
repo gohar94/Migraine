@@ -45,16 +45,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         if let userInfo = notification.userInfo {
-            let type = userInfo["TYPE"] as! String
-            print("didReceiveLocalNotification: \(type)")
-            application.applicationIconBadgeNumber = 0
-            // do something neat here
-            if (type == "SLEEP") {
-                
-            } else if (type == "STRESS") {
-                
-            } else {
-                
+            if userInfo["TYPE"] != nil {
+                let type = userInfo["TYPE"] as! String
+                print("didReceiveLocalNotification: \(type)")
+                application.applicationIconBadgeNumber = 0
+                // do something neat here
+                if (type == "SLEEP") {
+                    
+                } else if (type == "STRESS") {
+                    
+                } else {
+                    
+                }
             }
         }
     }
