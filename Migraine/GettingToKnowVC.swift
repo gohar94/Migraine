@@ -151,7 +151,7 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 return birthControlOptions.count
             }
         }
-        return genderOptions.count
+        return 0
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

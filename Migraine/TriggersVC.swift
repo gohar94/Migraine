@@ -89,7 +89,7 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 40))
-        headerView.backgroundColor = UIColor.cyanColor()
+        headerView.backgroundColor = UIColor.yellowColor()
         headerView.tag = section
         
         let headerString = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.frame.size.width-10, height: 30)) as UILabel

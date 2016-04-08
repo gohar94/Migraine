@@ -281,6 +281,7 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
+        self.performSegueWithIdentifier("goto_dailysurvey", sender: self)
     }
 
     /*
