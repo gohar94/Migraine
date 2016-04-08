@@ -31,6 +31,7 @@ class RegisterVC: UIViewController {
         let passwordStr = self.password.text
         
         if (emailStr != "" && passwordStr != "") {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             FIREBASE_REF.createUser(emailStr, password: passwordStr, withValueCompletionBlock: { (error, authData) -> Void in
                 if (error == nil) {
                     print("created user")
@@ -39,9 +40,11 @@ class RegisterVC: UIViewController {
                             print("authenticated user")
                             NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                             print("Logged in!")
+                            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 //                            self.dismissViewControllerAnimated(true, completion: nil)
                             self.performSegueWithIdentifier("goto_welcomefromregister", sender: self)
                         } else {
+                            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                             let alert = UIAlertController(title: "Error", message: error.userInfo.debugDescription, preferredStyle: .Alert)
                             let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                             alert.addAction(action)
@@ -50,6 +53,7 @@ class RegisterVC: UIViewController {
                         }
                     })
                 } else {
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     let alert = UIAlertController(title: "Error", message: error.userInfo.debugDescription, preferredStyle: .Alert)
                     let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                     alert.addAction(action)

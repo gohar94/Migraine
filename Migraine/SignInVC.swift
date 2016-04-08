@@ -21,6 +21,16 @@ class SignInVC: UIViewController {
         // Do any additional setup after loading the view.
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        if (NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && CURRENT_USER.authData != nil) {
+            print("already signed in")
+            self.performSegueWithIdentifier("goto_welcomefromsignin", sender: self)
+        } else {
+            print("not signed in")
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,9 +42,11 @@ class SignInVC: UIViewController {
         let passwordStr = self.password.text
         
         if (emailStr != "" && passwordStr != "") {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             FIREBASE_REF.authUser(emailStr, password: passwordStr, withCompletionBlock: { (error, authData) -> Void in
                 if (error == nil) {
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     print("Logged in!")
                     let termsAgreed = self.prefs.valueForKey("TERMSAGREED") as? Bool
                     if (termsAgreed != nil) {
@@ -49,6 +61,7 @@ class SignInVC: UIViewController {
                     }
                     self.performSegueWithIdentifier("goto_welcomefromsignin", sender: self)
                 } else {
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     let alert = UIAlertController(title: "Error", message: error.userInfo.debugDescription, preferredStyle: .Alert)
                     let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                     alert.addAction(action)
@@ -56,6 +69,7 @@ class SignInVC: UIViewController {
                 }
             })
         } else {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             let alert = UIAlertController(title: "Error", message: "Enter email and password", preferredStyle: .Alert)
             let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
             alert.addAction(action)
