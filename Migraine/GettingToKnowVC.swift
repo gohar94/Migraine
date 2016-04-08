@@ -32,6 +32,21 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
 
         // Do any additional setup after loading the view.
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+        
+        let termsAgreed = prefs.valueForKey("TERMSAGREED") as? Bool
+        if (termsAgreed != nil) {
+            if (termsAgreed == false) {
+                // it will never come here, just sanity stuff
+                prefs.setBool(true, forKey: "TERMSAGREED")
+                prefs.synchronize()
+            }
+        } else {
+            prefs.setBool(true, forKey: "TERMSAGREED")
+            prefs.synchronize()
+        }
+
+        prefs.setBool(true, forKey: "TERMSAGREED")
+        prefs.synchronize()
 
         let birthControlInPrefs = prefs.valueForKey("BIRTHCONTROL") as? String
         if birthControlInPrefs != nil {

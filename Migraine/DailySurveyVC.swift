@@ -248,6 +248,7 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         if (hadMigraine != nil) {
             if (hadMigraine.text! == "No") {
                 self.performSegueWithIdentifier("goto_nomigrainetoday", sender: self)
+                return
             }
         }
     }

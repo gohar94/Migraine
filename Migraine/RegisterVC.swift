@@ -26,8 +26,42 @@ class RegisterVC: UIViewController {
     }
     
     @IBAction func registerAction(sender: UIButton) {
-        // TODO register, and sign in on success, store prefs data
-        self.performSegueWithIdentifier("goto_appintro", sender: self)
+        
+        let emailStr = self.email.text
+        let passwordStr = self.password.text
+        
+        if (emailStr != "" && passwordStr != "") {
+            FIREBASE_REF.createUser(emailStr, password: passwordStr, withValueCompletionBlock: { (error, authData) -> Void in
+                if (error == nil) {
+                    print("created user")
+                    FIREBASE_REF.authUser(emailStr, password: passwordStr, withCompletionBlock: { (error, authData) -> Void in
+                        if (error == nil) {
+                            print("authenticated user")
+                            NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                            print("Logged in!")
+//                            self.dismissViewControllerAnimated(true, completion: nil)
+                            self.performSegueWithIdentifier("goto_welcomefromregister", sender: self)
+                        } else {
+                            let alert = UIAlertController(title: "Error", message: error.userInfo.debugDescription, preferredStyle: .Alert)
+                            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                            alert.addAction(action)
+                            self.presentViewController(alert, animated: true, completion: nil)
+                            
+                        }
+                    })
+                } else {
+                    let alert = UIAlertController(title: "Error", message: error.userInfo.debugDescription, preferredStyle: .Alert)
+                    let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    alert.addAction(action)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            })
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Enter email and password", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
 
     /*

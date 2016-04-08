@@ -13,6 +13,8 @@ class SignInVC: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,17 +28,39 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func signInAction(sender: UIButton) {
-        // TODO authentication code here
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        prefs.setObject(email.text, forKey: "EMAIL")
-        // TODO add the logged in user's name to prefs too and remove the dummy line
-//        prefs.setObject(nameStr, forKey: "NAME")
-        prefs.setObject("Gohar", forKey: "NAME")
-        prefs.setInteger(1, forKey: "ISLOGGEDIN")
-        prefs.synchronize()
-//        self.performSegueWithIdentifier("goto_welcomefromsignin", sender: self)
-        print("signed in")
-//        TODO update all the user prefs from downloaded data from server
+        let emailStr = self.email.text
+        let passwordStr = self.password.text
+        
+        if (emailStr != "" && passwordStr != "") {
+            FIREBASE_REF.authUser(emailStr, password: passwordStr, withCompletionBlock: { (error, authData) -> Void in
+                if (error == nil) {
+                    NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                    print("Logged in!")
+                    let termsAgreed = self.prefs.valueForKey("TERMSAGREED") as? Bool
+                    if (termsAgreed != nil) {
+                        if (termsAgreed == false) {
+                            // it will never come here, just sanity stuff
+                            self.prefs.setBool(true, forKey: "TERMSAGREED")
+                            self.prefs.synchronize()
+                        }
+                    } else {
+                        self.prefs.setBool(true, forKey: "TERMSAGREED")
+                        self.prefs.synchronize()
+                    }
+                    self.performSegueWithIdentifier("goto_welcomefromsignin", sender: self)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: error.userInfo.debugDescription, preferredStyle: .Alert)
+                    let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    alert.addAction(action)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            })
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Enter email and password", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
 
     /*

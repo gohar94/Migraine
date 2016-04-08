@@ -11,6 +11,9 @@ import UIKit
 class WelcomeVC: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var dailyButton: UIView!
+    
+    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,24 +28,33 @@ class WelcomeVC: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
-        if (isLoggedIn != 1) {
+        if (NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil || CURRENT_USER.authData == nil) {
+            print("this is called here hah")
             self.performSegueWithIdentifier("goto_signin", sender: self)
-        } else {
-            let name = (prefs.valueForKey("NAME") as? String)
-            if name != nil {
-                self.welcomeLabel.text = "Welcome, \(name!)"
-            }
         }
     }
     
     @IBAction func logoutAction(sender: UITextField) {
-        let appDomain = NSBundle.mainBundle().bundleIdentifier
-        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+        CURRENT_USER.unauth()
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
         self.performSegueWithIdentifier("goto_signin", sender: self)
     }
     
+    @IBAction func dailyDiaryAction(sender: UIButton) {
+        let termsAgreed = prefs.valueForKey("TERMSAGREED") as? Bool
+        if (termsAgreed != nil) {
+            if (termsAgreed == false) {
+                print("ll1")
+                self.performSegueWithIdentifier("goto_introfromwelcome", sender: self)
+                return
+            }
+        } else {
+            print("ll2")
+            self.performSegueWithIdentifier("goto_introfromwelcome", sender: self)
+            return
+        }
+        self.performSegueWithIdentifier("goto_dailysurveyfromwelcome", sender: self)
+    }
     /*
     // MARK: - Navigation
     
