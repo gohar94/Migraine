@@ -77,6 +77,7 @@ class OtherMedicalConditionsVC: UIViewController, UITableViewDelegate, UITableVi
         for condition in selectedConditions {
             print(condition)
         }
+        sendDataToFirebase()
         self.performSegueWithIdentifier("goto_listofmedications", sender: self)
     }
     

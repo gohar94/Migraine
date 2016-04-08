@@ -90,6 +90,7 @@ class HeadacheDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
         prefs.setValue(duration.text, forKey: "HEADACHEDURATION")
         prefs.setObject(selectedConditions, forKey: "HEADACHECONDITIONS")
         prefs.synchronize()
+        sendDataToFirebase()
         self.performSegueWithIdentifier("goto_symptoms", sender: self)
     }
     

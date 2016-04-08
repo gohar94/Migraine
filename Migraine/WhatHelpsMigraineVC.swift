@@ -120,6 +120,7 @@ class WhatHelpsMigraineVC: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
+        sendDataToFirebase()
         self.performSegueWithIdentifier("goto_prompts", sender: self)
     }
     

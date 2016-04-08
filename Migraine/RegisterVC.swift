@@ -41,7 +41,6 @@ class RegisterVC: UIViewController {
                             NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                             print("Logged in!")
                             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-//                            self.dismissViewControllerAnimated(true, completion: nil)
                             self.performSegueWithIdentifier("goto_welcomefromregister", sender: self)
                         } else {
                             UIApplication.sharedApplication().networkActivityIndicatorVisible = false

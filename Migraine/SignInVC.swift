@@ -59,6 +59,7 @@ class SignInVC: UIViewController {
                         self.prefs.setBool(true, forKey: "TERMSAGREED")
                         self.prefs.synchronize()
                     }
+                    // TODO restore all user defaults from server
                     self.performSegueWithIdentifier("goto_welcomefromsignin", sender: self)
                 } else {
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false

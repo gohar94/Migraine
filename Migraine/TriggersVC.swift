@@ -152,6 +152,7 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
+        sendDataToFirebase()
         self.performSegueWithIdentifier("goto_whathelpsmigraine", sender: self)
     }
     /*

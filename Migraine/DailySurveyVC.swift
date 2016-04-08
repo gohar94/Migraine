@@ -245,6 +245,7 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
     @IBAction func nextButtonAction(sender: UIButton) {
         print("Next")
         print(hadMigraine.text!)
+        sendDataToFirebase()
         if (hadMigraine != nil) {
             if (hadMigraine.text! == "No") {
                 self.performSegueWithIdentifier("goto_nomigrainetoday", sender: self)

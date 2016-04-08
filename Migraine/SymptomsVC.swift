@@ -73,6 +73,7 @@ class SymptomsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
+        sendDataToFirebase()
         self.performSegueWithIdentifier("goto_headachelocations", sender: self)
     }
     

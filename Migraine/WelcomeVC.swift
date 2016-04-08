@@ -37,6 +37,8 @@ class WelcomeVC: UIViewController {
     @IBAction func logoutAction(sender: UITextField) {
         CURRENT_USER.unauth()
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+        let appDomain = NSBundle.mainBundle().bundleIdentifier
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
         self.performSegueWithIdentifier("goto_signin", sender: self)
     }
     

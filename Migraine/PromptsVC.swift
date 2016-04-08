@@ -281,6 +281,7 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
+        sendDataToFirebase()
         self.performSegueWithIdentifier("goto_dailysurvey", sender: self)
     }
 

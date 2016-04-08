@@ -84,6 +84,7 @@ class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDat
         for medicine in medication {
             print(medicine)
         }
+        sendDataToFirebase()
         self.performSegueWithIdentifier("goto_headachedetails", sender: self)
     }
     

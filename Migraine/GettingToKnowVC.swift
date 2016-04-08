@@ -278,6 +278,7 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         }
         prefs.setValue(birthControl.text, forKey: "BIRTHCONTROL")
         prefs.synchronize()
+        sendDataToFirebase()
         self.performSegueWithIdentifier("goto_othermedicalconditions", sender: self)
     }
     
