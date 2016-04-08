@@ -235,7 +235,7 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         let textBtn = UIBarButtonItem(customView: label)
         toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
         hadMigraine.inputAccessoryView = toolBar
-        hadMigraine.text = scaleOptions[0]
+        hadMigraine.text = hadMigraineOptions[0]
     }
     
     func doneHadMigrainePressed(sender: UIBarButtonItem) {
@@ -245,6 +245,11 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
     @IBAction func nextButtonAction(sender: UIButton) {
         print("Next")
         print(hadMigraine.text!)
+        if (hadMigraine != nil) {
+            if (hadMigraine.text! == "No") {
+                self.performSegueWithIdentifier("goto_nomigrainetoday", sender: self)
+            }
+        }
     }
     /*
     // MARK: - Navigation
