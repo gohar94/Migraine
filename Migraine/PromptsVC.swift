@@ -16,7 +16,6 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var headacheTime: UITextField!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    var toAlert = true
     
     var numbers = ["1", "2"]
     var selectedNumber = String()

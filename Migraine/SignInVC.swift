@@ -38,6 +38,61 @@ class SignInVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // this is code reuse, needs fixing
+    func checkNotificationsEnabled() -> Bool {
+        guard let settings = UIApplication.sharedApplication().currentUserNotificationSettings() else { return false }
+        
+        if settings.types == .None {
+            print("settings none")
+            // make sure this warning comes up only once on one app launch
+            if toAlert {
+                let ac = UIAlertController(title: "Can't prompt!", message: "Notifications not enabled by user. Enable them from Settings > Notifications > Migraine", preferredStyle: .Alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                presentViewController(ac, animated: true, completion: nil)
+                toAlert = false
+            } else {
+                print("to alert is false")
+            }
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func notifications(key: String) {
+        if !checkNotificationsEnabled() {
+            print("notifications not enabled")
+            return
+        }
+        print("notifications enabled")
+        let inPrefs = prefs.valueForKey(key) as? NSDate
+        if inPrefs != nil {
+            print(inPrefs)
+            print("Setting notif")
+            for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
+                if (notification.userInfo!["TYPE"]) != nil {
+                    if (notification.userInfo!["TYPE"] as! String == key) {
+                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                        print("deleting notif")
+                        break
+                    }
+                }
+            }
+            let notification = UILocalNotification()
+            notification.fireDate = inPrefs
+            notification.repeatInterval = NSCalendarUnit.Day
+            notification.timeZone = NSCalendar.currentCalendar().timeZone
+            notification.alertBody = "Please write your migraine diary. Thanks!"
+            notification.hasAction = true
+            notification.alertAction = "open"
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.userInfo = ["TYPE": key ]
+            notification.category = "PROMPT"
+            notification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
+    }
+    
     @IBAction func signInAction(sender: UIButton) {
         let emailStr = self.email.text
         let passwordStr = self.password.text
@@ -72,7 +127,6 @@ class SignInVC: UIViewController {
                             var val = snapshot.value.objectForKey(key)
                             if (val != nil) {
                                 // keep all date objects here and convert them to string explicitly to avoid error
-                                // TODO create notifications here, first clear all previous notifications for this app
                                 if (key == "SLEEP" || key == "STRESS" || key == "HEADACHE") {
                                     let dateFormatter = NSDateFormatter()
                                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -87,6 +141,7 @@ class SignInVC: UIViewController {
                                 }
                                 self.prefs.setValue(val, forKey: key)
                                 self.prefs.synchronize()
+                                self.notifications(key)
                             } else {
                                 print("nil")
                             }
