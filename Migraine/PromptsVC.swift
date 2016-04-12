@@ -40,6 +40,7 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return true
         }
     }
+    
     func notifications(key: String) {
         if !checkNotificationsEnabled() {
             print("notifications not enabled")
@@ -203,6 +204,7 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let selectedDateStr = dateFormatter.stringFromDate(sender.date)
         print(selectedDateStr)
         sleepTime.text = dateFormatter.stringFromDate(sender.date)
+        print(sender.date)
         prefs.setValue(sender.date, forKey: "SLEEP")
         prefs.synchronize()
     }

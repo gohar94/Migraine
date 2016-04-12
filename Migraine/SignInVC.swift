@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignInVC: UIViewController {
     
@@ -56,10 +57,44 @@ class SignInVC: UIViewController {
                             self.prefs.synchronize()
                         }
                     } else {
+                        // to not go to the terms and agreements page since we assume the user has accepted them on registering
                         self.prefs.setBool(true, forKey: "TERMSAGREED")
                         self.prefs.synchronize()
                     }
-                    // TODO restore all user defaults from server
+                    // restore all user defaults from server
+                    let ref = Firebase(url: "https://migraine-app.firebaseio.com/patient-records/patient-info/" + authData.uid)
+                    print("getting user data for " + authData.uid)
+                    ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                        print(snapshot.value)
+                        for key in KEYS {
+                            print(key)
+                            // check if key exists
+                            var val = snapshot.value.objectForKey(key)
+                            if (val != nil) {
+                                // keep all date objects here and convert them to string explicitly to avoid error
+                                // TODO create notifications here, first clear all previous notifications for this app
+                                if (key == "SLEEP" || key == "STRESS" || key == "HEADACHE") {
+                                    let dateFormatter = NSDateFormatter()
+                                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                                    dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
+                                    dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                                    let temp = snapshot.value.objectForKey(key) as? String
+                                    if (temp != nil) {
+                                        val = dateFormatter.dateFromString(temp!)
+                                        print("converted date to string")
+                                        print(val)
+                                    }
+                                }
+                                self.prefs.setValue(val, forKey: key)
+                                self.prefs.synchronize()
+                            } else {
+                                print("nil")
+                            }
+                        }
+                        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())
+                        self.prefs.setBool(false, forKey: "TERMSAGREED")
+                        self.prefs.synchronize()
+                    })
                     self.performSegueWithIdentifier("goto_welcomefromsignin", sender: self)
                 } else {
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
