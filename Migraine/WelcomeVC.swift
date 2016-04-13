@@ -39,6 +39,10 @@ class WelcomeVC: UIViewController {
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+        for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
+            UIApplication.sharedApplication().cancelLocalNotification(notification)
+            print("deleting notif")
+        }
         self.performSegueWithIdentifier("goto_signin", sender: self)
     }
     
