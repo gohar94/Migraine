@@ -18,6 +18,7 @@
 		1726F6F61C71AC0900AAF671 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F51C71AC0800AAF671 /* RegisterVC.swift */; };
 		1726F6F81C71AC1100AAF671 /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F71C71AC1100AAF671 /* IntroVC.swift */; };
 		1726F6FA1C71AC1A00AAF671 /* PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6F91C71AC1A00AAF671 /* PrivacyVC.swift */; };
+		172E5A351CC2575900A55969 /* YesMigraineTodayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172E5A341CC2575900A55969 /* YesMigraineTodayVC.swift */; };
 		17318C941CB7CF00005791BF /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17318C931CB7CF00005791BF /* BaseService.swift */; };
 		1745A3371C72F31F006DFF16 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745A3361C72F31F006DFF16 /* TermsVC.swift */; };
 		17683A4C1CB7B29B00F57596 /* DailySurveyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17683A4B1CB7B29B00F57596 /* DailySurveyVC.swift */; };
@@ -69,6 +70,7 @@
 		1726F6F51C71AC0800AAF671 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		1726F6F71C71AC1100AAF671 /* IntroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
 		1726F6F91C71AC1A00AAF671 /* PrivacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyVC.swift; sourceTree = "<group>"; };
+		172E5A341CC2575900A55969 /* YesMigraineTodayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YesMigraineTodayVC.swift; sourceTree = "<group>"; };
 		17318C931CB7CF00005791BF /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		1745A3361C72F31F006DFF16 /* TermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		17683A4B1CB7B29B00F57596 /* DailySurveyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailySurveyVC.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				176DCDEB1C86AF7C00551697 /* PromptsVC.swift */,
 				17683A4B1CB7B29B00F57596 /* DailySurveyVC.swift */,
 				17683A4D1CB7C4CD00F57596 /* NoMigraineTodayVC.swift */,
+				172E5A341CC2575900A55969 /* YesMigraineTodayVC.swift */,
 				1726F6C91C70492600AAF671 /* Main.storyboard */,
 				1726F6CC1C70492600AAF671 /* Assets.xcassets */,
 				1726F6CE1C70492600AAF671 /* LaunchScreen.storyboard */,
@@ -391,6 +394,7 @@
 				1726F6C81C70492600AAF671 /* OtherMedicalConditionsVC.swift in Sources */,
 				1726F6C61C70492600AAF671 /* AppDelegate.swift in Sources */,
 				17CD29D11C71BC20006CC2A1 /* GettingToKnowVC.swift in Sources */,
+				172E5A351CC2575900A55969 /* YesMigraineTodayVC.swift in Sources */,
 				1726F6F61C71AC0900AAF671 /* RegisterVC.swift in Sources */,
 				17B5B1661C78D274007F46E1 /* WelcomeVC.swift in Sources */,
 				1726F6F41C71ABFF00AAF671 /* SignInVC.swift in Sources */,

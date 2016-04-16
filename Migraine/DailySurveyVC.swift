@@ -37,6 +37,27 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//      // Do we want to show the persisted data or not?
+//        let sleepDurationHoursInPrefs = prefs.valueForKey("SLEEPDURATIONHOURS") as? String
+//        if sleepDurationHoursInPrefs != nil {
+//            sleepDurationHours.text = prefs.valueForKey("SLEEPDURATIONHOURS") as? String
+//        }
+//        let sleepDurationMinutesInPrefs = prefs.valueForKey("SLEEPDURATIONMINUTES") as? String
+//        if sleepDurationMinutesInPrefs != nil {
+//            sleepDurationMinutes.text = prefs.valueForKey("SLEEPDURATIONMINUTES") as? String
+//        }
+//        let sleepQualtiyInPrefs = prefs.valueForKey("SLEEPQUALITY") as? String
+//        if sleepQualtiyInPrefs != nil {
+//            sleepQuality.text = prefs.valueForKey("SLEEPQUALITY") as? String
+//        }
+//        let stressInPrefs = prefs.valueForKey("STRESSLEVEL") as? String
+//        if stressInPrefs != nil {
+//            stress.text = prefs.valueForKey("STRESSLEVEL") as? String
+//        }
+//        let hadMigraineInPrefs = prefs.valueForKey("HADMIGRAINE") as? String
+//        if hadMigraineInPrefs != nil {
+//            hadMigraine.text = prefs.valueForKey("HADMIGRAINE") as? String
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -128,9 +149,13 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
         sleepDurationHours.inputAccessoryView = toolBar
         sleepDurationHours.text = hourOptions[0]
+        prefs.setObject(sleepDurationHours.text, forKey: "SLEEPDURATIONHOURS")
+        prefs.synchronize()
     }
     
     func doneSleepDurationHoursPressed(sender: UIBarButtonItem) {
+        prefs.setObject(sleepDurationHours.text, forKey: "SLEEPDURATIONHOURS")
+        prefs.synchronize()
         sleepDurationHours.resignFirstResponder()
     }
 
@@ -155,9 +180,13 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
         sleepDurationMinutes.inputAccessoryView = toolBar
         sleepDurationMinutes.text = minuteOptions[0]
+        prefs.setObject(sleepDurationMinutes.text, forKey: "SLEEPDURATIONMINUTES")
+        prefs.synchronize()
     }
     
     func doneSleepDurationMinutesPressed(sender: UIBarButtonItem) {
+        prefs.setObject(sleepDurationMinutes.text, forKey: "SLEEPDURATIONMINUTES")
+        prefs.synchronize()
         sleepDurationMinutes.resignFirstResponder()
     }
     
@@ -182,10 +211,14 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
         sleepQuality.inputAccessoryView = toolBar
         sleepQuality.text = scaleOptions[0]
+        prefs.setObject(sleepQuality.text, forKey: "SLEEPQUALITY")
+        prefs.synchronize()
     }
     
     func doneSleepQualityPressed(sender: UIBarButtonItem) {
         sleepQuality.resignFirstResponder()
+        prefs.setObject(sleepQuality.text, forKey: "SLEEPQUALITY")
+        prefs.synchronize()
     }
     
     @IBAction func stressAction(sender: UITextField) {
@@ -209,9 +242,13 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
         stress.inputAccessoryView = toolBar
         stress.text = scaleOptions[0]
+        prefs.setObject(stress.text, forKey: "STRESSLEVEL")
+        prefs.synchronize()
     }
     
     func doneStressPressed(sender: UIBarButtonItem) {
+        prefs.setObject(stress.text, forKey: "STRESSLEVEL")
+        prefs.synchronize()
         stress.resignFirstResponder()
     }
     
@@ -225,7 +262,7 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         toolBar.barStyle = UIBarStyle.BlackTranslucent
         toolBar.tintColor = UIColor.whiteColor()
         toolBar.backgroundColor = UIColor.blackColor()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneHadMigrainePressed:")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(DailySurveyVC.doneHadMigrainePressed(_:)))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
         label.backgroundColor = UIColor.clearColor()
@@ -236,19 +273,28 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
         hadMigraine.inputAccessoryView = toolBar
         hadMigraine.text = hadMigraineOptions[0]
+        prefs.setObject(hadMigraine.text, forKey: "HADMIGRAINE")
+        prefs.synchronize()
     }
     
     func doneHadMigrainePressed(sender: UIBarButtonItem) {
+        prefs.setObject(hadMigraine.text, forKey: "HADMIGRAINE")
+        prefs.synchronize()
         hadMigraine.resignFirstResponder()
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
         print("Next")
         print(hadMigraine.text!)
-        sendDataToFirebase()
+        sendDiaryToFirebase()
         if (hadMigraine != nil) {
             if (hadMigraine.text! == "No") {
                 self.performSegueWithIdentifier("goto_nomigrainetoday", sender: self)
+                return
+            } else if (hadMigraine.text! == "Yes") {
+                self.performSegueWithIdentifier("goto_yesmigrainetoday", sender: self)
+                return
+            } else {
                 return
             }
         }

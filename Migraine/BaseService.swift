@@ -20,9 +20,11 @@ var CURRENT_USER: Firebase
 
 let PATIENT_RECORDS_REF = Firebase(url: "https://migraine-app.firebaseio.com/patient-records")
 let KEYS = ["TERMSAGREED", "BIRTHCONTROL", "AGE", "GENDER", "NEXTPERIOD", "BIRTHCONTROL", "LMP", "CONDITIONS", "MEDICATION", "HEADACHECONDITIONS", "HEADACHEDURATION", "SYMPTOMS", "TRIGGERS", "HELPMIGRAINE", "HELPMIGRAINEALL", "NUMBERPROMPTS", "SLEEP", "STRESS", "HEADACHE"]
+let DIARY_KEYS = ["SLEEPDURATIONHOURS", "SLEEPDURATIONMINUTES", "SLEEPQUALITY", "STRESSLEVEL", "HADMIGRAINE"]
 
 var toAlert = true
 
+// sends user data (profile) to firebase
 func sendDataToFirebase() {
     print("sending")
     // check if user is logged in
@@ -61,4 +63,46 @@ func sendDataToFirebase() {
     let usersRef = PATIENT_RECORDS_REF.childByAppendingPath("patient-info")
     usersRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).setValue(dict)
     print("done uploading")
+}
+
+// sends user daily diary to firebase
+func sendDiaryToFirebase() {
+    print("sending diary to firebase")
+    // check if user is logged in
+    if (NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil || CURRENT_USER.authData == nil) {
+        return
+    }
+    print("user exists")
+    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    
+    var dict = [String: AnyObject]()
+    // iterate over keys
+    for key in DIARY_KEYS {
+        print(key)
+        // check if key exists
+        let val = prefs.valueForKey(key)
+        if (val != nil) {
+            dict[key] = val
+//            // we dont want to persist the data of daily diary once it is sent
+//            prefs.removeObjectForKey(key)
+//            prefs.synchronize()
+        } else {
+            print("nil")
+        }
+    }
+    print(dict)
+    // upload to firebase
+    let usersRef = PATIENT_RECORDS_REF.childByAppendingPath("patient-diaries")
+    let date = NSDate()
+    let calendar = NSCalendar.currentCalendar()
+    let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+    let year =  components.year
+    let month = components.month
+    let day = components.day
+    print(year)
+    print(month)
+    print(day)
+    let curDate = String(day) + "-" + String(month) + "-" + String(year)
+    usersRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(curDate).setValue(dict)
+    print("done uploading user diary")
 }
