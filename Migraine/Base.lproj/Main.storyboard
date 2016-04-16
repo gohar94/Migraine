@@ -357,7 +357,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhL-2F-l1W">
-                                <rect key="frame" x="155" y="224" width="290" height="153"/>
+                                <rect key="frame" x="155" y="205" width="290" height="190"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kZJ-sO-Qm7">
                                         <rect key="frame" x="20" y="20" width="250" height="30"/>
@@ -389,10 +389,20 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5h-Um-gwB">
+                                        <rect key="frame" x="53" y="146" width="185" height="26"/>
+                                        <color key="backgroundColor" red="0.69803921570000005" green="0.63137254899999995" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Forgot your password?">
+                                            <color key="titleColor" red="0.02907883856358634" green="0.22771829685042766" blue="0.64290865384615392" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="forgotPasswordAction:" destination="HPI-ke-pQf" eventType="touchUpInside" id="DG2-PR-fVI"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="153" id="lEh-b2-gia"/>
+                                    <constraint firstAttribute="height" constant="190" id="lEh-b2-gia"/>
                                     <constraint firstAttribute="width" constant="290" id="uiM-8Q-l17"/>
                                 </constraints>
                             </view>
@@ -1927,7 +1937,7 @@
         <image name="privacy" width="300" height="197"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XCG-KZ-mLd"/>
+        <segue reference="W90-Uu-6Wc"/>
         <segue reference="5Fb-UV-2aT"/>
     </inferredMetricsTieBreakers>
 </document>

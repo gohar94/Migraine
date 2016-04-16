@@ -123,35 +123,47 @@ class SignInVC: UIViewController {
                     let ref = Firebase(url: "https://migraine-app.firebaseio.com/patient-records/patient-info/" + authData.uid)
                     print("getting user data for " + authData.uid)
                     ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                        print(snapshot.value)
-                        for key in KEYS {
-                            print(key)
-                            // check if key exists
-                            var val = snapshot.value.objectForKey(key)
-                            if (val != nil) {
-                                // keep all date objects here and convert them to string explicitly to avoid error
-                                if (key == "SLEEP" || key == "STRESS" || key == "HEADACHE") {
-                                    let dateFormatter = NSDateFormatter()
-                                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                                    dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
-                                    dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-                                    let temp = snapshot.value.objectForKey(key) as? String
-                                    if (temp != nil) {
-                                        val = dateFormatter.dateFromString(temp!)
-                                        print("converted date to string")
-                                        print(val)
-                                    }
-                                }
-                                self.prefs.setValue(val, forKey: key)
-                                self.prefs.synchronize()
-                                self.notifications(key)
+                        if (snapshot != nil) {
+                            if snapshot.value is NSNull {
+                                print("snapshot.value is NSNull")
                             } else {
-                                print("nil")
+                                if (snapshot.value != nil) {
+                                    for key in KEYS {
+                                        print(key)
+                                        // check if key exists
+                                        var val = snapshot.value.objectForKey(key)
+                                        let contains = snapshot.value.containsValueForKey(key)
+                                        print(contains)
+                                        if (!contains) {
+                                            continue
+                                        }
+                                        if (val != nil) {
+                                            // keep all date objects here and convert them to string explicitly to avoid error
+                                            if (key == "SLEEP" || key == "STRESS" || key == "HEADACHE") {
+                                                let dateFormatter = NSDateFormatter()
+                                                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                                                dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
+                                                dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+                                                let temp = snapshot.value.objectForKey(key) as? String
+                                                if (temp != nil) {
+                                                    val = dateFormatter.dateFromString(temp!)
+                                                    print("converted date to string")
+                                                    print(val)
+                                                }
+                                            }
+                                            self.prefs.setValue(val, forKey: key)
+                                            self.prefs.synchronize()
+                                            self.notifications(key)
+                                        } else {
+                                            print("nil")
+                                        }
+                                    }
+                                    print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())
+                                    self.prefs.setBool(false, forKey: "TERMSAGREED")
+                                    self.prefs.synchronize()
+                                }
                             }
                         }
-                        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())
-                        self.prefs.setBool(false, forKey: "TERMSAGREED")
-                        self.prefs.synchronize()
                     })
                     self.performSegueWithIdentifier("goto_welcomefromsignin", sender: self)
                 } else {
@@ -171,6 +183,36 @@ class SignInVC: UIViewController {
         }
     }
 
+    @IBAction func forgotPasswordAction(sender: UIButton) {
+        let emailStr = email.text
+        if (emailStr != nil && emailStr != "") {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            FIREBASE_REF.resetPasswordForUser(emailStr, withCompletionBlock: { error in
+                if error != nil {
+                    // There was an error processing the request
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    let alert = UIAlertController(title: "Error", message: error.userInfo.debugDescription, preferredStyle: .Alert)
+                    let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    alert.addAction(action)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else {
+                    // Password reset mail sent successfully
+                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    let alert = UIAlertController(title: "Success", message: "Password reset mail has been sent to your email address. Please check your inbox!", preferredStyle: .Alert)
+                    let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    alert.addAction(action)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    return
+                }
+            })
+        } else {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            let alert = UIAlertController(title: "Error", message: "Please type a valid email address in the field above!", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
     /*
     // MARK: - Navigation
 
