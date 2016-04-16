@@ -295,6 +295,10 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
                 self.performSegueWithIdentifier("goto_yesmigrainetoday", sender: self)
                 return
             } else {
+                let alert = UIAlertController(title: "Error", message: "Before proceeding, please specify if you had a migraine today or not!", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alert.addAction(action)
+                self.presentViewController(alert, animated: true, completion: nil)
                 return
             }
         }
