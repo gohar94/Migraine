@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class SignInVC: UIViewController {
+class SignInVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -20,6 +20,8 @@ class SignInVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        email.delegate = self
+        password.delegate = self
         self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
@@ -208,6 +210,11 @@ class SignInVC: UIViewController {
             alert.addAction(action)
             self.presentViewController(alert, animated: true, completion: nil)
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
     /*
     // MARK: - Navigation

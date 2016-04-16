@@ -8,9 +8,8 @@
 
 import UIKit
 
-class RegisterVC: UIViewController {
+class RegisterVC: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var name: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
@@ -18,6 +17,8 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        email.delegate = self
+        password.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +32,8 @@ class RegisterVC: UIViewController {
         let passwordStr = self.password.text
         
         if (emailStr != "" && passwordStr != "") {
+            email.resignFirstResponder()
+            password.resignFirstResponder()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             FIREBASE_REF.createUser(emailStr, password: passwordStr, withValueCompletionBlock: { (error, authData) -> Void in
                 if (error == nil) {
@@ -65,6 +68,11 @@ class RegisterVC: UIViewController {
             alert.addAction(action)
             self.presentViewController(alert, animated: true, completion: nil)
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
 
     /*

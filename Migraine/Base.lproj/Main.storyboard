@@ -21,11 +21,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcd-eD-RfC">
                                 <rect key="frame" x="155" y="201" width="290" height="198"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qrr-b1-81e">
-                                        <rect key="frame" x="20" y="20" width="250" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8D-Uv-ygl">
                                         <rect key="frame" x="20" y="62" width="250" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -47,11 +42,24 @@
                                             <action selector="registerAction:" destination="HTm-Wx-u3T" eventType="touchUpInside" id="p0W-a1-FM0"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJL-Rq-ipg">
+                                        <rect key="frame" x="20" y="20" width="250" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="VfT-vY-RDp"/>
+                                            <constraint firstAttribute="width" constant="250" id="m9B-Lu-p2d"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="xJL-Rq-ipg" firstAttribute="top" secondItem="Mcd-eD-RfC" secondAttribute="top" constant="20" id="GFv-qQ-DOZ"/>
                                     <constraint firstAttribute="width" constant="290" id="KmB-6a-nch"/>
+                                    <constraint firstItem="xJL-Rq-ipg" firstAttribute="leading" secondItem="Mcd-eD-RfC" secondAttribute="leading" constant="20" id="Lhb-uy-gBp"/>
                                     <constraint firstAttribute="height" constant="198" id="YGt-oc-TQC"/>
+                                    <constraint firstAttribute="trailing" secondItem="xJL-Rq-ipg" secondAttribute="trailing" constant="20" id="qnz-cK-Z11"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -63,7 +71,6 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="W8D-Uv-ygl" id="CSz-W8-Oj6"/>
-                        <outlet property="name" destination="Qrr-b1-81e" id="QlM-hE-mz9"/>
                         <outlet property="password" destination="Erj-Iw-gX3" id="jce-Yj-zSd"/>
                         <segue destination="QGw-Dd-Bw5" kind="show" identifier="goto_welcomefromregister" id="hqu-QJ-6GJ"/>
                     </connections>
@@ -1972,7 +1979,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.4823529412" green="0.63137254899999995" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <color key="sectionIndexBackgroundColor" red="0.4823529412" green="0.63137254899999995" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMenu" id="kmA-Ah-Pww">
                                         <rect key="frame" x="0.0" y="22" width="600" height="54"/>
@@ -2019,7 +2026,7 @@
         <image name="privacy" width="300" height="197"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XCG-KZ-mLd"/>
+        <segue reference="hqu-QJ-6GJ"/>
         <segue reference="5Fb-UV-2aT"/>
     </inferredMetricsTieBreakers>
 </document>

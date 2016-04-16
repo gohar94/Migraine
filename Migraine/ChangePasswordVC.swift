@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChangePasswordVC: UIViewController {
+class ChangePasswordVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
@@ -17,6 +17,8 @@ class ChangePasswordVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        password.delegate = self
+        confirmPassword.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,7 +77,14 @@ class ChangePasswordVC: UIViewController {
             self.presentViewController(alert, animated: true, completion: nil)
             return
         }
+        password.resignFirstResponder()
+        confirmPassword.resignFirstResponder()
         changePassword(password.text!)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
     }
     
 
