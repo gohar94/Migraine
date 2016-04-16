@@ -96,8 +96,9 @@ class SignInVC: UIViewController {
     @IBAction func signInAction(sender: UIButton) {
         let emailStr = self.email.text
         let passwordStr = self.password.text
-        
         if (emailStr != "" && passwordStr != "") {
+            email.resignFirstResponder()
+            password.resignFirstResponder()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             FIREBASE_REF.authUser(emailStr, password: passwordStr, withCompletionBlock: { (error, authData) -> Void in
                 if (error == nil) {
@@ -132,11 +133,6 @@ class SignInVC: UIViewController {
                                         print(key)
                                         // check if key exists
                                         var val = snapshot.value.objectForKey(key)
-                                        let contains = snapshot.value.containsValueForKey(key)
-                                        print(contains)
-                                        if (!contains) {
-                                            continue
-                                        }
                                         if (val != nil) {
                                             // keep all date objects here and convert them to string explicitly to avoid error
                                             if (key == "SLEEP" || key == "STRESS" || key == "HEADACHE") {
@@ -159,8 +155,6 @@ class SignInVC: UIViewController {
                                         }
                                     }
                                     print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())
-                                    self.prefs.setBool(false, forKey: "TERMSAGREED")
-                                    self.prefs.synchronize()
                                 }
                             }
                         }
@@ -186,6 +180,8 @@ class SignInVC: UIViewController {
     @IBAction func forgotPasswordAction(sender: UIButton) {
         let emailStr = email.text
         if (emailStr != nil && emailStr != "") {
+            email.resignFirstResponder()
+            password.resignFirstResponder()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             FIREBASE_REF.resetPasswordForUser(emailStr, withCompletionBlock: { error in
                 if error != nil {
