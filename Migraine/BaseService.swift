@@ -84,9 +84,9 @@ func sendDiaryToFirebase() {
         let val = prefs.valueForKey(key)
         if (val != nil) {
             dict[key] = val
-//            // we dont want to persist the data of daily diary once it is sent
-//            prefs.removeObjectForKey(key)
-//            prefs.synchronize()
+            // we dont want to persist the data of daily diary once it is sent
+            prefs.removeObjectForKey(key)
+            prefs.synchronize()
         } else {
             print("nil")
         }

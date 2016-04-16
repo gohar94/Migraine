@@ -37,27 +37,27 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//      // Do we want to show the persisted data or not?
-//        let sleepDurationHoursInPrefs = prefs.valueForKey("SLEEPDURATIONHOURS") as? String
-//        if sleepDurationHoursInPrefs != nil {
-//            sleepDurationHours.text = prefs.valueForKey("SLEEPDURATIONHOURS") as? String
-//        }
-//        let sleepDurationMinutesInPrefs = prefs.valueForKey("SLEEPDURATIONMINUTES") as? String
-//        if sleepDurationMinutesInPrefs != nil {
-//            sleepDurationMinutes.text = prefs.valueForKey("SLEEPDURATIONMINUTES") as? String
-//        }
-//        let sleepQualtiyInPrefs = prefs.valueForKey("SLEEPQUALITY") as? String
-//        if sleepQualtiyInPrefs != nil {
-//            sleepQuality.text = prefs.valueForKey("SLEEPQUALITY") as? String
-//        }
-//        let stressInPrefs = prefs.valueForKey("STRESSLEVEL") as? String
-//        if stressInPrefs != nil {
-//            stress.text = prefs.valueForKey("STRESSLEVEL") as? String
-//        }
-//        let hadMigraineInPrefs = prefs.valueForKey("HADMIGRAINE") as? String
-//        if hadMigraineInPrefs != nil {
-//            hadMigraine.text = prefs.valueForKey("HADMIGRAINE") as? String
-//        }
+        // Do we want to show the persisted data or not? If no, remove the following lines
+        let sleepDurationHoursInPrefs = prefs.valueForKey("SLEEPDURATIONHOURS") as? String
+        if sleepDurationHoursInPrefs != nil {
+            sleepDurationHours.text = prefs.valueForKey("SLEEPDURATIONHOURS") as? String
+        }
+        let sleepDurationMinutesInPrefs = prefs.valueForKey("SLEEPDURATIONMINUTES") as? String
+        if sleepDurationMinutesInPrefs != nil {
+            sleepDurationMinutes.text = prefs.valueForKey("SLEEPDURATIONMINUTES") as? String
+        }
+        let sleepQualtiyInPrefs = prefs.valueForKey("SLEEPQUALITY") as? String
+        if sleepQualtiyInPrefs != nil {
+            sleepQuality.text = prefs.valueForKey("SLEEPQUALITY") as? String
+        }
+        let stressInPrefs = prefs.valueForKey("STRESSLEVEL") as? String
+        if stressInPrefs != nil {
+            stress.text = prefs.valueForKey("STRESSLEVEL") as? String
+        }
+        let hadMigraineInPrefs = prefs.valueForKey("HADMIGRAINE") as? String
+        if hadMigraineInPrefs != nil {
+            hadMigraine.text = prefs.valueForKey("HADMIGRAINE") as? String
+        }
     }
 
     override func didReceiveMemoryWarning() {
