@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 
+let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
 let BASE_URL = "https://migraine-app.firebaseio.com"
 let FIREBASE_REF = Firebase(url: BASE_URL)
 var CURRENT_USER: Firebase

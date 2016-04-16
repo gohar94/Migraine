@@ -104,6 +104,9 @@ class SignInVC: UIViewController {
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     print("Logged in!")
+                    self.prefs.setObject(emailStr, forKey: "EMAIL")
+                    self.prefs.setObject(passwordStr, forKey: "PASSWORD")
+                    self.prefs.synchronize()
                     let termsAgreed = self.prefs.valueForKey("TERMSAGREED") as? Bool
                     if (termsAgreed != nil) {
                         if (termsAgreed == false) {

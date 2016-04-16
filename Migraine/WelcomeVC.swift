@@ -61,6 +61,11 @@ class WelcomeVC: UIViewController {
         }
         self.performSegueWithIdentifier("goto_dailysurveyfromwelcome", sender: self)
     }
+    
+    @IBAction func passwordReset(sender: UIButton) {
+        self.performSegueWithIdentifier("goto_changepassword", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
     
