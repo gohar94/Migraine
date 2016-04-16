@@ -95,15 +95,10 @@ func sendDiaryToFirebase() {
     // upload to firebase
     let usersRef = PATIENT_RECORDS_REF.childByAppendingPath("patient-diaries")
     let date = NSDate()
-    let calendar = NSCalendar.currentCalendar()
-    let components = calendar.components([.Day , .Month , .Year], fromDate: date)
-    let year =  components.year
-    let month = components.month
-    let day = components.day
-    print(year)
-    print(month)
-    print(day)
-    let curDate = String(day) + "-" + String(month) + "-" + String(year)
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+    dateFormatter.timeStyle = NSDateFormatterStyle.LongStyle
+    let curDate = dateFormatter.stringFromDate(date)
     usersRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(curDate).setValue(dict)
     print("done uploading user diary")
 }
