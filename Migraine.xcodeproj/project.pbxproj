@@ -21,6 +21,8 @@
 		172E5A351CC2575900A55969 /* YesMigraineTodayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172E5A341CC2575900A55969 /* YesMigraineTodayVC.swift */; };
 		17318C941CB7CF00005791BF /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17318C931CB7CF00005791BF /* BaseService.swift */; };
 		17371DB41CC285AC00F7F88E /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17371DB31CC285AC00F7F88E /* ChangePasswordVC.swift */; };
+		17371DB61CC2B77600F7F88E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17371DB51CC2B77600F7F88E /* MenuViewController.swift */; };
+		17371DB81CC2B7E000F7F88E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17371DB71CC2B7E000F7F88E /* BaseViewController.swift */; };
 		1745A3371C72F31F006DFF16 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745A3361C72F31F006DFF16 /* TermsVC.swift */; };
 		17683A4C1CB7B29B00F57596 /* DailySurveyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17683A4B1CB7B29B00F57596 /* DailySurveyVC.swift */; };
 		17683A4E1CB7C4CD00F57596 /* NoMigraineTodayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17683A4D1CB7C4CD00F57596 /* NoMigraineTodayVC.swift */; };
@@ -74,6 +76,8 @@
 		172E5A341CC2575900A55969 /* YesMigraineTodayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YesMigraineTodayVC.swift; sourceTree = "<group>"; };
 		17318C931CB7CF00005791BF /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		17371DB31CC285AC00F7F88E /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		17371DB51CC2B77600F7F88E /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		17371DB71CC2B7E000F7F88E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1745A3361C72F31F006DFF16 /* TermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		17683A4B1CB7B29B00F57596 /* DailySurveyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailySurveyVC.swift; sourceTree = "<group>"; };
 		17683A4D1CB7C4CD00F57596 /* NoMigraineTodayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMigraineTodayVC.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 		1726F6C41C70492600AAF671 /* Migraine */ = {
 			isa = PBXGroup;
 			children = (
+				17371DB51CC2B77600F7F88E /* MenuViewController.swift */,
+				17371DB71CC2B7E000F7F88E /* BaseViewController.swift */,
 				17318C931CB7CF00005791BF /* BaseService.swift */,
 				17B5B1651C78D274007F46E1 /* WelcomeVC.swift */,
 				17371DB31CC285AC00F7F88E /* ChangePasswordVC.swift */,
@@ -394,6 +400,7 @@
 				17B5B1681C78D2E9007F46E1 /* WhatHelpsMigraineVC.swift in Sources */,
 				17B5B1601C78AB06007F46E1 /* SymptomsVC.swift in Sources */,
 				17683A4C1CB7B29B00F57596 /* DailySurveyVC.swift in Sources */,
+				17371DB81CC2B7E000F7F88E /* BaseViewController.swift in Sources */,
 				1726F6C81C70492600AAF671 /* OtherMedicalConditionsVC.swift in Sources */,
 				1726F6C61C70492600AAF671 /* AppDelegate.swift in Sources */,
 				17CD29D11C71BC20006CC2A1 /* GettingToKnowVC.swift in Sources */,
@@ -406,6 +413,7 @@
 				1745A3371C72F31F006DFF16 /* TermsVC.swift in Sources */,
 				17318C941CB7CF00005791BF /* BaseService.swift in Sources */,
 				17371DB41CC285AC00F7F88E /* ChangePasswordVC.swift in Sources */,
+				17371DB61CC2B77600F7F88E /* MenuViewController.swift in Sources */,
 				1726F6FA1C71AC1A00AAF671 /* PrivacyVC.swift in Sources */,
 				17D6FDD71C77A55C00740B32 /* HeadacheDetailsVC.swift in Sources */,
 				17D6FDD51C776A2900740B32 /* ListOfMedicationsVC.swift in Sources */,

@@ -9,7 +9,7 @@
         <!--RegisterVC-->
         <scene sceneID="KoZ-xT-P9X">
             <objects>
-                <viewController id="HTm-Wx-u3T" customClass="RegisterVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HTm-Wx-u3T" customClass="RegisterVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="udZ-yg-KU6"/>
                         <viewControllerLayoutGuide type="bottom" id="0Py-jZ-cNT"/>
@@ -75,7 +75,7 @@
         <!--IntroVC-->
         <scene sceneID="UFa-dL-eEt">
             <objects>
-                <viewController id="aeL-vu-a8X" customClass="IntroVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntroVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aeL-vu-a8X" customClass="IntroVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6cR-YI-gAj"/>
                         <viewControllerLayoutGuide type="bottom" id="S1R-Z4-pmD"/>
@@ -84,14 +84,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="brain" translatesAutoresizingMaskIntoConstraints="NO" id="N8x-zz-fat">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brain" translatesAutoresizingMaskIntoConstraints="NO" id="N8x-zz-fat">
                                 <rect key="frame" x="175" y="64" width="250" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="5w8-QG-xqq"/>
                                     <constraint firstAttribute="height" constant="200" id="xX0-ng-8ZJ"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZXE-jQ-luW" userLabel="TextContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXE-jQ-luW" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="284" width="600" height="316"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What does this app do for you?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihz-yt-fqG" userLabel="PageTitle">
@@ -99,13 +99,13 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv5-2z-Qqz" userLabel="Description">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wv5-2z-Qqz" userLabel="Description">
                                         <rect key="frame" x="51" y="44" width="499" height="212"/>
                                         <string key="text">This app is designed to help you log your migraines as well as possible triggers. This will help us get a better understanding of your migraines and what brings them on. This will also help us to give you individualized techniques to prevent or alleviate your migraines.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCR-Ha-XN2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCR-Ha-XN2">
                                         <rect key="frame" x="243" y="276" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -169,7 +169,7 @@
         <!--PrivacyVC-->
         <scene sceneID="djw-Ml-imw">
             <objects>
-                <viewController id="cKS-Pi-Jd3" customClass="PrivacyVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrivacyVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cKS-Pi-Jd3" customClass="PrivacyVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tLW-2X-ZSg"/>
                         <viewControllerLayoutGuide type="bottom" id="fWG-v7-f6s"/>
@@ -178,14 +178,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="01Y-SG-zZe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="01Y-SG-zZe">
                                 <rect key="frame" x="175" y="64" width="250" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="7vb-cr-LUD"/>
                                     <constraint firstAttribute="width" constant="250" id="NY5-5g-CQd"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qbC-i6-d8O" userLabel="TextContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbC-i6-d8O" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="284" width="600" height="316"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Privacy First" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJm-No-ccb" userLabel="PageTitle">
@@ -193,13 +193,13 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0s0-uO-e4V" userLabel="Description">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0s0-uO-e4V" userLabel="Description">
                                         <rect key="frame" x="51" y="44" width="499" height="212"/>
                                         <string key="text">Your privacy is our biggest concern. Your data is shared only if you chose to. We are asking for data that is critical to predicting migraines for you. You can skip any information that you want to but it will make is harder for us to recognize the pattern of your migraines and accurately predict it.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2Q-oR-QnM">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2Q-oR-QnM">
                                         <rect key="frame" x="243" y="276" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -263,7 +263,7 @@
         <!--TermsVC-->
         <scene sceneID="n3D-kc-cQp">
             <objects>
-                <viewController id="MwD-Lf-adg" customClass="TermsVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TermsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MwD-Lf-adg" customClass="TermsVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I3B-lI-Y9f"/>
                         <viewControllerLayoutGuide type="bottom" id="7CT-zC-kPQ"/>
@@ -272,7 +272,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gCO-z0-bfu" userLabel="TextContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCO-z0-bfu" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Service" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfG-lM-8R2" userLabel="PageTitle">
@@ -280,13 +280,13 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4K-Dt-Ze6" userLabel="Description">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4K-Dt-Ze6" userLabel="Description">
                                         <rect key="frame" x="51" y="44" width="499" height="432"/>
                                         <string key="text">This app is designed to help you log your migraines as well as possible triggers. This will help us get a better understanding of your migraines and what brings them on. This will also help us to give you individualized techniques to prevent or alleviate your migraines.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6Q-5d-Ygh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6Q-5d-Ygh">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -347,7 +347,7 @@
         <!--Sign InVC-->
         <scene sceneID="3Rl-OB-1nM">
             <objects>
-                <viewController id="HPI-ke-pQf" customClass="SignInVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HPI-ke-pQf" customClass="SignInVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Erb-pB-Mzo"/>
                         <viewControllerLayoutGuide type="bottom" id="5xQ-9o-e8P"/>
@@ -427,7 +427,8 @@
         <!--Navigation Controller-->
         <scene sceneID="pT1-7o-SSg">
             <objects>
-                <navigationController id="q6U-rv-foe" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CCk-Q3-M85" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="Navigation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q6U-rv-foe" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Fy-zI-Odw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -436,14 +437,13 @@
                         <segue destination="QGw-Dd-Bw5" kind="relationship" relationship="rootViewController" id="DKh-qk-YDd"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CCk-Q3-M85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-436" y="213"/>
         </scene>
         <!--Getting To KnowVC-->
         <scene sceneID="po5-58-k3e">
             <objects>
-                <viewController id="Grk-ht-PwG" customClass="GettingToKnowVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GettingToKnowVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Grk-ht-PwG" customClass="GettingToKnowVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ytz-V7-A4K"/>
                         <viewControllerLayoutGuide type="bottom" id="dnP-Y7-Mj9"/>
@@ -452,7 +452,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTf-LX-XQE" userLabel="TextContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTf-LX-XQE" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Getting to Know You" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zj6-wH-04c" userLabel="PageTitle">
@@ -460,7 +460,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qks-4u-mYb">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qks-4u-mYb">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -474,7 +474,7 @@
                                             <action selector="nextAction:" destination="Grk-ht-PwG" eventType="touchUpInside" id="4yd-Qp-JSc"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JXr-5U-TzV">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXr-5U-TzV">
                                         <rect key="frame" x="150" y="168" width="300" height="200"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nAw-vh-nKg">
@@ -600,7 +600,7 @@
         <!--WelcomeVC-->
         <scene sceneID="GAi-Gm-R9x">
             <objects>
-                <viewController id="QGw-Dd-Bw5" customClass="WelcomeVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QGw-Dd-Bw5" customClass="WelcomeVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Ie-Pe-zCk"/>
                         <viewControllerLayoutGuide type="bottom" id="pbs-V2-J0B"/>
@@ -703,7 +703,7 @@
         <!--Other Medical ConditionsVC-->
         <scene sceneID="6LO-bV-Y2w">
             <objects>
-                <viewController id="YdW-Dv-H6a" customClass="OtherMedicalConditionsVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OtherMedicalConditionsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YdW-Dv-H6a" customClass="OtherMedicalConditionsVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ALs-Uo-b30"/>
                         <viewControllerLayoutGuide type="bottom" id="cgm-Gt-qU2"/>
@@ -712,7 +712,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Q8-DY-hSN" userLabel="TextContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Q8-DY-hSN" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Medical Conditions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoQ-fl-ZeC" userLabel="PageTitle">
@@ -720,7 +720,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Er-p2-kjR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Er-p2-kjR">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -734,7 +734,7 @@
                                             <action selector="nextAction:" destination="YdW-Dv-H6a" eventType="touchUpInside" id="Gs8-jh-1FY"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1VQ-v3-yNY">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1VQ-v3-yNY">
                                         <rect key="frame" x="20" y="54" width="560" height="422"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -790,7 +790,7 @@
         <!--List Of MedicationsVC-->
         <scene sceneID="wVq-Yf-wJQ">
             <objects>
-                <viewController id="pIP-eU-Cri" customClass="ListOfMedicationsVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListOfMedicationsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pIP-eU-Cri" customClass="ListOfMedicationsVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uM3-ta-eOs"/>
                         <viewControllerLayoutGuide type="bottom" id="wvS-si-Q21"/>
@@ -799,7 +799,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-eV-lbn" userLabel="TextContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6iv-eV-lbn" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List of Medications" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUP-CO-o4x" userLabel="PageTitle">
@@ -807,7 +807,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajT-O5-hbX">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajT-O5-hbX">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -821,7 +821,7 @@
                                             <action selector="nextButtonAction:" destination="pIP-eU-Cri" eventType="touchUpInside" id="Rsj-Dh-0l9"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uWC-IW-wyJ">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uWC-IW-wyJ">
                                         <rect key="frame" x="20" y="104" width="560" height="372"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -902,7 +902,7 @@
         <!--Headache DetailsVC-->
         <scene sceneID="6hN-8Y-36w">
             <objects>
-                <viewController id="x50-lN-cPa" customClass="HeadacheDetailsVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HeadacheDetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x50-lN-cPa" customClass="HeadacheDetailsVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3y9-cK-fb4"/>
                         <viewControllerLayoutGuide type="bottom" id="N9p-ky-iOy"/>
@@ -911,7 +911,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ar-9Q-XGZ" userLabel="TextContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ar-9Q-XGZ" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How long does your headache last?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9N-aG-1ui" userLabel="PageTitle">
@@ -919,7 +919,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kB8-HX-q42">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kB8-HX-q42">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -958,7 +958,7 @@
                                             <action selector="doneButtonAction:" destination="x50-lN-cPa" eventType="touchUpInside" id="f39-vq-WrD"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mmC-lr-Hlb">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mmC-lr-Hlb">
                                         <rect key="frame" x="20" y="148" width="560" height="328"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1024,7 +1024,7 @@
         <!--SymptomsVC-->
         <scene sceneID="BVt-ik-w5Z">
             <objects>
-                <viewController id="pHD-YB-xUX" customClass="SymptomsVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SymptomsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pHD-YB-xUX" customClass="SymptomsVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JN7-Sg-uz8"/>
                         <viewControllerLayoutGuide type="bottom" id="S11-g4-jkL"/>
@@ -1033,7 +1033,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NgH-IS-Rvh" userLabel="TextContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgH-IS-Rvh" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Associated Symptoms" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjP-pf-c1r" userLabel="PageTitle">
@@ -1041,7 +1041,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5G-5f-PeS">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5G-5f-PeS">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1055,7 +1055,7 @@
                                             <action selector="nextButtonAction:" destination="pHD-YB-xUX" eventType="touchUpInside" id="Z0Z-kV-j66"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a8i-zB-dx4">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a8i-zB-dx4">
                                         <rect key="frame" x="20" y="54" width="560" height="422"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1111,7 +1111,7 @@
         <!--Headache LocationVC-->
         <scene sceneID="Fd8-40-XVc">
             <objects>
-                <viewController id="xDl-SN-pMS" customClass="HeadacheLocationVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HeadacheLocationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xDl-SN-pMS" customClass="HeadacheLocationVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fax-3j-nzy"/>
                         <viewControllerLayoutGuide type="bottom" id="9p1-lz-b9P"/>
@@ -1120,10 +1120,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gvp-Pf-ORZ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvp-Pf-ORZ">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRC-ZG-Edh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRC-ZG-Edh">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1164,7 +1164,7 @@
         <!--TriggersVC-->
         <scene sceneID="oDc-Ob-b5O">
             <objects>
-                <viewController id="vcl-PA-bLo" customClass="TriggersVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TriggersVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vcl-PA-bLo" customClass="TriggersVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0bL-FZ-HMG"/>
                         <viewControllerLayoutGuide type="bottom" id="0q1-CS-1uq"/>
@@ -1173,7 +1173,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esU-oE-MVc" userLabel="TextContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esU-oE-MVc" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Triggers" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1b-k2-4yA" userLabel="PageTitle">
@@ -1181,7 +1181,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oR-SW-NQx">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oR-SW-NQx">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1195,7 +1195,7 @@
                                             <action selector="nextButtonAction:" destination="vcl-PA-bLo" eventType="touchUpInside" id="0TT-Ho-mWV"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pvp-dd-xQk">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pvp-dd-xQk">
                                         <rect key="frame" x="20" y="54" width="560" height="422"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1260,7 +1260,7 @@
         <!--What Helps MigraineVC-->
         <scene sceneID="vaM-0h-DEa">
             <objects>
-                <viewController id="hfS-zu-02Z" customClass="WhatHelpsMigraineVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WhatHelpsMigraineVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hfS-zu-02Z" customClass="WhatHelpsMigraineVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bDg-rX-pGk"/>
                         <viewControllerLayoutGuide type="bottom" id="N68-GI-gTr"/>
@@ -1269,7 +1269,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aSu-bN-KUB" userLabel="TextContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSu-bN-KUB" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What Helps Your Migraine?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nA-aC-kxq" userLabel="PageTitle">
@@ -1277,7 +1277,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srJ-QQ-ygt">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srJ-QQ-ygt">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1291,7 +1291,7 @@
                                             <action selector="nextButtonAction:" destination="hfS-zu-02Z" eventType="touchUpInside" id="AOf-CD-vv1"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UIT-q3-kAj">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UIT-q3-kAj">
                                         <rect key="frame" x="20" y="54" width="560" height="372"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="sectionIndexBackgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1310,7 +1310,7 @@
                                             <outlet property="delegate" destination="hfS-zu-02Z" id="A97-co-8MU"/>
                                         </connections>
                                     </tableView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other (if not listed)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fat-9K-lYN">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other (if not listed)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fat-9K-lYN">
                                         <rect key="frame" x="20" y="446" width="560" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1356,7 +1356,7 @@
         <!--PromptsVC-->
         <scene sceneID="kgD-1N-rMU">
             <objects>
-                <viewController id="9nz-To-MYP" customClass="PromptsVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PromptsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9nz-To-MYP" customClass="PromptsVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ymu-CC-1FL"/>
                         <viewControllerLayoutGuide type="bottom" id="wFN-6H-bW6"/>
@@ -1365,7 +1365,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="81j-i2-zuT" userLabel="TextContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="81j-i2-zuT" userLabel="TextContainer">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many prompts would you like per day?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgO-Eq-mRA" userLabel="PageTitle">
@@ -1373,7 +1373,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6V-J1-iKS">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6V-J1-iKS">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1409,12 +1409,12 @@
                                             <outlet property="delegate" destination="9nz-To-MYP" id="Dac-8a-yZ5"/>
                                         </connections>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Timings of the prompts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9m-zD-rl8" userLabel="PageTitle">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timings of the prompts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9m-zD-rl8" userLabel="PageTitle">
                                         <rect key="frame" x="50" y="302" width="500" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAQ-iE-C8Z">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAQ-iE-C8Z">
                                         <rect key="frame" x="150" y="336" width="300" height="150"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1SS-lj-Sdy">
@@ -1520,7 +1520,7 @@
         <!--Daily SurveyVC-->
         <scene sceneID="JIe-Uv-XsV">
             <objects>
-                <viewController id="zcf-kf-hlh" customClass="DailySurveyVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DailySurveyVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zcf-kf-hlh" customClass="DailySurveyVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="odR-XV-4qu"/>
                         <viewControllerLayoutGuide type="bottom" id="kev-v7-emw"/>
@@ -1684,7 +1684,7 @@
         <!--No Migraine TodayVC-->
         <scene sceneID="rgl-3P-cAH">
             <objects>
-                <viewController id="doD-5T-Ix1" customClass="NoMigraineTodayVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoMigraineTodayVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="doD-5T-Ix1" customClass="NoMigraineTodayVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M0f-og-WVf"/>
                         <viewControllerLayoutGuide type="bottom" id="TQf-yc-ynd"/>
@@ -1806,7 +1806,7 @@
         <!--Yes Migraine TodayVC-->
         <scene sceneID="Had-bB-i7m">
             <objects>
-                <viewController id="3vL-d2-tbI" customClass="YesMigraineTodayVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="YesMigraineTodayVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3vL-d2-tbI" customClass="YesMigraineTodayVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eXF-6Q-iX7"/>
                         <viewControllerLayoutGuide type="bottom" id="Qur-Dd-xIY"/>
@@ -1874,7 +1874,7 @@
         <!--Change PasswordVC-->
         <scene sceneID="t7y-uI-Q88">
             <objects>
-                <viewController id="MMe-Pp-Nde" customClass="ChangePasswordVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangePasswordVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MMe-Pp-Nde" customClass="ChangePasswordVC" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0kU-Fs-a3P"/>
                         <viewControllerLayoutGuide type="bottom" id="Pro-Te-7XK"/>
@@ -1931,13 +1931,82 @@
             </objects>
             <point key="canvasLocation" x="1763" y="-448"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="7la-Hc-DUD">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A8P-iZ-97O" customClass="MenuViewController" customModule="Migraine" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hhu-rg-HYs"/>
+                        <viewControllerLayoutGuide type="bottom" id="cME-sL-GLU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WQd-kp-cSW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fkx-xb-tAP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCloseMenuClick:" destination="A8P-iZ-97O" eventType="touchUpInside" id="EMT-mF-m9D"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="MBe-3e-d5w">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.4823529412" green="0.63137254899999995" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" red="0.4823529412" green="0.63137254899999995" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellMenu" id="kmA-Ah-Pww">
+                                        <rect key="frame" x="0.0" y="22" width="600" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kmA-Ah-Pww" id="PkJ-pF-O9W">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="53"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qcm-8o-Buf">
+                                                    <rect key="frame" x="8" y="8" width="38" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q60-3k-XSH">
+                                                    <rect key="frame" x="54" y="16" width="208" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.69803921570000005" green="0.63137254899999995" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="A8P-iZ-97O" id="oIs-LF-sMR"/>
+                                    <outlet property="delegate" destination="A8P-iZ-97O" id="0L0-we-wUB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.69803921570000005" green="0.63137254899999995" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnCloseMenuOverlay" destination="fkx-xb-tAP" id="OU5-WL-58c"/>
+                        <outlet property="tblMenuOptions" destination="MBe-3e-d5w" id="xgc-Be-iGz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q5J-uJ-gia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="71" y="-496"/>
+        </scene>
     </scenes>
     <resources>
         <image name="brain" width="300" height="197"/>
         <image name="privacy" width="300" height="197"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W90-Uu-6Wc"/>
+        <segue reference="DKh-qk-YDd"/>
         <segue reference="5Fb-UV-2aT"/>
     </inferredMetricsTieBreakers>
 </document>

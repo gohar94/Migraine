@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var sleepDurationHours: UITextField!
     @IBOutlet weak var sleepDurationMinutes: UITextField!
@@ -37,6 +37,9 @@ class DailySurveyVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.addSlideMenuButton()
+        
         // Do we want to show the persisted data or not? If no, remove the following lines
         let sleepDurationHoursInPrefs = prefs.valueForKey("SLEEPDURATIONHOURS") as? String
         if sleepDurationHoursInPrefs != nil {

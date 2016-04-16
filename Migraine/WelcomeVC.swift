@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomeVC: UIViewController {
+class WelcomeVC: BaseViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var dailyButton: UIView!
@@ -19,6 +19,8 @@ class WelcomeVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        self.addSlideMenuButton()
     }
     
     override func didReceiveMemoryWarning() {
