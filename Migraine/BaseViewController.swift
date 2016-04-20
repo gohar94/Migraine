@@ -43,6 +43,12 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
             self.openViewControllerBasedOnIdentifier("GettingToKnowVC")
             
             break
+        case 3:
+            print("Prompt Settings\n", terminator: "")
+            
+            self.openViewControllerBasedOnIdentifier("PromptsVC")
+            
+            break
         default:
             print("default\n", terminator: "")
         }

@@ -14,12 +14,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    
+    func handleNotification(notification: UILocalNotification) {
+        if let userInfo = notification.userInfo {
+            let type = userInfo["TYPE"] as! String
+            if (type == "SLEEP") {
+                print("Sleep notification received")
+            } else if (type == "STRESS") {
+                print("Stress notification received")
+            } else {
+                print("Some other notification type that is not supported appeared here")
+            }
+            // TODO this is not working properly, not taking to the desired VC
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let dailySurveryVCObject = storyboard.instantiateViewControllerWithIdentifier("DailySurveyVC") as? DailySurveyVC
+            let navigationController = UINavigationController()
+            navigationController.pushViewController(dailySurveryVCObject!, animated: true)
+        }
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = UIColor(red: 140.0/255.0, green: 178.0/255.0, blue: 223.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.blackColor()
-        application.applicationIconBadgeNumber = 0
         
         // for local notifications
         let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
@@ -27,17 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let options = launchOptions {
             if let notification = options[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
-                if let userInfo = notification.userInfo {
-                    let type = userInfo["TYPE"] as! String
-                    // do something neat here
-                    if (type == "SLEEP") {
-                        
-                    } else if (type == "STRESS") {
-                        
-                    } else {
-                        
-                    }
-                }
+                handleNotification(notification)
             }
         }
         
@@ -45,21 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        if let userInfo = notification.userInfo {
-            if userInfo["TYPE"] != nil {
-                let type = userInfo["TYPE"] as! String
-                print("didReceiveLocalNotification: \(type)")
-                application.applicationIconBadgeNumber = 0
-                // do something neat here
-                if (type == "SLEEP") {
-                    
-                } else if (type == "STRESS") {
-                    
-                } else {
-                    
-                }
-            }
-        }
+        handleNotification(notification)
     }
 
     // TODO do we need this?

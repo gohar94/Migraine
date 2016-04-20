@@ -69,7 +69,8 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             notification.soundName = UILocalNotificationDefaultSoundName
             notification.userInfo = ["TYPE": key ]
             notification.category = "PROMPT"
-            notification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+//            let oldCount = UIApplication.sharedApplication().applicationIconBadgeNumber
+//            notification.applicationIconBadgeNumber = oldCount + 1
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
         }
     }

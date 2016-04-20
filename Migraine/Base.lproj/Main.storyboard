@@ -1678,8 +1678,11 @@
                         <outlet property="hadMigraine" destination="Apr-aj-7bq" id="rvA-cm-Fo8"/>
                         <outlet property="sleepDurationHours" destination="Y9s-FM-UB1" id="UTG-8m-0jk"/>
                         <outlet property="sleepDurationMinutes" destination="1gk-NK-XnT" id="Ex1-Ix-ivw"/>
+                        <outlet property="sleepDurationString" destination="aCQ-yN-Brz" id="OMc-18-o1L"/>
                         <outlet property="sleepQuality" destination="DlI-kl-Tfr" id="Sg7-SC-aDH"/>
+                        <outlet property="sleepQualityString" destination="aCQ-yN-Brz" id="VUl-cx-nXT"/>
                         <outlet property="stress" destination="L9t-bb-2No" id="taI-JW-IQb"/>
+                        <outlet property="stressString" destination="aCQ-yN-Brz" id="qEZ-2F-slW"/>
                         <segue destination="doD-5T-Ix1" kind="show" identifier="goto_nomigrainetoday" id="fkt-dY-mgB"/>
                         <segue destination="3vL-d2-tbI" kind="show" identifier="goto_yesmigrainetoday" id="M5f-Ee-9PF"/>
                     </connections>
@@ -2026,7 +2029,7 @@
         <image name="privacy" width="300" height="197"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hqu-QJ-6GJ"/>
         <segue reference="5Fb-UV-2aT"/>
+        <segue reference="DKh-qk-YDd"/>
     </inferredMetricsTieBreakers>
 </document>
