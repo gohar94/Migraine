@@ -27,6 +27,7 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     if (notification.userInfo!["TYPE"] as! String == "STRESS") {
                         UIApplication.sharedApplication().cancelLocalNotification(notification)
                         print("deleting notif")
+                        Logger.log("deleting")
                         break
                     }
                 }
