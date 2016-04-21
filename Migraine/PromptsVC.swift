@@ -13,12 +13,40 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var numberTableView: UITableView!
     @IBOutlet var sleepTime: UITextField!
     @IBOutlet var stressTime: UITextField!
-    @IBOutlet var headacheTime: UITextField!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     var numbers = ["1", "2"]
     var selectedNumber = String()
+    
+    func onlyOneNotification(defaultValue: Bool) {
+        if (selectedNumber == "1") {
+            stressTime.enabled = false
+            for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
+                if (notification.userInfo!["TYPE"]) != nil {
+                    if (notification.userInfo!["TYPE"] as! String == "STRESS") {
+                        UIApplication.sharedApplication().cancelLocalNotification(notification)
+                        print("deleting notif")
+                        break
+                    }
+                }
+            }
+            prefs.setObject(nil, forKey: "STRESS")
+            prefs.synchronize()
+        } else {
+            stressTime.enabled = true
+            if (defaultValue) {
+                // set default value here
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat =  "hh:mm a"
+                let date = dateFormatter.dateFromString("07:30 PM")
+                prefs.setObject(date, forKey: "STRESS")
+                prefs.synchronize()
+                notifications("STRESS")
+                stressTime.text = dateFormatter.stringFromDate(date!)
+            }
+        }
+    }
     
     func checkNotificationsEnabled() -> Bool {
         guard let settings = UIApplication.sharedApplication().currentUserNotificationSettings() else { return false }
@@ -82,6 +110,7 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let numbersInPrefs = prefs.valueForKey("NUMBERPROMPTS") as? String
         if numbersInPrefs != nil {
             selectedNumber = prefs.valueForKey("NUMBERPROMPTS") as! String
+            onlyOneNotification(false)
         } else {
             // default number of prompts = 2
             selectedNumber = "2"
@@ -112,27 +141,16 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if stressInPrefs != nil {
             stressTime.text = dateFormatter.stringFromDate(stressInPrefs!)
         } else {
-            // set default value here
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat =  "hh:mm a"
-            let date = dateFormatter.dateFromString("07:30 PM")
-            prefs.setObject(date, forKey: "STRESS")
-            prefs.synchronize()
-            notifications("STRESS")
-            stressTime.text = dateFormatter.stringFromDate(date!)
-        }
-        let headacheInPrefs = prefs.valueForKey("HEADACHE") as? NSDate
-        if headacheInPrefs != nil {
-            headacheTime.text = dateFormatter.stringFromDate(headacheInPrefs!)
-        } else {
-            // set default value here
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat =  "hh:mm a"
-            let date = dateFormatter.dateFromString("07:30 PM")
-            prefs.setObject(date, forKey: "HEADACHE")
-            prefs.synchronize()
-            notifications("HEADACHE")
-            headacheTime.text = dateFormatter.stringFromDate(date!)
+            if numbersInPrefs == "2" {
+                // set default value here
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat =  "hh:mm a"
+                let date = dateFormatter.dateFromString("07:30 PM")
+                prefs.setObject(date, forKey: "STRESS")
+                prefs.synchronize()
+                notifications("STRESS")
+                stressTime.text = dateFormatter.stringFromDate(date!)
+            }
         }
     }
 
@@ -177,6 +195,7 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             prefs.setObject(selectedNumber, forKey: "NUMBERPROMPTS")
             prefs.synchronize()
             print(selectedNumber)
+            onlyOneNotification(true)
         }
     }
 
@@ -246,40 +265,6 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         stressTime.resignFirstResponder() // To resign the inputView on clicking done.
         // TODO remove previous notification for stress if
         notifications("STRESS")
-    }
-    
-    @IBAction func headacheAction(sender: UITextField) {
-        let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
-        let datePickerView  : UIDatePicker = UIDatePicker(frame: CGRectMake(0, 40, 0, 0))
-        datePickerView.datePickerMode = UIDatePickerMode.Time
-        inputView.addSubview(datePickerView) // add date picker to UIView
-        let doneButton = UIButton(frame: CGRectMake((self.view.frame.size.width/2) - (100/2), 0, 100, 50))
-        doneButton.setTitle("Done", forState: UIControlState.Normal)
-        doneButton.setTitle("Done", forState: UIControlState.Highlighted)
-        doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
-        inputView.addSubview(doneButton) // add Button to UIView
-        doneButton.addTarget(self, action: "doneHeadacheButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
-        sender.inputView = inputView
-        datePickerView.addTarget(self, action: Selector("datePickerHeadacheValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        datePickerHeadacheValueChanged(datePickerView) // Set the date on start.
-
-    }
-    
-    func datePickerHeadacheValueChanged(sender: UIDatePicker) {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let selectedDateStr = dateFormatter.stringFromDate(sender.date)
-        print(selectedDateStr)
-        headacheTime.text = dateFormatter.stringFromDate(sender.date)
-        prefs.setValue(sender.date, forKey: "HEADACHE")
-        prefs.synchronize()
-    }
-    
-    func doneHeadacheButtonPressed(sender: UIButton) {
-        headacheTime.resignFirstResponder() // To resign the inputView on clicking done.
-        notifications("HEADACHE")
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {

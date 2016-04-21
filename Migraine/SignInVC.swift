@@ -137,7 +137,7 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                                         var val = snapshot.value.objectForKey(key)
                                         if (val != nil) {
                                             // keep all date objects here and convert them to string explicitly to avoid error
-                                            if (key == "SLEEP" || key == "STRESS" || key == "HEADACHE") {
+                                            if (key == "SLEEP" || key == "STRESS") {
                                                 let dateFormatter = NSDateFormatter()
                                                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
                                                 dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
