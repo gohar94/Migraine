@@ -1260,8 +1260,8 @@
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pvp-dd-xQk">
                                         <rect key="frame" x="20" y="84" width="560" height="342"/>
-                                        <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="sectionIndexBackgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="yBM-et-Z94" style="IBUITableViewCellStyleDefault" id="47A-Zz-Fjt">
                                                 <rect key="frame" x="0.0" y="28" width="560" height="44"/>
