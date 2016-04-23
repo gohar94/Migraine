@@ -60,6 +60,8 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         if genderInPrefs != nil {
             gender.text = genderInPrefs
             if genderInPrefs?.lowercaseString == "female" {
+                dateOfLMP.enabled = true
+                dateOfNextPeriod.enabled = true
                 let dateOfLMPInPrefs = prefs.valueForKey("LMP") as? String
                 if dateOfLMPInPrefs != nil {
                     dateOfLMP.text = dateOfLMPInPrefs

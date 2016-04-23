@@ -155,6 +155,14 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sendDataToFirebase()
         self.performSegueWithIdentifier("goto_whathelpsmigraine", sender: self)
     }
+    
+    @IBAction func triggersInfoAction(sender: AnyObject) {
+        let alert = UIAlertController(title: "What is a trigger?", message: "An environmental or personal change in daily pattern that is more likely to bring on a migraine within a few hours up to a day", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
+        return
+    }
     /*
     // MARK: - Navigation
 
