@@ -10,10 +10,25 @@ import UIKit
 
 class HeadacheLocationVC: UIViewController {
 
+    @IBOutlet weak var container: UIView!
+    @IBOutlet weak var topLeft: UIImageView!
+    @IBOutlet weak var topRight: UIImageView!
+    @IBOutlet weak var bottomLeft: UIImageView!
+    @IBOutlet weak var bottomRight: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+//        topLeft.addGestureRecognizer(tapGestureRecognizer)
+//        bottomLeft.addGestureRecognizer(tapGestureRecognizer)
+//        topRight.addGestureRecognizer(tapGestureRecognizer)
+//        bottomRight.addGestureRecognizer(tapGestureRecognizer)
+//        topLeft.frame = CGRectMake(0,0,container.frame.width*0.5,container.frame.height*0.5)
+//        topRight.frame = CGRectMake(container.frame.width*0.5,0,container.frame.width*0.5,container.frame.height*0.5)
+//        bottomLeft.frame = CGRectMake(0,container.frame.height*0.5,container.frame.width*0.5,container.frame.height*0.5)
+//        bottomRight.frame = CGRectMake(container.frame.width*0.5,container.frame.height*0.5,container.frame.width*0.5,container.frame.height*0.5)
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +38,11 @@ class HeadacheLocationVC: UIViewController {
     
     @IBAction func nextActionButton(sender: UIButton) {
         self.performSegueWithIdentifier("goto_triggers", sender: self)
+    }
+    
+    func imageTapped() {
+        Logger.log("Image Tapped")
+        topLeft.highlighted = true
     }
 
     /*

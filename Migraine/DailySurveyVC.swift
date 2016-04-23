@@ -309,6 +309,23 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
             }
         }
     }
+    
+    @IBAction func sleepInfoAction(sender: AnyObject) {
+        let alert = UIAlertController(title: "Sleep Scale", message: "\n 1. Oh my God, last night's sleep was awesome \n \n 2. Felt rested in the morning \n \n 3. Usual night's sleep \n \n 4. OK but could have been better \n \n 5. Felt like crap in the morning", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
+        return
+    }
+    
+    @IBAction func stressInfoAction(sender: AnyObject) {
+        let alert = UIAlertController(title: "Stress Scale", message: "\n 1. Relaxing day \n \n 2. Usual day \n \n 3. Somewhat stressful \n \n 4. Stressful \n \n 5. Very stressful", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
+        return
+    }
+    
     /*
     // MARK: - Navigation
 
