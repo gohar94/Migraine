@@ -106,14 +106,15 @@ class NoMigraineTodayVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
     }
     
     @IBAction func nextButtonAction(sender: AnyObject) {
-        sendDiaryToFirebase()
-        let alert = UIAlertController(title: "Success", message: "Your daily diary has been uploaded successfully!", preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default) {
-            UIAlertAction in
-            self.performSegueWithIdentifier("goto_welcomefromnomigraine", sender: self)
-        }
-        alert.addAction(action)
-        self.presentViewController(alert, animated: true, completion: nil)
+//        sendDiaryToFirebase()
+//        let alert = UIAlertController(title: "Success", message: "Your daily diary has been uploaded successfully!", preferredStyle: .Alert)
+//        let action = UIAlertAction(title: "OK", style: .Default) {
+//            UIAlertAction in
+//            self.performSegueWithIdentifier("goto_welcomefromnomigraine", sender: self)
+//        }
+//        alert.addAction(action)
+//        self.presentViewController(alert, animated: true, completion: nil)
+        self.performSegueWithIdentifier("goto_nomigraine2", sender: self)
         return
     }
     /*

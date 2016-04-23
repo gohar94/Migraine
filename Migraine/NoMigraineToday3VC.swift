@@ -1,17 +1,16 @@
 //
-//  TriggersVC.swift
+//  NoMigraineToday3VC.swift
 //  Migraine
 //
-//  Created by Gohar Irfan on 2/20/16.
+//  Created by Gohar Irfan on 4/24/16.
 //  Copyright © 2016 Gohar Irfan. All rights reserved.
 //
 
 import UIKit
 
-class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-    
+class NoMigraineToday3VC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var other: UITextField!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
@@ -21,13 +20,11 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     let customIndex = 7
     
     var selectedConditions = [String]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        other.delegate = self
         
+        // Do any additional setup after loading the view.
         sectionsArray.append(sectionA)
         sectionsArray.append(sectionB)
         sectionsArray.append(sectionC)
@@ -55,8 +52,9 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                 }
             }
         }
+        selectedConditions.removeAll() // always start from scratch for daily diary
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,7 +67,7 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionsArray[section].heading
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sectionsArray[section].items.count
     }
@@ -137,62 +135,28 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             selectedRow.accessoryType = UITableViewCellAccessoryType.Checkmark
             selectedRow.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
             selectedConditions.append(sectionsArray[indexPath.section].items[indexPath.row])
-            prefs.setObject(selectedConditions, forKey: "TRIGGERS")
+            prefs.setObject(selectedConditions, forKey: "TRIGGERSTODAY")
             prefs.synchronize()
         } else {
             selectedRow.accessoryType = UITableViewCellAccessoryType.None
             let removeIndex = selectedConditions.indexOf(sectionsArray[indexPath.section].items[indexPath.row])
             if (removeIndex != nil) {
                 selectedConditions.removeAtIndex(removeIndex!)
-                prefs.setObject(selectedConditions, forKey: "TRIGGERS")
+                prefs.setObject(selectedConditions, forKey: "TRIGGERSTODAY")
                 prefs.synchronize()
             }
         }
-    }
-    
-    func saveAddedItem() {
-        if other.text != "" {
-            let newItem = other.text
-            if !selectedConditions.contains(newItem!) {
-                sectionsArray[customIndex].items.append(newItem!)
-                selectedConditions.append(newItem!)
-                tableView.reloadData()
-                prefs.setObject(selectedConditions, forKey: "TRIGGERS")
-                prefs.synchronize()
-            } else {
-                let alert = UIAlertController(title: "Error", message: "The item you tried to add is already selected!", preferredStyle: .Alert)
-                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                alert.addAction(action)
-                self.presentViewController(alert, animated: true, completion: nil)
-                print("already added")
-            }
-            other.text = ""
-        }
-    }
-    
-    @IBAction func doneButtonAction(sender: UIButton) {
-        saveAddedItem()
-        other.resignFirstResponder()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        saveAddedItem()
         textField.resignFirstResponder()
         return true;
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
-        sendDataToFirebase()
-        self.performSegueWithIdentifier("goto_whathelpsmigraine", sender: self)
+        sendDiaryToFirebase()
     }
     
-    @IBAction func triggersInfoAction(sender: AnyObject) {
-        let alert = UIAlertController(title: "What is a trigger?", message: "An environmental or personal change in daily pattern that is more likely to bring on a migraine within a few hours up to a day", preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(action)
-        self.presentViewController(alert, animated: true, completion: nil)
-        return
-    }
     /*
     // MARK: - Navigation
 

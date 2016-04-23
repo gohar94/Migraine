@@ -12,6 +12,8 @@ import Firebase
 let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
 let BASE_URL = "https://migraine-app.firebaseio.com"
 let FIREBASE_REF = Firebase(url: BASE_URL)
+let PATIENT_RECORDS_REF = Firebase(url: "https://migraine-app.firebaseio.com/patient-records")
+
 var CURRENT_USER: Firebase
 {
     let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
@@ -19,10 +21,32 @@ var CURRENT_USER: Firebase
     return currentUser!
 }
 
-let PATIENT_RECORDS_REF = Firebase(url: "https://migraine-app.firebaseio.com/patient-records")
-let KEYS = ["TERMSAGREED", "BIRTHCONTROL", "AGE", "GENDER", "NEXTPERIOD", "BIRTHCONTROL", "LMP", "CONDITIONS", "MEDICATION", "HEADACHECONDITIONS", "HEADACHEDURATION", "SYMPTOMS", "TRIGGERS", "HELPMIGRAINE", "HELPMIGRAINEALL", "NUMBERPROMPTS", "SLEEP", "STRESS"]
-let DIARY_KEYS = ["SLEEPDURATIONHOURS", "SLEEPDURATIONMINUTES", "SLEEPQUALITY", "STRESSLEVEL", "HADMIGRAINE", "LURKINGMIGRAINE"]
+struct Section {
+    
+    var heading : String
+    var items : [String]
+    var collapsed : Bool
+    
+    init(title: String, objects : [String]) {
+        heading = title
+        items = objects
+        collapsed = false
+    }
+    
+}
+
+// for triggers
+let sectionA = Section(title: "Every Day Stressors", objects: ["Emotional Stress", "Hunger", "Dehydration", "Gaps in between meals", "Sexual Activity", "Infections", "Too much sleep", "Lack of sleep", "Tiring Activity", "Exercise"])
+let sectionB = Section(title: "Foods", objects: ["Alcohol", "MSG", "Onions", "Citrus/Bananas", "Cheese", "Chocolate", "Nitrites", "Processed Foods", "Gluten", "Tyramine", "Dyes in food", "Artificial Sweetners", "Aspartame", "Saccharin", "Sucralose - Chlorinated sucrose"])
+let sectionC = Section(title: "Hormonal", objects: ["Menstruation", "Birth Control Pill"])
+let sectionD = Section(title: "Sensory Overload", objects: ["Light", "Noise", "Motion", "Perfumes"])
+let sectionE = Section(title: "Weather", objects: ["High Barometeric Pressure", "High Humidity", "High Temperature", "Wind", "Change in temperature", "Cold Temperature", "Lightning", "Drop in barometric pressure", "Flying"])
+let sectionF = Section(title: "Medication Rebound", objects: [])
+let sectionG = Section(title: "Polution", objects: ["Smoke", "Cigarette Smoke"])
+
 var SYMPTOMS = ["Sensitivity to Light", "Sensitivity to Sound", "Sensitivity to Smells", "Dizziness", "Moodiness/Irritability", "Fatigue", "Cravings", "Tinnitus", "Fever", "Decreased Appetite", "Nausea", "Pale", "Hot/Cold", "Body Pain"]
+let KEYS = ["TERMSAGREED", "BIRTHCONTROL", "AGE", "GENDER", "NEXTPERIOD", "BIRTHCONTROL", "LMP", "CONDITIONS", "MEDICATION", "HEADACHECONDITIONS", "HEADACHEDURATION", "SYMPTOMS", "TRIGGERS", "HELPMIGRAINE", "HELPMIGRAINEALL", "NUMBERPROMPTS", "SLEEP", "STRESS"]
+let DIARY_KEYS = ["SLEEPDURATIONHOURS", "SLEEPDURATIONMINUTES", "SLEEPQUALITY", "STRESSLEVEL", "HADMIGRAINE", "LURKINGMIGRAINE", "SYMPTOMSTODAY", "TRIGGERSTODAY"]
 
 var toAlert = true
 
