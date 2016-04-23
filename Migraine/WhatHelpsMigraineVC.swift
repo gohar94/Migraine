@@ -101,7 +101,10 @@ class WhatHelpsMigraineVC: UIViewController, UITableViewDelegate, UITableViewDat
                 prefs.setObject(conditions, forKey: "HELPMIGRAINEALL") // jugaar
                 prefs.synchronize()
             } else {
-                // TODO Alert that this item is already in the list
+                let alert = UIAlertController(title: "Error", message: "The item you tried to add is already selected!", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alert.addAction(action)
+                self.presentViewController(alert, animated: true, completion: nil)
                 print("already added")
             }
             other.text = ""

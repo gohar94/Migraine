@@ -1259,9 +1259,9 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pvp-dd-xQk">
-                                        <rect key="frame" x="20" y="84" width="560" height="392"/>
+                                        <rect key="frame" x="20" y="84" width="560" height="342"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="sectionIndexBackgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="yBM-et-Z94" style="IBUITableViewCellStyleDefault" id="47A-Zz-Fjt">
                                                 <rect key="frame" x="0.0" y="28" width="560" height="44"/>
@@ -1293,19 +1293,27 @@
                                             <action selector="triggersInfoAction:" destination="vcl-PA-bLo" eventType="touchUpInside" id="060-Qg-0no"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other (if not listed)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tKy-on-zcG">
+                                        <rect key="frame" x="20" y="446" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.69803921570000005" green="0.63137254899999995" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="5oR-SW-NQx" firstAttribute="top" secondItem="tKy-on-zcG" secondAttribute="bottom" constant="20" id="1R6-WN-pdh"/>
                                     <constraint firstAttribute="trailing" secondItem="q1b-k2-4yA" secondAttribute="trailing" constant="50" id="3GY-hW-sNU"/>
                                     <constraint firstItem="Zkd-6E-RBb" firstAttribute="top" secondItem="q1b-k2-4yA" secondAttribute="bottom" id="4BU-jp-6UR"/>
-                                    <constraint firstItem="5oR-SW-NQx" firstAttribute="top" secondItem="pvp-dd-xQk" secondAttribute="bottom" constant="20" id="5DR-Ye-822"/>
                                     <constraint firstItem="q1b-k2-4yA" firstAttribute="leading" secondItem="esU-oE-MVc" secondAttribute="leading" constant="50" id="8l4-0L-sRF"/>
                                     <constraint firstItem="q1b-k2-4yA" firstAttribute="top" secondItem="esU-oE-MVc" secondAttribute="top" constant="10" id="Ps2-Xg-xjS"/>
                                     <constraint firstAttribute="bottom" secondItem="5oR-SW-NQx" secondAttribute="bottom" constant="10" id="SH7-jL-WOC"/>
                                     <constraint firstItem="5oR-SW-NQx" firstAttribute="centerX" secondItem="esU-oE-MVc" secondAttribute="centerX" id="dAu-Np-J8B"/>
                                     <constraint firstItem="pvp-dd-xQk" firstAttribute="top" secondItem="Zkd-6E-RBb" secondAttribute="bottom" constant="20" id="dYG-zt-al8"/>
                                     <constraint firstItem="Zkd-6E-RBb" firstAttribute="centerX" secondItem="esU-oE-MVc" secondAttribute="centerX" id="gXG-y6-7Og"/>
+                                    <constraint firstItem="tKy-on-zcG" firstAttribute="top" secondItem="pvp-dd-xQk" secondAttribute="bottom" constant="20" id="laI-6S-Bhg"/>
                                     <constraint firstItem="pvp-dd-xQk" firstAttribute="leading" secondItem="esU-oE-MVc" secondAttribute="leading" constant="20" id="mLn-Pb-Zn0"/>
+                                    <constraint firstAttribute="trailing" secondItem="tKy-on-zcG" secondAttribute="trailing" constant="20" id="pDv-Js-3fw"/>
+                                    <constraint firstItem="tKy-on-zcG" firstAttribute="leading" secondItem="esU-oE-MVc" secondAttribute="leading" constant="20" id="qjf-9x-84A"/>
                                     <constraint firstItem="q1b-k2-4yA" firstAttribute="centerX" secondItem="esU-oE-MVc" secondAttribute="centerX" id="tob-hE-nHr"/>
                                     <constraint firstAttribute="trailing" secondItem="pvp-dd-xQk" secondAttribute="trailing" constant="20" id="v5P-x7-4IN"/>
                                 </constraints>
@@ -1321,6 +1329,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="other" destination="tKy-on-zcG" id="JYG-t7-cNf"/>
                         <outlet property="tableView" destination="pvp-dd-xQk" id="e5m-Cg-isQ"/>
                         <segue destination="hfS-zu-02Z" kind="show" identifier="goto_whathelpsmigraine" id="eIm-9v-NNq"/>
                     </connections>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     struct Section {
         
@@ -24,10 +24,11 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var other: UITextField!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
-    var conditions = [""]
+    var customs = [String]()
     var sectionsArray = [Section]()
     
     let sectionA = Section(title: "Every Day Stressors", objects: ["Emotional Stress", "Hunger", "Dehydration", "Gaps in between meals", "Sexual Activity", "Infections", "Too much sleep", "Lack of sleep", "Tiring Activity", "Exercise"])
@@ -37,6 +38,8 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let sectionE = Section(title: "Weather", objects: ["High Barometeric Pressure", "High Humidity", "High Temperature", "Wind", "Change in temperature", "Cold Temperature", "Lightning", "Drop in barometric pressure", "Flying"])
     let sectionF = Section(title: "Medication Rebound", objects: [])
     let sectionG = Section(title: "Polution", objects: ["Smoke", "Cigarette Smoke"])
+    var sectionH = Section(title: "Custom", objects: [""])
+    let customIndex = 7
     
     var selectedConditions = [String]()
 
@@ -44,6 +47,8 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        other.delegate = self
+        
         sectionsArray.append(sectionA)
         sectionsArray.append(sectionB)
         sectionsArray.append(sectionC)
@@ -51,10 +56,25 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sectionsArray.append(sectionE)
         sectionsArray.append(sectionF)
         sectionsArray.append(sectionG)
+        sectionsArray.append(sectionH)
+        
+        var allSelectedTriggers = [String]()
+        
+        for section in sectionsArray {
+            allSelectedTriggers.appendContentsOf(section.items)
+        }
         
         let conditionsInPrefs = prefs.valueForKey("TRIGGERS") as? [String]
         if conditionsInPrefs != nil {
             selectedConditions = prefs.valueForKey("TRIGGERS") as! [String]
+            for condition in conditionsInPrefs! {
+                if (condition != "") {
+                    if (!allSelectedTriggers.contains(condition)) {
+                        sectionsArray[customIndex].items.append(condition)
+                        print(condition)
+                    }
+                }
+            }
         }
     }
 
@@ -89,7 +109,7 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 40))
-        headerView.backgroundColor = UIColor.yellowColor()
+        headerView.backgroundColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
         headerView.tag = section
         
         let headerString = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.frame.size.width-10, height: 30)) as UILabel
@@ -149,6 +169,37 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 prefs.synchronize()
             }
         }
+    }
+    
+    func saveAddedItem() {
+        if other.text != "" {
+            let newItem = other.text
+            if !selectedConditions.contains(newItem!) {
+                sectionsArray[customIndex].items.append(newItem!)
+                selectedConditions.append(newItem!)
+                tableView.reloadData()
+                prefs.setObject(selectedConditions, forKey: "TRIGGERS")
+                prefs.synchronize()
+            } else {
+                let alert = UIAlertController(title: "Error", message: "The item you tried to add is already selected!", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alert.addAction(action)
+                self.presentViewController(alert, animated: true, completion: nil)
+                print("already added")
+            }
+            other.text = ""
+        }
+    }
+    
+    @IBAction func doneButtonAction(sender: UIButton) {
+        saveAddedItem()
+        other.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        saveAddedItem()
+        textField.resignFirstResponder()
+        return true;
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
