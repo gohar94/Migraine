@@ -292,7 +292,7 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     @IBAction func nextButtonAction(sender: UIButton) {
         print("Next")
         print(hadMigraine.text!)
-        sendDiaryToFirebase()
+//        sendDiaryToFirebase() // this should be called in the next screens (either yes or no migraine) to send all data once
         if (hadMigraine != nil) {
             if (hadMigraine.text! == "No") {
                 self.performSegueWithIdentifier("goto_nomigrainetoday", sender: self)

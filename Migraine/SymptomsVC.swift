@@ -13,7 +13,6 @@ class SymptomsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
-    var conditions = ["Sensitivity to Light", "Sensitivity to Sound", "Sensitivity to Smells", "Dizziness", "Moodiness/Irritability", "Fatigue", "Cravings", "Tinnitus", "Fever", "Decreased Appetite", "Nausea", "Pale", "Hot/Cold", "Body Pain"]
     var selectedConditions = [String]()
 
     override func viewDidLoad() {
@@ -34,13 +33,13 @@ class SymptomsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return conditions.count
+        return SYMPTOMS.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.textLabel!.text = conditions[indexPath.row]
+        cell.textLabel!.text = SYMPTOMS[indexPath.row]
         return cell
     }
     
@@ -58,12 +57,12 @@ class SymptomsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if selectedRow.accessoryType == UITableViewCellAccessoryType.None {
             selectedRow.accessoryType = UITableViewCellAccessoryType.Checkmark
             selectedRow.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
-            selectedConditions.append(conditions[indexPath.row])
+            selectedConditions.append(SYMPTOMS[indexPath.row])
             prefs.setObject(selectedConditions, forKey: "SYMPTOMS")
             prefs.synchronize()
         } else {
             selectedRow.accessoryType = UITableViewCellAccessoryType.None
-            let removeIndex = selectedConditions.indexOf(conditions[indexPath.row])
+            let removeIndex = selectedConditions.indexOf(SYMPTOMS[indexPath.row])
             if (removeIndex != nil) {
                 selectedConditions.removeAtIndex(removeIndex!)
                 prefs.setObject(selectedConditions, forKey: "SYMPTOMS")
