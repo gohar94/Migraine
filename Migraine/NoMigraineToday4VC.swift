@@ -1,17 +1,16 @@
 //
-//  WhatHelpsMigraineVC.swift
+//  NoMigraineToday4VC.swift
 //  Migraine
 //
-//  Created by Gohar Irfan on 2/20/16.
+//  Created by Gohar Irfan on 4/24/16.
 //  Copyright © 2016 Gohar Irfan. All rights reserved.
 //
 
 import UIKit
 
-class WhatHelpsMigraineVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class NoMigraineToday4VC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var other: UITextField!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
@@ -20,10 +19,8 @@ class WhatHelpsMigraineVC: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        other.delegate = self
         
+        // Do any additional setup after loading the view.
         let conditionsInPrefs = prefs.valueForKey("HELPMIGRAINE") as? [String]
         if conditionsInPrefs != nil {
             selectedConditions = prefs.valueForKey("HELPMIGRAINE") as! [String]
@@ -33,10 +30,10 @@ class WhatHelpsMigraineVC: UIViewController, UITableViewDelegate, UITableViewDat
             if (!HELP_MIGRAINE.contains(item)) {
                 conditions.append(item)
             }
-            print(item)
         }
+        selectedConditions.removeAll()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -68,57 +65,30 @@ class WhatHelpsMigraineVC: UIViewController, UITableViewDelegate, UITableViewDat
             selectedRow.accessoryType = UITableViewCellAccessoryType.Checkmark
             selectedRow.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
             selectedConditions.append(conditions[indexPath.row])
-            prefs.setObject(selectedConditions, forKey: "HELPMIGRAINE")
+            prefs.setObject(selectedConditions, forKey: "HELPMIGRAINETODAY")
             prefs.synchronize()
         } else {
             selectedRow.accessoryType = UITableViewCellAccessoryType.None
             let removeIndex = selectedConditions.indexOf(conditions[indexPath.row])
             if (removeIndex != nil) {
                 selectedConditions.removeAtIndex(removeIndex!)
-                prefs.setObject(selectedConditions, forKey: "HELPMIGRAINE")
+                prefs.setObject(selectedConditions, forKey: "HELPMIGRAINETODAY")
                 prefs.synchronize()
             }
         }
-    }
-    
-    func saveAddedItem() {
-        if other.text != "" {
-            let newItem = other.text
-            if (!selectedConditions.contains(newItem!)) {
-                conditions.append(newItem!)
-                selectedConditions.append(newItem!)
-                tableView.reloadData()
-                prefs.setObject(selectedConditions, forKey: "HELPMIGRAINE")
-                prefs.synchronize()
-            } else {
-                let alert = UIAlertController(title: "Error", message: "The item you tried to add is already selected!", preferredStyle: .Alert)
-                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                alert.addAction(action)
-                self.presentViewController(alert, animated: true, completion: nil)
-                print("already added")
-            }
-            other.text = ""
-        }
-    }
-    
-    @IBAction func doneButtonAction(sender: UIButton) {
-        saveAddedItem()
-        other.resignFirstResponder()
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        saveAddedItem()
-        textField.resignFirstResponder()
-        return true;
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
-        sendDataToFirebase()
-        self.performSegueWithIdentifier("goto_prompts", sender: self)
+        sendDiaryToFirebase()
+        let alert = UIAlertController(title: "Success", message: "Your daily diary has been uploaded successfully!", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default) {
+            UIAlertAction in
+            self.performSegueWithIdentifier("goto_welcomefromnomigraine4", sender: self)
+        }
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    // TODO add other
-
     /*
     // MARK: - Navigation
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1718A03F1CCC2DE200E12DC7 /* NoMigraineToday2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718A03E1CCC2DE200E12DC7 /* NoMigraineToday2VC.swift */; };
 		1718A0411CCC300C00E12DC7 /* NoMigraineToday3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718A0401CCC300C00E12DC7 /* NoMigraineToday3VC.swift */; };
+		1718A0431CCCE49900E12DC7 /* NoMigraineToday4VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718A0421CCCE49900E12DC7 /* NoMigraineToday4VC.swift */; };
 		1726F6C61C70492600AAF671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6C51C70492600AAF671 /* AppDelegate.swift */; };
 		1726F6C81C70492600AAF671 /* OtherMedicalConditionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1726F6C71C70492600AAF671 /* OtherMedicalConditionsVC.swift */; };
 		1726F6CB1C70492600AAF671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1726F6C91C70492600AAF671 /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		1718A03E1CCC2DE200E12DC7 /* NoMigraineToday2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMigraineToday2VC.swift; sourceTree = "<group>"; };
 		1718A0401CCC300C00E12DC7 /* NoMigraineToday3VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMigraineToday3VC.swift; sourceTree = "<group>"; };
+		1718A0421CCCE49900E12DC7 /* NoMigraineToday4VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMigraineToday4VC.swift; sourceTree = "<group>"; };
 		1726F6C21C70492600AAF671 /* Migraine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Migraine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1726F6C51C70492600AAF671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1726F6C71C70492600AAF671 /* OtherMedicalConditionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMedicalConditionsVC.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				17683A4D1CB7C4CD00F57596 /* NoMigraineTodayVC.swift */,
 				1718A03E1CCC2DE200E12DC7 /* NoMigraineToday2VC.swift */,
 				1718A0401CCC300C00E12DC7 /* NoMigraineToday3VC.swift */,
+				1718A0421CCCE49900E12DC7 /* NoMigraineToday4VC.swift */,
 				172E5A341CC2575900A55969 /* YesMigraineTodayVC.swift */,
 				1726F6C91C70492600AAF671 /* Main.storyboard */,
 				1726F6CC1C70492600AAF671 /* Assets.xcassets */,
@@ -410,6 +413,7 @@
 				17B5B1601C78AB06007F46E1 /* SymptomsVC.swift in Sources */,
 				17683A4C1CB7B29B00F57596 /* DailySurveyVC.swift in Sources */,
 				17371DB81CC2B7E000F7F88E /* BaseViewController.swift in Sources */,
+				1718A0431CCCE49900E12DC7 /* NoMigraineToday4VC.swift in Sources */,
 				1726F6C81C70492600AAF671 /* OtherMedicalConditionsVC.swift in Sources */,
 				1726F6C61C70492600AAF671 /* AppDelegate.swift in Sources */,
 				17CD29D11C71BC20006CC2A1 /* GettingToKnowVC.swift in Sources */,

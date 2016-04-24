@@ -154,7 +154,7 @@ class NoMigraineToday3VC: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
-        sendDiaryToFirebase()
+        self.performSegueWithIdentifier("goto_nomigraine4", sender: self)
     }
     
     /*
