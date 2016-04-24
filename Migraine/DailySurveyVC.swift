@@ -19,6 +19,11 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     @IBOutlet weak var sleepQualityString: UIView!
     @IBOutlet weak var stressString: UIView!
     
+    @IBOutlet weak var sliderSleep: UISlider!
+    @IBOutlet weak var sliderStress: UISlider!
+    @IBOutlet weak var labelSleep: UILabel!
+    @IBOutlet weak var labelStress: UILabel!
+    
     let hourOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
     let minuteOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]
     let scaleOptions = ["1", "2", "3", "4", "5"]
@@ -52,13 +57,35 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
         if sleepDurationMinutesInPrefs != nil {
             sleepDurationMinutes.text = prefs.valueForKey("SLEEPDURATIONMINUTES") as? String
         }
-        let sleepQualtiyInPrefs = prefs.valueForKey("SLEEPQUALITY") as? String
+        let sleepQualtiyInPrefs = prefs.valueForKey("SLEEPQUALITY") as? Float
         if sleepQualtiyInPrefs != nil {
-            sleepQuality.text = prefs.valueForKey("SLEEPQUALITY") as? String
+            sliderSleep.setValue(sleepQualtiyInPrefs!, animated: true)
+            if (Int(sleepQualtiyInPrefs!) == 1) {
+                labelSleep.text = "1) Sleep was awesome"
+            } else if (Int(sleepQualtiyInPrefs!) == 2) {
+                labelSleep.text = "2) Felt rested in the morning"
+            } else if (Int(sleepQualtiyInPrefs!) == 3) {
+                labelSleep.text = "3) Usual night's sleep"
+            } else if (Int(sleepQualtiyInPrefs!) == 4) {
+                labelSleep.text = "4) OK, could be better"
+            } else {
+                labelSleep.text = "5) Felt like crap in the morning"
+            }
         }
-        let stressInPrefs = prefs.valueForKey("STRESSLEVEL") as? String
+        let stressInPrefs = prefs.valueForKey("STRESSLEVEL") as? Float
         if stressInPrefs != nil {
-            stress.text = prefs.valueForKey("STRESSLEVEL") as? String
+            sliderStress.setValue(stressInPrefs!, animated: true)
+            if (Int(stressInPrefs!) == 1) {
+                labelStress.text = "1) Relaxing day"
+            } else if (Int(stressInPrefs!) == 2) {
+                labelStress.text = "2) Usual day"
+            } else if (Int(stressInPrefs!) == 3){
+                labelStress.text = "3) Somewhat stressful"
+            } else if (Int(stressInPrefs!) == 4) {
+                labelStress.text = "4) Stressful"
+            } else {
+                labelStress.text = "5) Very stressful"
+            }
         }
         let hadMigraineInPrefs = prefs.valueForKey("HADMIGRAINE") as? String
         if hadMigraineInPrefs != nil {
@@ -133,7 +160,6 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
         }
     }
     
-    
     @IBAction func sleepDurationHoursAction(sender: UITextField) {
         let pickerView = UIPickerView()
         pickerView.tag = PickerViewTag.PickerViewSleepDurationHours.rawValue
@@ -196,68 +222,6 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
         sleepDurationMinutes.resignFirstResponder()
     }
     
-    @IBAction func sleepQualityAction(sender: UITextField) {
-        let pickerView = UIPickerView()
-        pickerView.tag = PickerViewTag.PickerViewSleepQuality.rawValue
-        pickerView.delegate = self
-        sleepQuality.inputView = pickerView
-        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
-        toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
-        toolBar.barStyle = UIBarStyle.BlackTranslucent
-        toolBar.tintColor = UIColor.whiteColor()
-        toolBar.backgroundColor = UIColor.blackColor()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneSleepQualityPressed:")
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
-        label.backgroundColor = UIColor.clearColor()
-        label.textColor = UIColor.whiteColor()
-        label.text = "Quality"
-        label.textAlignment = NSTextAlignment.Center
-        let textBtn = UIBarButtonItem(customView: label)
-        toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
-        sleepQuality.inputAccessoryView = toolBar
-        sleepQuality.text = scaleOptions[0]
-        prefs.setObject(sleepQuality.text, forKey: "SLEEPQUALITY")
-        prefs.synchronize()
-    }
-    
-    func doneSleepQualityPressed(sender: UIBarButtonItem) {
-        sleepQuality.resignFirstResponder()
-        prefs.setObject(sleepQuality.text, forKey: "SLEEPQUALITY")
-        prefs.synchronize()
-    }
-    
-    @IBAction func stressAction(sender: UITextField) {
-        let pickerView = UIPickerView()
-        pickerView.tag = PickerViewTag.PickerViewStress.rawValue
-        pickerView.delegate = self
-        stress.inputView = pickerView
-        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
-        toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
-        toolBar.barStyle = UIBarStyle.BlackTranslucent
-        toolBar.tintColor = UIColor.whiteColor()
-        toolBar.backgroundColor = UIColor.blackColor()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneStressPressed:")
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
-        label.backgroundColor = UIColor.clearColor()
-        label.textColor = UIColor.whiteColor()
-        label.text = "Stress"
-        label.textAlignment = NSTextAlignment.Center
-        let textBtn = UIBarButtonItem(customView: label)
-        toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
-        stress.inputAccessoryView = toolBar
-        stress.text = scaleOptions[0]
-        prefs.setObject(stress.text, forKey: "STRESSLEVEL")
-        prefs.synchronize()
-    }
-    
-    func doneStressPressed(sender: UIBarButtonItem) {
-        prefs.setObject(stress.text, forKey: "STRESSLEVEL")
-        prefs.synchronize()
-        stress.resignFirstResponder()
-    }
-    
     @IBAction func hadMigraineAction(sender: UITextField) {
         let pickerView = UIPickerView()
         pickerView.tag = PickerViewTag.PickerViewHadMigraine.rawValue
@@ -311,7 +275,7 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     }
     
     @IBAction func sleepInfoAction(sender: AnyObject) {
-        let alert = UIAlertController(title: "Sleep Scale", message: "\n 1. Oh my God, last night's sleep was awesome \n \n 2. Felt rested in the morning \n \n 3. Usual night's sleep \n \n 4. OK but could have been better \n \n 5. Felt like crap in the morning", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Sleep Scale", message: "\n 1) Oh my God, last night's sleep was awesome \n \n 2) Felt rested in the morning \n \n 3) Usual night's sleep \n \n 4) OK but could have been better \n \n 5) Felt like crap in the morning", preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alert.addAction(action)
         self.presentViewController(alert, animated: true, completion: nil)
@@ -319,13 +283,47 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     }
     
     @IBAction func stressInfoAction(sender: AnyObject) {
-        let alert = UIAlertController(title: "Stress Scale", message: "\n 1. Relaxing day \n \n 2. Usual day \n \n 3. Somewhat stressful \n \n 4. Stressful \n \n 5. Very stressful", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Stress Scale", message: "\n 1) Relaxing day \n \n 2) Usual day \n \n 3) Somewhat stressful \n \n 4) Stressful \n \n 5) Very stressful", preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alert.addAction(action)
         self.presentViewController(alert, animated: true, completion: nil)
         return
     }
+
+    @IBAction func stressSliderAction(sender: UISlider) {
+        var currentValue = Int(sender.value)
+        if (currentValue == 1) {
+            labelStress.text = "1) Relaxing day"
+        } else if (currentValue == 2) {
+            labelStress.text = "2) Usual day"
+        } else if (currentValue == 3){
+            labelStress.text = "3) Somewhat stressful"
+        } else if (currentValue == 4) {
+            labelStress.text = "4) Stressful"
+        } else {
+            labelStress.text = "5) Very stressful"
+        }
+        prefs.setValue(currentValue, forKey: "STRESSLEVEL")
+        prefs.synchronize()
+    }
     
+    @IBAction func sleepSliderAction(sender: UISlider) {
+        var currentValue = Int(sender.value)
+        if (currentValue == 1) {
+            labelSleep.text = "1) Sleep was awesome"
+        } else if (currentValue == 2) {
+            labelSleep.text = "2) Felt rested in the morning"
+        } else if (currentValue == 3) {
+            labelSleep.text = "3) Usual night's sleep"
+        } else if (currentValue == 4) {
+            labelSleep.text = "4) OK, could be better"
+        } else {
+            labelSleep.text = "5) Felt like crap in the morning"
+        }
+        prefs.setValue(currentValue, forKey: "SLEEPQUALITY")
+        prefs.synchronize()
+
+    }
     /*
     // MARK: - Navigation
 
