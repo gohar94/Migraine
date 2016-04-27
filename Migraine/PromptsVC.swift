@@ -109,7 +109,7 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
 
         // Do any additional setup after loading the view.
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: #selector(PromptsVC.skipTapped))
         
         
         let numbersInPrefs = prefs.valueForKey("NUMBERPROMPTS") as? String
@@ -190,7 +190,7 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedRow = tableView.cellForRowAtIndexPath(indexPath)!
         // clear existing selection
-        for (var row = 0; row < tableView.numberOfRowsInSection(0); row++) {
+        for (var row = 0; row < tableView.numberOfRowsInSection(0); row += 1) {
             tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0))?.accessoryType = UITableViewCellAccessoryType.None
         }
         if selectedRow.accessoryType == UITableViewCellAccessoryType.None {
@@ -215,9 +215,9 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
         doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
         inputView.addSubview(doneButton) // add Button to UIView
-        doneButton.addTarget(self, action: "doneSleepButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(PromptsVC.doneSleepButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         sender.inputView = inputView
-        datePickerView.addTarget(self, action: Selector("datePickerSleepValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(PromptsVC.datePickerSleepValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         datePickerSleepValueChanged(datePickerView) // Set the date on start.
     }
     
@@ -249,9 +249,9 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
         doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
         inputView.addSubview(doneButton) // add Button to UIView
-        doneButton.addTarget(self, action: "doneStressButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(PromptsVC.doneStressButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         sender.inputView = inputView
-        datePickerView.addTarget(self, action: Selector("datePickerStressValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(PromptsVC.datePickerStressValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         datePickerStressValueChanged(datePickerView) // Set the date on start.
     }
     
