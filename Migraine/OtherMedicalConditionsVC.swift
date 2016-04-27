@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OtherMedicalConditionsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class OtherMedicalConditionsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,7 +20,7 @@ class OtherMedicalConditionsVC: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: #selector(OtherMedicalConditionsVC.skipTapped))
         
         let conditionsInPrefs = prefs.valueForKey("CONDITIONS") as? [String]
         if conditionsInPrefs != nil {
@@ -82,7 +82,8 @@ class OtherMedicalConditionsVC: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func skipTapped() {
-        // TODO save, upload data and skip
+        sendDataToFirebase()
+        self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
     }
 }

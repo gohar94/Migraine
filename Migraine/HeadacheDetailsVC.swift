@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeadacheDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HeadacheDetailsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var duration: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -22,7 +22,7 @@ class HeadacheDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: #selector(HeadacheDetailsVC.skipTapped))
         
         let conditionsInPrefs = prefs.valueForKey("HEADACHECONDITIONS") as? [String]
         if conditionsInPrefs != nil {
@@ -95,7 +95,8 @@ class HeadacheDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func skipTapped() {
-        // TODO save, upload data and skip
+        sendDataToFirebase()
+        self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
     }
     

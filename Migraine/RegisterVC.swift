@@ -41,6 +41,8 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
                     FIREBASE_REF.authUser(emailStr, password: passwordStr, withCompletionBlock: { (error, authData) -> Void in
                         if (error == nil) {
                             print("authenticated user")
+                            NSUserDefaults.standardUserDefaults().setObject(emailStr, forKey: "EMAIL")
+                            NSUserDefaults.standardUserDefaults().setObject(passwordStr, forKey: "PASSWORD")
                             NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                             print("Logged in!")
                             UIApplication.sharedApplication().networkActivityIndicatorVisible = false

@@ -46,7 +46,7 @@ let sectionG = Section(title: "Polution", objects: ["Smoke", "Cigarette Smoke"])
 
 let SYMPTOMS = ["Sensitivity to Light", "Sensitivity to Sound", "Sensitivity to Smells", "Dizziness", "Moodiness/Irritability", "Fatigue", "Cravings", "Tinnitus", "Fever", "Decreased Appetite", "Nausea", "Pale", "Hot/Cold", "Body Pain"]
 let HELP_MIGRAINE = ["Sleep", "Yoga", "Exercise", "Medications", "Hydration", "Glasses to prevent glare"]
-let KEYS = ["TERMSAGREED", "BIRTHCONTROL", "AGE", "GENDER", "NEXTPERIOD", "BIRTHCONTROL", "LMP", "CONDITIONS", "MEDICATION", "HEADACHECONDITIONS", "HEADACHEDURATION", "SYMPTOMS", "TRIGGERS", "HELPMIGRAINE", "NUMBERPROMPTS", "SLEEP", "STRESS"]
+let KEYS = ["EMAIL", "TERMSAGREED", "BIRTHCONTROL", "AGE", "GENDER", "NEXTPERIOD", "BIRTHCONTROL", "LMP", "CONDITIONS", "MEDICATION", "HEADACHECONDITIONS", "HEADACHEDURATION", "SYMPTOMS", "TRIGGERS", "HELPMIGRAINE", "NUMBERPROMPTS", "SLEEP", "STRESS", "HEADACHELOCATIONS"]
 let DIARY_KEYS = ["SLEEPDURATIONHOURS", "SLEEPDURATIONMINUTES", "SLEEPQUALITY", "STRESSLEVEL", "HADMIGRAINE", "LURKINGMIGRAINE", "SYMPTOMSTODAY", "TRIGGERSTODAY", "HELPMIGRAINETODAY", "MIGRAINESEVERITY", "MIGRAINESEVERITY"]
 
 var toAlert = true
@@ -54,6 +54,7 @@ var toAlert = true
 // sends user data (profile) to firebase
 func sendDataToFirebase() {
     print("sending")
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     // check if user is logged in
     if (NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil || CURRENT_USER.authData == nil) {
         return
@@ -90,11 +91,13 @@ func sendDataToFirebase() {
     let usersRef = PATIENT_RECORDS_REF.childByAppendingPath("patient-info")
     usersRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).setValue(dict)
     print("done uploading")
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 }
 
 // sends user daily diary to firebase
 func sendDiaryToFirebase() {
     print("sending diary to firebase")
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     // check if user is logged in
     if (NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil || CURRENT_USER.authData == nil) {
         return
@@ -127,4 +130,5 @@ func sendDiaryToFirebase() {
     let curDate = dateFormatter.stringFromDate(date)
     usersRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(curDate).setValue(dict)
     print("done uploading user diary")
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 }

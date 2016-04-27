@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WhatHelpsMigraineVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class WhatHelpsMigraineVC: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var other: UITextField!
@@ -23,6 +23,8 @@ class WhatHelpsMigraineVC: UIViewController, UITableViewDelegate, UITableViewDat
 
         // Do any additional setup after loading the view.
         other.delegate = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: #selector(WhatHelpsMigraineVC.skipTapped))
         
         let conditionsInPrefs = prefs.valueForKey("HELPMIGRAINE") as? [String]
         if conditionsInPrefs != nil {
@@ -115,6 +117,12 @@ class WhatHelpsMigraineVC: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func nextButtonAction(sender: UIButton) {
         sendDataToFirebase()
         self.performSegueWithIdentifier("goto_prompts", sender: self)
+    }
+    
+    func skipTapped() {
+        sendDataToFirebase()
+        self.openViewControllerBasedOnIdentifier("DailySurveyVC")
+        print("skip")
     }
     
     // TODO add other

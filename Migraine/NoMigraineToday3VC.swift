@@ -93,7 +93,7 @@ class NoMigraineToday3VC: UIViewController, UITableViewDelegate, UITableViewData
         headerString.text = sectionsArray[section].heading
         headerView.addSubview(headerString)
         
-        let headerTapped = UITapGestureRecognizer (target: self, action:"sectionHeaderTapped:")
+        let headerTapped = UITapGestureRecognizer (target: self, action:#selector(NoMigraineToday3VC.sectionHeaderTapped(_:)))
         headerView.addGestureRecognizer(headerTapped)
         
         return headerView

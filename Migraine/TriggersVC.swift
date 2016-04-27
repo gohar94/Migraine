@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class TriggersVC: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var other: UITextField!
@@ -27,6 +27,8 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
 
         // Do any additional setup after loading the view.
         other.delegate = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: #selector(TriggersVC.skipTapped))
         
         sectionsArray.append(sectionA)
         sectionsArray.append(sectionB)
@@ -95,7 +97,7 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         headerString.text = sectionsArray[section].heading
         headerView.addSubview(headerString)
         
-        let headerTapped = UITapGestureRecognizer (target: self, action:"sectionHeaderTapped:")
+        let headerTapped = UITapGestureRecognizer (target: self, action:#selector(TriggersVC.sectionHeaderTapped(_:)))
         headerView.addGestureRecognizer(headerTapped)
         
         return headerView
@@ -192,6 +194,12 @@ class TriggersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         alert.addAction(action)
         self.presentViewController(alert, animated: true, completion: nil)
         return
+    }
+    
+    func skipTapped() {
+        sendDataToFirebase()
+        self.openViewControllerBasedOnIdentifier("DailySurveyVC")
+        print("skip")
     }
     /*
     // MARK: - Navigation

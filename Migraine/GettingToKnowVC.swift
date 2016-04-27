@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class GettingToKnowVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet var dateOfLMP: UITextField!
     @IBOutlet var dateOfNextPeriod: UITextField!
@@ -31,7 +31,7 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: #selector(GettingToKnowVC.skipTapped))
         
         let termsAgreed = prefs.valueForKey("TERMSAGREED") as? Bool
         if (termsAgreed != nil) {
@@ -84,7 +84,7 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         toolBar.barStyle = UIBarStyle.BlackTranslucent
         toolBar.tintColor = UIColor.whiteColor()
         toolBar.backgroundColor = UIColor.blackColor()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneGenderPressed:")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(GettingToKnowVC.doneGenderPressed(_:)))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
         label.backgroundColor = UIColor.clearColor()
@@ -107,7 +107,7 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         toolBar.barStyle = UIBarStyle.BlackTranslucent
         toolBar.tintColor = UIColor.whiteColor()
         toolBar.backgroundColor = UIColor.blackColor()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneBirthControlPressed:")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(GettingToKnowVC.doneBirthControlPressed(_:)))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
         label.backgroundColor = UIColor.clearColor()
@@ -205,9 +205,9 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
         inputView.addSubview(doneButton) // add Button to UIView
-        doneButton.addTarget(self, action: "doneLMPButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(GettingToKnowVC.doneLMPButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         sender.inputView = inputView
-        datePickerView.addTarget(self, action: Selector("datePickerLMPValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(GettingToKnowVC.datePickerLMPValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         datePickerLMPValueChanged(datePickerView) // Set the date on start.
     }
     
@@ -238,9 +238,9 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
         inputView.addSubview(doneButton) // add Button to UIView
-        doneButton.addTarget(self, action: "doneNextPeriodButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(GettingToKnowVC.doneNextPeriodButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         sender.inputView = inputView
-        datePickerView.addTarget(self, action: Selector("datePickerNextPeriodValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(GettingToKnowVC.datePickerNextPeriodValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         datePickerNextPeriodValueChanged(datePickerView) // Set the date on start.
     }
     
@@ -285,7 +285,8 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     }
     
     func skipTapped() {
-        // TODO save, upload data and skip
+        sendDataToFirebase()
+        self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
     }
 

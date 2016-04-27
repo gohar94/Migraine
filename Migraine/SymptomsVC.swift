@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SymptomsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SymptomsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -19,7 +19,7 @@ class SymptomsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: #selector(SymptomsVC.skipTapped))
         
         let conditionsInPrefs = prefs.valueForKey("SYMPTOMS") as? [String]
         if conditionsInPrefs != nil {
@@ -77,7 +77,8 @@ class SymptomsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func skipTapped() {
-        // TODO save, upload data and skip
+        sendDataToFirebase()
+        self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
     }
 

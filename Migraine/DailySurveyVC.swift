@@ -170,7 +170,7 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
         toolBar.barStyle = UIBarStyle.BlackTranslucent
         toolBar.tintColor = UIColor.whiteColor()
         toolBar.backgroundColor = UIColor.blackColor()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneSleepDurationHoursPressed:")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(DailySurveyVC.doneSleepDurationHoursPressed(_:)))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
         label.backgroundColor = UIColor.clearColor()
@@ -201,7 +201,7 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
         toolBar.barStyle = UIBarStyle.BlackTranslucent
         toolBar.tintColor = UIColor.whiteColor()
         toolBar.backgroundColor = UIColor.blackColor()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneSleepDurationMinutesPressed:")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(DailySurveyVC.doneSleepDurationMinutesPressed(_:)))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
         label.backgroundColor = UIColor.clearColor()
@@ -291,7 +291,7 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     }
 
     @IBAction func stressSliderAction(sender: UISlider) {
-        var currentValue = Int(sender.value)
+        let currentValue = Int(sender.value)
         if (currentValue == 1) {
             labelStress.text = "1) Relaxing day"
         } else if (currentValue == 2) {
@@ -308,7 +308,7 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     }
     
     @IBAction func sleepSliderAction(sender: UISlider) {
-        var currentValue = Int(sender.value)
+        let currentValue = Int(sender.value)
         if (currentValue == 1) {
             labelSleep.text = "1) Sleep was awesome"
         } else if (currentValue == 2) {

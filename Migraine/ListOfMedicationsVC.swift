@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class ListOfMedicationsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addedMedicine: UITextField!
@@ -23,7 +23,7 @@ class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDat
         // Do any additional setup after loading the view.
         addedMedicine.delegate = self
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: #selector(ListOfMedicationsVC.skipTapped))
         
         let medicationsInPrefs = prefs.valueForKey("MEDICATION") as? [String]
         if medicationsInPrefs != nil {
@@ -89,7 +89,8 @@ class ListOfMedicationsVC: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func skipTapped() {
-        // TODO save, upload data and skip
+        sendDataToFirebase()
+        self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
     }
     

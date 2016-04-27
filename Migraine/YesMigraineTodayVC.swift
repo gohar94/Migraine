@@ -52,9 +52,9 @@ class YesMigraineTodayVC: UIViewController {
         doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
         inputView.addSubview(doneButton) // add Button to UIView
-        doneButton.addTarget(self, action: "doneMigraineButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(YesMigraineTodayVC.doneMigraineButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         sender.inputView = inputView
-        datePickerView.addTarget(self, action: Selector("datePickerMigraineValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(YesMigraineTodayVC.datePickerMigraineValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         datePickerMigraineValueChanged(datePickerView) // Set the date on start.
 
     }
@@ -80,7 +80,7 @@ class YesMigraineTodayVC: UIViewController {
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        var currentValue = Int(sender.value)
+        let currentValue = Int(sender.value)
         if (currentValue == 1) {
             label.text = "1) Mild - able to carry on with all of daily normal activities"
         } else if (currentValue == 2) {

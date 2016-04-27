@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var numberTableView: UITableView!
     @IBOutlet var sleepTime: UITextField!
@@ -108,6 +108,10 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: "skipTapped")
+        
+        
         let numbersInPrefs = prefs.valueForKey("NUMBERPROMPTS") as? String
         if numbersInPrefs != nil {
             selectedNumber = prefs.valueForKey("NUMBERPROMPTS") as! String
@@ -271,6 +275,12 @@ class PromptsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBAction func nextButtonAction(sender: UIButton) {
         sendDataToFirebase()
         self.performSegueWithIdentifier("goto_dailysurvey", sender: self)
+    }
+    
+    func skipTapped() {
+        sendDataToFirebase()
+        self.openViewControllerBasedOnIdentifier("DailySurveyVC")
+        print("skip")
     }
 
     /*
