@@ -90,14 +90,35 @@ class HeadacheDetailsVC: BaseViewController, UITableViewDelegate, UITableViewDat
         prefs.setValue(duration.text, forKey: "HEADACHEDURATION")
         prefs.setObject(selectedConditions, forKey: "HEADACHECONDITIONS")
         prefs.synchronize()
-        sendDataToFirebase()
-        self.performSegueWithIdentifier("goto_symptoms", sender: self)
+        if checkOneOrBoth() {
+            sendDataToFirebase()
+            self.performSegueWithIdentifier("goto_symptoms", sender: self)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Headache can either be on one side of the head or both sides of the head. Please choose one of these two options, not both!", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
     }
     
     func skipTapped() {
-        sendDataToFirebase()
+        if checkOneOrBoth() {
+            sendDataToFirebase()
+        }
         self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
+    }
+    
+    func checkOneOrBoth() -> Bool {
+        // checks if only one of "both sides" or "one side" is selected
+        let conditionsInPrefs = prefs.valueForKey("HEADACHECONDITIONS") as? [String]
+        if conditionsInPrefs != nil {
+            if (conditionsInPrefs!.contains("One side of the head") && conditionsInPrefs!.contains("Both sides of the head")) {
+                return false
+            }
+        }
+        return true
     }
     
     /*
