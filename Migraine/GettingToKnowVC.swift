@@ -17,7 +17,7 @@ class GettingToKnowVC: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     @IBOutlet weak var age: UITextField!
     
     let genderOptions = ["Female", "Male"]
-    let birthControlOptions = ["A", "B", "C"]
+    let birthControlOptions = ["Estrogen/Progestin Pill", "Only Progestin Pill", "Patch", "Ring", "Progestin Shot", "Progestin Implant", "Hormone IUD", "Copper IUD"]
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     

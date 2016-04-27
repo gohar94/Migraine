@@ -1140,10 +1140,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvp-Pf-ORZ">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gvp-Pf-ORZ">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRC-ZG-Edh">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRC-ZG-Edh">
                                         <rect key="frame" x="243" y="496" width="115" height="30"/>
                                         <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1157,28 +1157,28 @@
                                             <action selector="nextActionButton:" destination="xDl-SN-pMS" eventType="touchUpInside" id="u11-lF-BW7"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="saY-K0-rl0">
-                                        <rect key="frame" x="50" y="84" width="500" height="392"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="saY-K0-rl0">
+                                        <rect key="frame" x="50" y="84" width="500" height="436"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SuK-Gz-5ni">
-                                                <rect key="frame" x="0.0" y="0.0" width="500" height="196"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SuK-Gz-5ni">
+                                                <rect key="frame" x="0.0" y="0.0" width="500" height="218"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brain" highlightedImage="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="xfR-rC-qDd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="196"/>
+                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="brain" highlightedImage="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="xfR-rC-qDd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="218"/>
                                                     </imageView>
-                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brain" highlightedImage="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="om2-f6-0nb">
-                                                        <rect key="frame" x="250" y="0.0" width="250" height="196"/>
+                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="brain" highlightedImage="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="om2-f6-0nb">
+                                                        <rect key="frame" x="250" y="0.0" width="250" height="218"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ymd-5p-WhO">
-                                                <rect key="frame" x="0.0" y="196" width="500" height="196"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ymd-5p-WhO">
+                                                <rect key="frame" x="0.0" y="218" width="500" height="218"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brain" highlightedImage="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="H5k-Gm-xYW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="196"/>
+                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="brain" highlightedImage="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="H5k-Gm-xYW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="218"/>
                                                     </imageView>
-                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brain" highlightedImage="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="gMv-GG-YkN">
-                                                        <rect key="frame" x="250" y="0.0" width="250" height="196"/>
+                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="brain" highlightedImage="privacy" translatesAutoresizingMaskIntoConstraints="NO" id="gMv-GG-YkN">
+                                                        <rect key="frame" x="250" y="0.0" width="250" height="218"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
@@ -1194,7 +1194,7 @@
                                     <constraint firstItem="saY-K0-rl0" firstAttribute="leading" secondItem="Gvp-Pf-ORZ" secondAttribute="leading" constant="50" id="we7-dV-mIa"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headache Location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57u-Hd-nIC" userLabel="PageTitle">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Headache Location" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57u-Hd-nIC" userLabel="PageTitle">
                                 <rect key="frame" x="50" y="84" width="500" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="highlightedColor"/>
