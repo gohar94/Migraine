@@ -16,11 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brain" translatesAutoresizingMaskIntoConstraints="NO" id="OZn-pc-p2h">
-                                <rect key="frame" x="150" y="202" width="300" height="197"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Migraine App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SL-Mi-JWg">
-                                <rect key="frame" x="175" y="429" width="250" height="30"/>
+                                <rect key="frame" x="175" y="285" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Wwi-dw-LbC"/>
                                     <constraint firstAttribute="width" constant="250" id="iCN-XP-sAG"/>
@@ -31,10 +28,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.69803921570000005" green="0.63137254899999995" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="OZn-pc-p2h" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BWI-mi-onA"/>
-                            <constraint firstItem="5SL-Mi-JWg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="UP9-MN-wdy"/>
-                            <constraint firstItem="OZn-pc-p2h" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="WcW-fi-cVK"/>
-                            <constraint firstItem="5SL-Mi-JWg" firstAttribute="top" secondItem="OZn-pc-p2h" secondAttribute="bottom" constant="30" id="t6B-Ko-Aal"/>
+                            <constraint firstItem="5SL-Mi-JWg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="GGV-Ut-GFo"/>
+                            <constraint firstItem="5SL-Mi-JWg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="o1g-Xl-CPd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -43,7 +38,4 @@
             <point key="canvasLocation" x="325" y="421"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="brain" width="300" height="197"/>
-    </resources>
 </document>
