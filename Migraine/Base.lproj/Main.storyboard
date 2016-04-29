@@ -24,7 +24,7 @@
                                         <rect key="frame" x="20" y="62" width="250" height="30"/>
                                         <color key="backgroundColor" red="0.83665865380000004" green="0.83665865380000004" blue="0.83665865380000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RuS-US-ivo">
                                         <rect key="frame" x="20" y="100" width="250" height="30"/>

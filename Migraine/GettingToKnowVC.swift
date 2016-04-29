@@ -222,7 +222,6 @@ class GettingToKnowVC: BaseViewController, UIPickerViewDataSource, UIPickerViewD
     
     func doneLMPButtonPressed(sender: UIButton) {
         dateOfLMP.resignFirstResponder() // To resign the inputView on clicking done.
-        // TODO dateOfLMP here
         prefs.setValue(dateOfLMP.text, forKey: "LMP")
         prefs.synchronize()
     }
@@ -255,7 +254,6 @@ class GettingToKnowVC: BaseViewController, UIPickerViewDataSource, UIPickerViewD
     
     func doneNextPeriodButtonPressed(sender: UIButton) {
         dateOfNextPeriod.resignFirstResponder() // To resign the inputView on clicking done.
-        // TODO dateOfNextPeriod
         prefs.setValue(dateOfNextPeriod.text, forKey: "NEXTPERIOD")
         prefs.synchronize()
     }
@@ -271,12 +269,19 @@ class GettingToKnowVC: BaseViewController, UIPickerViewDataSource, UIPickerViewD
     }
     
     @IBAction func nextAction(sender: UIButton) {
-//        TODO pass on data to next section
-        prefs.setValue(age.text, forKey: "AGE")
-        prefs.setValue(gender.text, forKey: "GENDER")
+        if (age.text != "") {
+            prefs.setValue(age.text, forKey: "AGE")
+        }
+        if (gender.text != "") {
+            prefs.setValue(gender.text, forKey: "GENDER")
+        }
         if gender.text?.lowercaseString == "female" {
-            prefs.setValue(dateOfNextPeriod.text, forKey: "NEXTPERIOD")
-            prefs.setValue(dateOfLMP.text, forKey: "LMP")
+            if (dateOfNextPeriod.text != "") {
+                prefs.setValue(dateOfNextPeriod.text, forKey: "NEXTPERIOD")
+            }
+            if (dateOfLMP.text != "") {
+                prefs.setValue(dateOfLMP.text, forKey: "LMP")
+            }
         }
         prefs.setValue(birthControl.text, forKey: "BIRTHCONTROL")
         prefs.synchronize()
