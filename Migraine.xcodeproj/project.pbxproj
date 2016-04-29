@@ -295,7 +295,7 @@
 				TargetAttributes = {
 					1726F6C11C70492600AAF671 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 69YCH34E2J;
+						DevelopmentTeam = ULMRRQMAMH;
 					};
 					1726F6D51C70492600AAF671 = {
 						CreatedOnToolsVersion = 7.2;
@@ -579,8 +579,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: goharirfan@icloud.com (6ELGBYTL54)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: goharirfan@icloud.com (6ELGBYTL54)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Migraine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -598,8 +598,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: goharirfan@icloud.com (6ELGBYTL54)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: goharirfan@icloud.com (6ELGBYTL54)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Migraine/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
