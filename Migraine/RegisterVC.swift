@@ -12,6 +12,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var fullName: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         email.delegate = self
         password.delegate = self
+        fullName.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,8 +32,9 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
         
         let emailStr = self.email.text
         let passwordStr = self.password.text
+        let fullNameStr = self.fullName.text
         
-        if (emailStr != "" && passwordStr != "") {
+        if (emailStr != "" && passwordStr != "" && fullNameStr != "") {
             email.resignFirstResponder()
             password.resignFirstResponder()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -43,6 +46,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
                             print("authenticated user")
                             NSUserDefaults.standardUserDefaults().setObject(emailStr, forKey: "EMAIL")
                             NSUserDefaults.standardUserDefaults().setObject(passwordStr, forKey: "PASSWORD")
+                            NSUserDefaults.standardUserDefaults().setObject(fullNameStr, forKey: "FULLNAME")
                             NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                             print("Logged in!")
                             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -65,7 +69,7 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
                 }
             })
         } else {
-            let alert = UIAlertController(title: "Error", message: "Enter email and password", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Error", message: "Enter full name, email and password", preferredStyle: .Alert)
             let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
             alert.addAction(action)
             self.presentViewController(alert, animated: true, completion: nil)
