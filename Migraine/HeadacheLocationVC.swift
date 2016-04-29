@@ -100,6 +100,7 @@ class HeadacheLocationVC: BaseViewController {
             prefs.setObject(conditionsInPrefs, forKey: "HEADACHELOCATIONS")
             prefs.synchronize()
         }
+        sendDiaryToFirebase()
         self.performSegueWithIdentifier("goto_triggers", sender: self)
     }
     
