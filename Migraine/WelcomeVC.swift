@@ -45,6 +45,7 @@ class WelcomeVC: BaseViewController {
             UIApplication.sharedApplication().cancelLocalNotification(notification)
             print("deleting notif")
         }
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         self.performSegueWithIdentifier("goto_signin", sender: self)
     }
     
