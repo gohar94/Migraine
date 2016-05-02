@@ -120,6 +120,7 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
             // default number of prompts = 2
             selectedNumber = "2"
             prefs.setObject(selectedNumber, forKey: "NUMBERPROMPTS")
+            prefs.synchronize()
         }
         print(selectedNumber)
         
