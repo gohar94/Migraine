@@ -40,6 +40,8 @@ class SymptomsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         cell.textLabel!.text = SYMPTOMS[indexPath.row]
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
         return cell
     }
     
