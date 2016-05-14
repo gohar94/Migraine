@@ -17,6 +17,7 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     @IBOutlet weak var sleepDurationString: UIView!
     @IBOutlet weak var sleepQualityString: UIView!
     @IBOutlet weak var stressString: UIView!
+    
     @IBOutlet weak var hadMigraine: UISwitch!
     @IBOutlet weak var sliderSleep: UISlider!
     @IBOutlet weak var sliderStress: UISlider!
@@ -215,22 +216,18 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     
     @IBAction func nextButtonAction(sender: UIButton) {
         print("Next")
-        print(hadMigraine.on)
-//        sendDiaryToFirebase() // this should be called in the next screens (either yes or no migraine) to send all data once
-        if (hadMigraine != nil) {
-            if (hadMigraine.on == false) {
-                self.performSegueWithIdentifier("goto_nomigrainetoday", sender: self)
-                return
-            } else if (hadMigraine.on == true) {
-                self.performSegueWithIdentifier("goto_yesmigrainetoday", sender: self)
-                return
-            } else {
-                let alert = UIAlertController(title: "Error", message: "Before proceeding, please specify if you had a migraine today or not!", preferredStyle: .Alert)
-                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                alert.addAction(action)
-                self.presentViewController(alert, animated: true, completion: nil)
-                return
-            }
+        if (hadMigraine.on == false) {
+            self.performSegueWithIdentifier("goto_nomigrainetoday", sender: self)
+            return
+        } else if (hadMigraine.on == true) {
+            self.performSegueWithIdentifier("goto_yesmigrainetoday", sender: self)
+            return
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Before proceeding, please specify if you had a migraine today or not!", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
         }
     }
     

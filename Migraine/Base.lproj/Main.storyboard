@@ -1708,6 +1708,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="hadMigraine" destination="dgN-gF-nRi" id="t95-43-CLc"/>
                         <outlet property="labelSleep" destination="Xy4-sG-Lc2" id="stX-uW-fnP"/>
                         <outlet property="labelStress" destination="AdU-FF-GQ7" id="SmE-SK-0BN"/>
                         <outlet property="sleepDurationHours" destination="Y9s-FM-UB1" id="UTG-8m-0jk"/>
@@ -1768,7 +1769,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="hadMigraineAction:" destination="zcf-kf-hlh" eventType="editingDidBegin" id="6u9-5r-Hrn"/>
                                             <action selector="migraineAction:" destination="doD-5T-Ix1" eventType="editingDidBegin" id="aZ0-BS-ZVO"/>
                                         </connections>
                                     </textField>
