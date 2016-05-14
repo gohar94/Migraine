@@ -17,7 +17,7 @@ class GettingToKnowVC: BaseViewController, UIPickerViewDataSource, UIPickerViewD
     @IBOutlet weak var age: UITextField!
     
     let genderOptions = ["Female", "Male"]
-    let birthControlOptions = ["Estrogen/Progestin Pill", "Only Progestin Pill", "Patch", "Ring", "Progestin Shot", "Progestin Implant", "Hormone IUD", "Copper IUD"]
+    let birthControlOptions = ["None", "Estrogen/Progestin Pill", "Only Progestin Pill", "Patch", "Ring", "Progestin Shot", "Progestin Implant", "Hormone IUD", "Copper IUD"]
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
@@ -135,13 +135,17 @@ class GettingToKnowVC: BaseViewController, UIPickerViewDataSource, UIPickerViewD
             // TODO change birth control settings
             dateOfLMP.enabled = true
             dateOfNextPeriod.enabled = true
+            dateOfLMP.hidden = false
+            dateOfNextPeriod.hidden = false
         } else {
             // Male specefic input show
             // TODO change birth control settings back here
             dateOfNextPeriod.text = ""
             dateOfLMP.text = ""
             dateOfLMP.enabled = false
+            dateOfLMP.hidden = true
             dateOfNextPeriod.enabled = false
+            dateOfNextPeriod.hidden = true
         }
         prefs.setValue(gender.text, forKey: "GENDER")
         prefs.synchronize()

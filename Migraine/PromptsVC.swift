@@ -13,6 +13,7 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var numberTableView: UITableView!
     @IBOutlet var sleepTime: UITextField!
     @IBOutlet var stressTime: UITextField!
+    @IBOutlet weak var notice: UILabel!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
@@ -22,6 +23,7 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
     func onlyOneNotification(defaultValue: Bool) {
         if (selectedNumber == "1") {
             stressTime.enabled = false
+            stressTime.hidden = true
             for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
                 if (notification.userInfo!["TYPE"]) != nil {
                     if (notification.userInfo!["TYPE"] as! String == "STRESS") {
@@ -36,6 +38,7 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
             prefs.synchronize()
         } else {
             stressTime.enabled = true
+            stressTime.hidden = false
             if (defaultValue) {
                 // set default value here
                 let dateFormatter = NSDateFormatter()
@@ -56,15 +59,17 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
             print("settings none")
             // make sure this warning comes up only once on one app launch
             if toAlert {
-                let ac = UIAlertController(title: "Can't prompt!", message: "Notifications not enabled by user. Enable them from Settings > Notifications > Migraine", preferredStyle: .Alert)
+                let ac = UIAlertController(title: "Can't prompt!", message: "Notifications are not enabled by the user. \nEnable them from: \nSettings > Notifications > Migraine \n \nPlease come back to this page after enabling notifications and set prompt timings again. Thank you!", preferredStyle: .Alert)
                 ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 presentViewController(ac, animated: true, completion: nil)
                 toAlert = false
             } else {
                 print("to alert is false")
             }
+            notice.hidden = false;
             return false
         } else {
+            notice.hidden = true;
             return true
         }
     }
@@ -275,7 +280,13 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBAction func nextButtonAction(sender: UIButton) {
         sendDataToFirebase()
-        self.performSegueWithIdentifier("goto_dailysurvey", sender: self)
+        let alert = UIAlertController(title: "Success", message: "Thank you! \nYour settings have been saved.", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default) {
+            UIAlertAction in
+            self.performSegueWithIdentifier("goto_dailysurvey", sender: self)
+        }
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func skipTapped() {

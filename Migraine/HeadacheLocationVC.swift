@@ -15,7 +15,8 @@ class HeadacheLocationVC: BaseViewController {
     
     var selectedConditions = [String]()
     
-    let locations = ["Right Frontal", "Right Temporal", "Right Occipital", "Right Behind the Eyes", "Right Base of Skull and Neck", "Left Frontal", "Left Temporal", "Left Occipital", "Left Behind the Eyes", "Left Base of Skull and Neck"]
+//    let locations = ["Right Frontal", "Right Temporal", "Right Occipital", "Right Behind the Eyes", "Right Base of Skull and Neck", "Left Frontal", "Left Temporal", "Left Occipital", "Left Behind the Eyes", "Left Base of Skull and Neck"]
+    let locations = ["Frontal", "Temporal", "Occipital", "Behind the Eyes", "Base of Skull and Neck"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -14,11 +14,10 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     @IBOutlet weak var sleepDurationMinutes: UITextField!
     @IBOutlet weak var sleepQuality: UITextField!
     @IBOutlet weak var stress: UITextField!
-    @IBOutlet weak var hadMigraine: UITextField!
     @IBOutlet weak var sleepDurationString: UIView!
     @IBOutlet weak var sleepQualityString: UIView!
     @IBOutlet weak var stressString: UIView!
-    
+    @IBOutlet weak var hadMigraine: UISwitch!
     @IBOutlet weak var sliderSleep: UISlider!
     @IBOutlet weak var sliderStress: UISlider!
     @IBOutlet weak var labelSleep: UILabel!
@@ -27,7 +26,6 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     let hourOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
     let minuteOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]
     let scaleOptions = ["1", "2", "3", "4", "5"]
-    let hadMigraineOptions = ["Yes", "No"]
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
@@ -37,7 +35,6 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
         case PickerViewSleepDurationMinutes
         case PickerViewSleepQuality
         case PickerViewStress
-        case PickerViewHadMigraine
     }
 
     override func viewDidLoad() {
@@ -87,9 +84,9 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
                 labelStress.text = "5) Very stressful"
             }
         }
-        let hadMigraineInPrefs = prefs.valueForKey("HADMIGRAINE") as? String
+        let hadMigraineInPrefs = prefs.valueForKey("HADMIGRAINE") as? Bool
         if hadMigraineInPrefs != nil {
-            hadMigraine.text = prefs.valueForKey("HADMIGRAINE") as? String
+            hadMigraine.on = (prefs.valueForKey("HADMIGRAINE") as? Bool)!
         }
     }
 
@@ -118,8 +115,6 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
                 return scaleOptions.count
             case .PickerViewStress:
                 return scaleOptions.count
-            case .PickerViewHadMigraine:
-                return hadMigraineOptions.count
             }
         }
         return 0
@@ -136,8 +131,6 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
                 return scaleOptions[row]
             case .PickerViewStress:
                 return scaleOptions[row]
-            case .PickerViewHadMigraine:
-                return hadMigraineOptions[row]
             }
         }
         return ""
@@ -154,8 +147,6 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
                 sleepQuality.text = scaleOptions[row]
             case .PickerViewStress:
                 stress.text = scaleOptions[row]
-            case .PickerViewHadMigraine:
-                hadMigraine.text = hadMigraineOptions[row]
             }
         }
     }
@@ -222,46 +213,15 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
         sleepDurationMinutes.resignFirstResponder()
     }
     
-    @IBAction func hadMigraineAction(sender: UITextField) {
-        let pickerView = UIPickerView()
-        pickerView.tag = PickerViewTag.PickerViewHadMigraine.rawValue
-        pickerView.delegate = self
-        hadMigraine.inputView = pickerView
-        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
-        toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
-        toolBar.barStyle = UIBarStyle.BlackTranslucent
-        toolBar.tintColor = UIColor.whiteColor()
-        toolBar.backgroundColor = UIColor.blackColor()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(DailySurveyVC.doneHadMigrainePressed(_:)))
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
-        label.backgroundColor = UIColor.clearColor()
-        label.textColor = UIColor.whiteColor()
-        label.text = "Migraine"
-        label.textAlignment = NSTextAlignment.Center
-        let textBtn = UIBarButtonItem(customView: label)
-        toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
-        hadMigraine.inputAccessoryView = toolBar
-        hadMigraine.text = hadMigraineOptions[0]
-        prefs.setObject(hadMigraine.text, forKey: "HADMIGRAINE")
-        prefs.synchronize()
-    }
-    
-    func doneHadMigrainePressed(sender: UIBarButtonItem) {
-        prefs.setObject(hadMigraine.text, forKey: "HADMIGRAINE")
-        prefs.synchronize()
-        hadMigraine.resignFirstResponder()
-    }
-    
     @IBAction func nextButtonAction(sender: UIButton) {
         print("Next")
-        print(hadMigraine.text!)
+        print(hadMigraine.on)
 //        sendDiaryToFirebase() // this should be called in the next screens (either yes or no migraine) to send all data once
         if (hadMigraine != nil) {
-            if (hadMigraine.text! == "No") {
+            if (hadMigraine.on == false) {
                 self.performSegueWithIdentifier("goto_nomigrainetoday", sender: self)
                 return
-            } else if (hadMigraine.text! == "Yes") {
+            } else if (hadMigraine.on == true) {
                 self.performSegueWithIdentifier("goto_yesmigrainetoday", sender: self)
                 return
             } else {
