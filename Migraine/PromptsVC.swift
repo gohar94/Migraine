@@ -8,20 +8,17 @@
 
 import UIKit
 
-class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class PromptsVC: BaseViewController {
     
-    @IBOutlet weak var numberTableView: UITableView!
     @IBOutlet var sleepTime: UITextField!
     @IBOutlet var stressTime: UITextField!
     @IBOutlet weak var notice: UILabel!
+    @IBOutlet weak var numberSwitch: UISwitch!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
-    var numbers = ["1", "2"]
-    var selectedNumber = String()
-    
     func onlyOneNotification(defaultValue: Bool) {
-        if (selectedNumber == "1") {
+        if (numberSwitch.on == false) {
             stressTime.enabled = false
             stressTime.hidden = true
             for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
@@ -117,17 +114,22 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: #selector(PromptsVC.skipTapped))
         
         
-        let numbersInPrefs = prefs.valueForKey("NUMBERPROMPTS") as? String
+        var numbersInPrefs = prefs.valueForKey("NUMBERPROMPTS") as? String
         if numbersInPrefs != nil {
-            selectedNumber = prefs.valueForKey("NUMBERPROMPTS") as! String
+            let selectedNumber = prefs.valueForKey("NUMBERPROMPTS") as! String
+            if selectedNumber == "1" {
+                numberSwitch.on = false
+            } else {
+                numberSwitch.on = true
+            }
             onlyOneNotification(false)
         } else {
             // default number of prompts = 2
-            selectedNumber = "2"
-            prefs.setObject(selectedNumber, forKey: "NUMBERPROMPTS")
+            numbersInPrefs = "2"
+            numberSwitch.on = true
+            prefs.setObject(numbersInPrefs, forKey: "NUMBERPROMPTS")
             prefs.synchronize()
         }
-        print(selectedNumber)
         
         checkNotificationsEnabled() // remind user to turn on notification
         
@@ -172,42 +174,6 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numbers.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.textLabel!.text = numbers[indexPath.row]
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if selectedNumber == (cell.textLabel?.text)! {
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-            cell.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
-        } else {
-            cell.accessoryType = UITableViewCellAccessoryType.None
-        }
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedRow = tableView.cellForRowAtIndexPath(indexPath)!
-        // clear existing selection
-        for (var row = 0; row < tableView.numberOfRowsInSection(0); row += 1) {
-            tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0))?.accessoryType = UITableViewCellAccessoryType.None
-        }
-        if selectedRow.accessoryType == UITableViewCellAccessoryType.None {
-            selectedRow.accessoryType = UITableViewCellAccessoryType.Checkmark
-            selectedRow.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
-            selectedNumber = numbers[indexPath.row]
-            prefs.setObject(selectedNumber, forKey: "NUMBERPROMPTS")
-            prefs.synchronize()
-            print(selectedNumber)
-            onlyOneNotification(true)
-        }
     }
 
     @IBAction func sleepAction(sender: UITextField) {
@@ -295,6 +261,16 @@ class PromptsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
         print("skip")
     }
 
+    @IBAction func switchAction(sender: UISwitch) {
+        var selectedNumber = "2"
+        if (sender.on == false) {
+            selectedNumber = "1"
+        }
+        prefs.setObject(selectedNumber, forKey: "NUMBERPROMPTS")
+        prefs.synchronize()
+        print(selectedNumber)
+        onlyOneNotification(true)
+    }
     /*
     // MARK: - Navigation
 

@@ -59,9 +59,13 @@ class GettingToKnowVC: BaseViewController, UIPickerViewDataSource, UIPickerViewD
         let genderInPrefs = prefs.valueForKey("GENDER") as? String
         if genderInPrefs != nil {
             gender.text = genderInPrefs
+            dateOfLMP.hidden = true
+            dateOfNextPeriod.hidden = true
             if genderInPrefs?.lowercaseString == "female" {
                 dateOfLMP.enabled = true
                 dateOfNextPeriod.enabled = true
+                dateOfLMP.hidden = false
+                dateOfNextPeriod.hidden = false
                 let dateOfLMPInPrefs = prefs.valueForKey("LMP") as? String
                 if dateOfLMPInPrefs != nil {
                     dateOfLMP.text = dateOfLMPInPrefs
@@ -299,6 +303,9 @@ class GettingToKnowVC: BaseViewController, UIPickerViewDataSource, UIPickerViewD
         print("skip")
     }
 
+    @IBAction func backButtonAction(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil);
+    }
     /*
     // MARK: - Navigation
 
