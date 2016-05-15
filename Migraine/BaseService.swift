@@ -41,8 +41,8 @@ let sectionB = Section(title: "Foods", objects: ["Alcohol", "MSG", "Onions", "Ci
 let sectionC = Section(title: "Hormonal", objects: ["Menstruation", "Birth Control Pill"])
 let sectionD = Section(title: "Sensory Overload", objects: ["Light", "Noise", "Motion", "Perfumes"])
 let sectionE = Section(title: "Weather", objects: ["High Barometeric Pressure", "High Humidity", "High Temperature", "Wind", "Change in temperature", "Cold Temperature", "Lightning", "Drop in barometric pressure", "Flying"])
-let sectionF = Section(title: "Medication Rebound", objects: [])
-let sectionG = Section(title: "Pollution", objects: ["Smoke", "Cigarette Smoke"])
+let sectionF = Section(title: "Pollution", objects: ["Smoke", "Cigarette Smoke"])
+let sectionG = Section(title: "Other", objects: ["Headache Medication (Medication Rebound)"])
 
 let SYMPTOMS = ["Sensitivity to Light", "Sensitivity to Sound", "Sensitivity to Smells", "Dizziness", "Moodiness/Irritability", "Fatigue", "Cravings", "Tinnitus", "Fever", "Decreased Appetite", "Nausea", "Pale", "Hot/Cold", "Body Pain", "Nausea/Vomiting"]
 let HELP_MIGRAINE = ["Sleep", "Yoga", "Exercise", "Medications", "Hydration", "Glasses to prevent glare", "Caffeine"]
