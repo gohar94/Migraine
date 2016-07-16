@@ -15,10 +15,17 @@ class NoMigraineToday2VC: UIViewController {
     
     var selectedConditions = [String]()
     
+    var SYMPTOMSTOSHOW = SYMPTOMS
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        let symptomsInPrefs = prefs.valueForKey("SYMPTOMS") as? [String]
+        if symptomsInPrefs != nil {
+            SYMPTOMSTOSHOW = prefs.valueForKey("SYMPTOMS") as! [String]
+        }
+        
         let conditionsInPrefs = prefs.valueForKey("SYMPTOMSTODAY") as? [String]
         if conditionsInPrefs != nil {
             selectedConditions = prefs.valueForKey("SYMPTOMSTODAY") as! [String]
@@ -31,13 +38,13 @@ class NoMigraineToday2VC: UIViewController {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SYMPTOMS.count
+        return SYMPTOMSTOSHOW.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        cell.textLabel!.text = SYMPTOMS[indexPath.row]
+        cell.textLabel!.text = SYMPTOMSTOSHOW[indexPath.row]
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
         return cell
@@ -46,7 +53,7 @@ class NoMigraineToday2VC: UIViewController {
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if selectedConditions.contains((cell.textLabel?.text)!) {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-            cell.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
+//            cell.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
         } else {
             cell.accessoryType = UITableViewCellAccessoryType.None
         }
@@ -56,13 +63,13 @@ class NoMigraineToday2VC: UIViewController {
         let selectedRow = tableView.cellForRowAtIndexPath(indexPath)!
         if selectedRow.accessoryType == UITableViewCellAccessoryType.None {
             selectedRow.accessoryType = UITableViewCellAccessoryType.Checkmark
-            selectedRow.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
-            selectedConditions.append(SYMPTOMS[indexPath.row])
+//            selectedRow.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
+            selectedConditions.append(SYMPTOMSTOSHOW[indexPath.row])
             prefs.setObject(selectedConditions, forKey: "SYMPTOMSTODAY")
             prefs.synchronize()
         } else {
             selectedRow.accessoryType = UITableViewCellAccessoryType.None
-            let removeIndex = selectedConditions.indexOf(SYMPTOMS[indexPath.row])
+            let removeIndex = selectedConditions.indexOf(SYMPTOMSTOSHOW[indexPath.row])
             if (removeIndex != nil) {
                 selectedConditions.removeAtIndex(removeIndex!)
                 prefs.setObject(selectedConditions, forKey: "SYMPTOMSTODAY")

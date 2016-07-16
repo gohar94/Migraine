@@ -48,7 +48,7 @@ class SymptomsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if selectedConditions.contains((cell.textLabel?.text)!) {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
-            cell.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
+//            cell.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
         } else {
             cell.accessoryType = UITableViewCellAccessoryType.None
         }
@@ -58,7 +58,7 @@ class SymptomsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
         let selectedRow = tableView.cellForRowAtIndexPath(indexPath)!
         if selectedRow.accessoryType == UITableViewCellAccessoryType.None {
             selectedRow.accessoryType = UITableViewCellAccessoryType.Checkmark
-            selectedRow.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
+//            selectedRow.tintColor = UIColor(red: 152.0/255.0, green: 193.0/255.0, blue: 235.0/255.0, alpha: 1.0)
             selectedConditions.append(SYMPTOMS[indexPath.row])
             prefs.setObject(selectedConditions, forKey: "SYMPTOMS")
             prefs.synchronize()
