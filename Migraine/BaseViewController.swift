@@ -58,7 +58,7 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         case 5:
             print("List of Medications\n", terminator: "")
             
-            self.openViewControllerBasedOnIdentifier("LostOfMedicationsVC")
+            self.openViewControllerBasedOnIdentifier("ListOfMedicationsVC")
             
             break
         case 6:
