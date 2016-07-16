@@ -61,6 +61,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         arrayMenuOptions.append(["title":"Personal Info", "icon":"brain"])
         arrayMenuOptions.append(["title":"Triggers", "icon":"brain"])
         arrayMenuOptions.append(["title":"Migraine Helpers", "icon":"brain"])
+        arrayMenuOptions.append(["title":"List of Medications", "icon":"brain"])
+        arrayMenuOptions.append(["title":"Associated Symptoms", "icon":"brain"])
         arrayMenuOptions.append(["title":"Prompt Settings", "icon":"brain"])
         
         tblMenuOptions.reloadData()
