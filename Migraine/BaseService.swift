@@ -133,3 +133,32 @@ func sendDiaryToFirebase() {
     print("done uploading user diary")
     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 }
+
+// updates (added/removed) medication of the patient to firebase
+func sendMedicationToFirebase(medicine: String, isRemoved: Bool) {
+    print("sending medication to firebase")
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    // check if user is logged in
+    if (NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil || CURRENT_USER.authData == nil) {
+        return
+    }
+    print("user exists")
+    
+    var dict = [String: AnyObject]()
+    dict["Status"] = "Added"
+    if isRemoved {
+        dict["Status"] = "Removed"
+    }
+    dict["Medicine"] = medicine
+    
+    // upload to firebase
+    let medicationRef = PATIENT_RECORDS_REF.childByAppendingPath("patient-medication")
+    let date = NSDate()
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+    dateFormatter.timeStyle = NSDateFormatterStyle.LongStyle
+    let curDate = dateFormatter.stringFromDate(date)
+    medicationRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(curDate).setValue(dict)
+    print("done uploading medication")
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+}

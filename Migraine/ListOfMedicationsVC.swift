@@ -52,11 +52,13 @@ class ListOfMedicationsVC: BaseViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let deletedRow:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         if editingStyle == UITableViewCellEditingStyle.Delete {
+            let deletedMed = medication[indexPath.row]
             medication.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             deletedRow.accessoryType = UITableViewCellAccessoryType.None
             prefs.setObject(medication, forKey: "MEDICATION")
             prefs.synchronize()
+            sendMedicationToFirebase(deletedMed, isRemoved: true)
         }
     }
     
@@ -68,8 +70,13 @@ class ListOfMedicationsVC: BaseViewController, UITableViewDelegate, UITableViewD
                 tableView.reloadData()
                 prefs.setObject(medication, forKey: "MEDICATION")
                 prefs.synchronize()
+                sendMedicationToFirebase(newItem!, isRemoved: false)
             } else {
                 // TODO Alert that this item is already in the list
+                let alert = UIAlertController(title: "Error", message: "The item you tried to add is already in the list!", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alert.addAction(action)
+                self.presentViewController(alert, animated: true, completion: nil)
                 print("already added")
             }
             addedMedicine.text = ""
