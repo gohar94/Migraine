@@ -25,14 +25,23 @@ class NoMigraineToday3VC: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        sectionsArray.append(sectionA)
-        sectionsArray.append(sectionB)
-        sectionsArray.append(sectionC)
-        sectionsArray.append(sectionD)
-        sectionsArray.append(sectionE)
-        sectionsArray.append(sectionF)
-        sectionsArray.append(sectionG)
-        sectionsArray.append(sectionH)
+//        sectionsArray.append(sectionA)
+//        sectionsArray.append(sectionB)
+//        sectionsArray.append(sectionC)
+//        sectionsArray.append(sectionD)
+//        sectionsArray.append(sectionE)
+//        sectionsArray.append(sectionF)
+//        sectionsArray.append(sectionG)
+//        sectionsArray.append(sectionH)
+        
+        var sectionAToInclude = Section(title: "Everyday Stressors", objects: [])
+        var sectionBToInclude = Section(title: "Foods", objects: [])
+        var sectionCToInclude = Section(title: "Hormonal", objects: [])
+        var sectionDToInclude = Section(title: "Sensory Overload", objects: [])
+        var sectionEToInclude = Section(title: "Weather", objects: [])
+        var sectionFToInclude = Section(title: "Pollution", objects: [])
+        var sectionGToInclude = Section(title: "Other", objects: [])
+        var sectionHToInclude = Section(title: "Custom", objects: [])
         
         var allSelectedTriggers = [String]()
         
@@ -45,11 +54,69 @@ class NoMigraineToday3VC: UIViewController, UITableViewDelegate, UITableViewData
             selectedConditions = prefs.valueForKey("TRIGGERS") as! [String]
             for condition in conditionsInPrefs! {
                 if (condition != "") {
-                    if (!allSelectedTriggers.contains(condition)) {
-                        sectionsArray[customIndex].items.append(condition)
-                        print(condition)
+//                    if (!allSelectedTriggers.contains(condition)) {
+//                        sectionHToInclude.append(condition)
+//                        print(condition)
+//                    }
+                    // i'm sleepy!
+                    var found = false
+                    if (sectionA.items.contains(condition)) {
+                        sectionAToInclude.items.append(condition)
+                        found = true
+                    }
+                    if (sectionB.items.contains(condition)) {
+                        sectionBToInclude.items.append(condition)
+                        found = true
+                    }
+                    if (sectionC.items.contains(condition)) {
+                        sectionCToInclude.items.append(condition)
+                        found = true
+                    }
+                    if (sectionD.items.contains(condition)) {
+                        sectionDToInclude.items.append(condition)
+                        found = true
+                    }
+                    if (sectionE.items.contains(condition)) {
+                        sectionEToInclude.items.append(condition)
+                        found = true
+                    }
+                    if (sectionF.items.contains(condition)) {
+                        sectionFToInclude.items.append(condition)
+                        found = true
+                    }
+                    if (sectionG.items.contains(condition)) {
+                        sectionGToInclude.items.append(condition)
+                        found = true
+                    }
+                    if (!found) {
+                        sectionHToInclude.items.append(condition)
                     }
                 }
+            }
+            // okay, now i really need to sleep
+            if (!sectionAToInclude.items.isEmpty) {
+                sectionsArray.append(sectionAToInclude)
+            }
+            if (!sectionBToInclude.items.isEmpty) {
+                sectionsArray.append(sectionBToInclude)
+            }
+            if (!sectionCToInclude.items.isEmpty) {
+                sectionsArray.append(sectionCToInclude)
+            }
+            if (!sectionDToInclude.items.isEmpty) {
+                sectionsArray.append(sectionDToInclude)
+            }
+            if (!sectionEToInclude.items.isEmpty) {
+                sectionsArray.append(sectionEToInclude)
+            }
+            if (!sectionFToInclude.items.isEmpty) {
+                sectionsArray.append(sectionFToInclude)
+            }
+            if (!sectionGToInclude.items.isEmpty) {
+                sectionsArray.append(sectionGToInclude)
+            }
+            if (!sectionHToInclude.items.isEmpty) {
+                sectionsArray.append(sectionHToInclude)
             }
         }
         selectedConditions.removeAll() // always start from scratch for daily diary
