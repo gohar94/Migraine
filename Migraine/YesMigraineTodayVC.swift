@@ -9,9 +9,9 @@
 import UIKit
 
 class YesMigraineTodayVC: UIViewController {
-
+    
     @IBOutlet weak var dateTime: UITextField!
-
+    @IBOutlet weak var endDateTime: UITextField!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var slider: UISlider!
     
@@ -23,6 +23,12 @@ class YesMigraineTodayVC: UIViewController {
         if dateTimeInPrefs != nil {
             dateTime.text = dateTimeInPrefs
         }
+        
+        let endDateTimeInPrefs = prefs.valueForKey("MIGRAINEEND") as? String
+        if endDateTimeInPrefs != nil {
+            endDateTime.text = endDateTimeInPrefs
+        }
+        
         let severityInPrefs = prefs.valueForKey("MIGRAINESEVERITY") as? Float
         if severityInPrefs != nil {
             slider.setValue(severityInPrefs!, animated: true)
@@ -56,7 +62,23 @@ class YesMigraineTodayVC: UIViewController {
         sender.inputView = inputView
         datePickerView.addTarget(self, action: #selector(YesMigraineTodayVC.datePickerMigraineValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         datePickerMigraineValueChanged(datePickerView) // Set the date on start.
-
+    }
+    
+    @IBAction func startActionEndDate(sender: UITextField) {
+        let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
+        let datePickerView  : UIDatePicker = UIDatePicker(frame: CGRectMake(0, 40, 0, 0))
+        datePickerView.datePickerMode = UIDatePickerMode.DateAndTime
+        inputView.addSubview(datePickerView) // add date picker to UIView
+        let doneButton = UIButton(frame: CGRectMake((self.view.frame.size.width/2) - (100/2), 0, 100, 50))
+        doneButton.setTitle("Done", forState: UIControlState.Normal)
+        doneButton.setTitle("Done", forState: UIControlState.Highlighted)
+        doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
+        inputView.addSubview(doneButton) // add Button to UIView
+        doneButton.addTarget(self, action: #selector(YesMigraineTodayVC.doneMigraineEndButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        sender.inputView = inputView
+        datePickerView.addTarget(self, action: #selector(YesMigraineTodayVC.datePickerMigraineEndValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerMigraineEndValueChanged(datePickerView) // Set the date on start.
     }
     
     func datePickerMigraineValueChanged(sender: UIDatePicker) {
@@ -73,8 +95,50 @@ class YesMigraineTodayVC: UIViewController {
         prefs.setValue(dateTime.text, forKey: "MIGRAINESTART")
         prefs.synchronize()
     }
-     
+    
+    func datePickerMigraineEndValueChanged(sender: UIDatePicker) {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
+        let selectedDateStr = dateFormatter.stringFromDate(sender.date)
+        print(selectedDateStr)
+        endDateTime.text = dateFormatter.stringFromDate(sender.date)
+    }
+    
+    func doneMigraineEndButtonPressed(sender: UIButton) {
+        endDateTime.resignFirstResponder() // To resign the inputView on clicking done.
+        prefs.setValue(endDateTime.text, forKey: "MIGRAINEEND")
+        prefs.synchronize()
+    }
+    
     @IBAction func nextButtonAction(sender: UIButton) {
+        var startDateTimeTemp = NSDate()
+        var endDateTimeTemp = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
+        
+        if dateTime.text != nil {
+            if dateTime.text != "" {
+                startDateTimeTemp = dateFormatter.dateFromString(dateTime.text!)!
+            }
+        }
+        
+        if endDateTime.text != nil {
+            if endDateTime.text != "" {
+                endDateTimeTemp = dateFormatter.dateFromString(endDateTime.text!)!
+            }
+        }
+        
+        if startDateTimeTemp.compare(endDateTimeTemp) == NSComparisonResult.OrderedDescending {
+            // start is greater
+            let alert = UIAlertController(title: "Error", message: "Migraine End Time can not be before the Start Time. Please try again!", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
         self.performSegueWithIdentifier("goto_nomigraine2fromyesmigraine", sender: self)
         return
     }

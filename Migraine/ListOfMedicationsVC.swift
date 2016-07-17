@@ -58,6 +58,7 @@ class ListOfMedicationsVC: BaseViewController, UITableViewDelegate, UITableViewD
             deletedRow.accessoryType = UITableViewCellAccessoryType.None
             prefs.setObject(medication, forKey: "MEDICATION")
             prefs.synchronize()
+            sendDataToFirebase()
             sendMedicationToFirebase(deletedMed, isRemoved: true)
         }
     }
@@ -72,7 +73,6 @@ class ListOfMedicationsVC: BaseViewController, UITableViewDelegate, UITableViewD
                 prefs.synchronize()
                 sendMedicationToFirebase(newItem!, isRemoved: false)
             } else {
-                // TODO Alert that this item is already in the list
                 let alert = UIAlertController(title: "Error", message: "The item you tried to add is already in the list!", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alert.addAction(action)
@@ -85,6 +85,7 @@ class ListOfMedicationsVC: BaseViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func addButtonAction(sender: UIButton) {
         saveAddedItem()
+        sendDataToFirebase()
         addedMedicine.resignFirstResponder()
     }
 

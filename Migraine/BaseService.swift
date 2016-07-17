@@ -47,7 +47,7 @@ let sectionG = Section(title: "Other", objects: ["Headache Medication (Medicatio
 let SYMPTOMS = ["Sensitivity to Light", "Sensitivity to Sound", "Sensitivity to Smells", "Dizziness", "Moodiness/Irritability", "Fatigue", "Cravings", "Tinnitus", "Fever", "Decreased Appetite", "Nausea", "Pale", "Hot/Cold", "Body Pain", "Nausea/Vomiting"]
 let HELP_MIGRAINE = ["Sleep", "Yoga", "Exercise", "Medications", "Hydration", "Glasses to Prevent Glare", "Caffeine"]
 let KEYS = ["FULLNAME", "EMAIL", "TERMSAGREED", "BIRTHCONTROL", "AGE", "GENDER", "NEXTPERIOD", "BIRTHCONTROL", "LMP", "CONDITIONS", "MEDICATION", "HEADACHECONDITIONS", "HEADACHEDURATION", "SYMPTOMS", "TRIGGERS", "HELPMIGRAINE", "NUMBERPROMPTS", "SLEEP", "STRESS", "HEADACHELOCATIONS"]
-let DIARY_KEYS = ["SLEEPDURATIONHOURS", "SLEEPDURATIONMINUTES", "SLEEPQUALITY", "STRESSLEVEL", "HADMIGRAINE", "LURKINGMIGRAINE", "SYMPTOMSTODAY", "TRIGGERSTODAY", "HELPMIGRAINETODAY", "MIGRAINESEVERITY", "MIGRAINESEVERITY"]
+let DIARY_KEYS = ["SLEEPDURATIONHOURS", "SLEEPDURATIONMINUTES", "SLEEPQUALITY", "STRESSLEVEL", "HADMIGRAINE", "LURKINGMIGRAINE", "SYMPTOMSTODAY", "TRIGGERSTODAY", "HELPMIGRAINETODAY", "MIGRAINESTART", "MIGRAINEEND", "MIGRAINESEVERITY"]
 let CONDITIONS = ["High Blood Pressure", "Diabetes", "Heart Attack/Coronary Artery Disease", "Cancer", "Stroke", "Irritable Bowel Syndrome", "Thyroid Problem", "Benign Prostatic Hypertrophy", "Eating Disorders", "Polycystic Ovarian Disease", "Obesity", "HIV", "Depression", "Anxiety", "Schizophrenia/Bipolar Disorder", "Attention Deficit Hyperactivity Disorder", "Attention Deficit Disorder", "Panic Disorder", "Food Allergies"]
 
 var toAlert = true
@@ -121,6 +121,7 @@ func sendDiaryToFirebase() {
             print("nil")
         }
     }
+    
     print(dict)
     // upload to firebase
     let usersRef = PATIENT_RECORDS_REF.childByAppendingPath("patient-diaries")
@@ -129,6 +130,16 @@ func sendDiaryToFirebase() {
     dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
     dateFormatter.timeStyle = NSDateFormatterStyle.LongStyle
     let curDate = dateFormatter.stringFromDate(date)
+    
+    // this is for missing end time of migraine condition
+    if dict["MIGRAINESTART"] != nil && dict["MIGRAINEEND"] == nil {
+        prefs.setValue(false, forKey: "MIGRAINEENDENTERED") // end time was not entered
+        prefs.setValue(dict["MIGRAINESTART"], forKey: "MISSINGMIGRAINESTART")
+        prefs.setValue(curDate, forKey: "MISSINGMIGRAINEENTRY") // the entry ID to which the missing entry will later be updated to
+        prefs.synchronize()
+        print("missing end date case")
+    }
+    
     usersRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(curDate).setValue(dict)
     print("done uploading user diary")
     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -161,4 +172,47 @@ func sendMedicationToFirebase(medicine: String, isRemoved: Bool) {
     medicationRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(curDate).setValue(dict)
     print("done uploading medication")
     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+}
+
+// updates the missing end date of migraine
+func sendMissingEndDateToFirebase(missingDate: String) {
+    print("sending missing end date to firebase")
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    // check if user is logged in
+    if (NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil || CURRENT_USER.authData == nil) {
+        return
+    }
+    print("user exists")
+    
+    let entryID = prefs.valueForKey("MISSINGMIGRAINEENTRY") as? String
+    if entryID != nil && entryID != "" {
+        // upload to firebase
+        let usersRef = PATIENT_RECORDS_REF.childByAppendingPath("patient-diaries")
+        usersRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(entryID).childByAppendingPath("MIGRAINEEND").setValue(missingDate)
+        prefs.removeObjectForKey("MIGRAINEENDENTERED")
+        prefs.removeObjectForKey("MISSINGMIGRAINESTART")
+        prefs.removeObjectForKey("MISSINGMIGRAINEENTRY")
+        prefs.synchronize()
+        print("done uploading missing end date")
+    } else {
+        print("error uploading missing end date to firebase")
+    }
+    
+    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+}
+
+func datesOffset(date:NSDate, date2:NSDate) -> String {
+    let dayHourMinuteSecond: NSCalendarUnit = [.Day, .Hour, .Minute, .Second]
+    let difference = NSCalendar.currentCalendar().components(dayHourMinuteSecond, fromDate: date, toDate: date2, options: [])
+    
+    let seconds = "\(difference.second)s"
+    let minutes = "\(difference.minute)m" + " " + seconds
+    let hours = "\(difference.hour)h" + " " + minutes
+    let days = "\(difference.day)d" + " " + hours
+    
+    if difference.day    > 0 { return days }
+    if difference.hour   > 0 { return hours }
+    if difference.minute > 0 { return minutes }
+    if difference.second > 0 { return seconds }
+    return ""
 }

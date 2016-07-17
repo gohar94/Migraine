@@ -707,6 +707,7 @@
                         <segue destination="zcf-kf-hlh" kind="show" identifier="goto_dailysurveyfromwelcome" id="5Fb-UV-2aT"/>
                         <segue destination="aeL-vu-a8X" kind="show" identifier="goto_introfromwelcome" id="Z2P-m2-niI"/>
                         <segue destination="MMe-Pp-Nde" kind="show" identifier="goto_changepassword" id="Ps9-cd-KpO"/>
+                        <segue destination="EOS-Lx-Swe" kind="show" identifier="goto_missingendtimefromwelcome" id="EAw-dQ-cPh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KrH-3s-1oM" sceneMemberID="firstResponder"/>
@@ -1875,23 +1876,23 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="startAction:" destination="3vL-d2-tbI" eventType="editingDidBegin" id="VhU-Yi-2es"/>
+                                            <action selector="startAction:" destination="3vL-d2-tbI" eventType="editingDidBegin" id="Osr-8n-DKh"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What was the severity of your migraine?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSe-BX-a3R" userLabel="PageTitle">
-                                        <rect key="frame" x="50" y="98" width="500" height="18"/>
+                                        <rect key="frame" x="50" y="156" width="500" height="18"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beG-0J-yMK">
-                                        <rect key="frame" x="268" y="116" width="65" height="30"/>
+                                        <rect key="frame" x="268" y="174" width="65" height="30"/>
                                         <state key="normal" title="More Info"/>
                                         <connections>
                                             <action selector="severityInfoAction:" destination="3vL-d2-tbI" eventType="touchUpInside" id="yl3-lR-leL"/>
                                         </connections>
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="WdZ-mE-GMw">
-                                        <rect key="frame" x="223" y="226" width="154" height="31"/>
+                                        <rect key="frame" x="223" y="284" width="154" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="6lL-bf-AR6"/>
                                         </constraints>
@@ -1901,7 +1902,7 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Severity" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw8-GH-9Sn">
-                                        <rect key="frame" x="50" y="156" width="500" height="60"/>
+                                        <rect key="frame" x="50" y="214" width="500" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="0eq-Uh-qna"/>
                                         </constraints>
@@ -1909,28 +1910,51 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When did your migraine end?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IC-8S-M70" userLabel="PageTitle">
+                                        <rect key="frame" x="50" y="88" width="500" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date and Time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y5g-rP-z8t">
+                                        <rect key="frame" x="20" y="116" width="560" height="30"/>
+                                        <color key="backgroundColor" red="0.78525641020000003" green="0.78525641020000003" blue="0.78525641020000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="U4i-Qv-GQw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="startActionEndDate:" destination="3vL-d2-tbI" eventType="editingDidBegin" id="JXv-C1-IYa"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.69803921570000005" green="0.63137254899999995" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="WdZ-mE-GMw" firstAttribute="centerX" secondItem="Fxt-OG-sDC" secondAttribute="centerX" id="0lx-Kl-rG1"/>
                                     <constraint firstItem="otn-tC-IbI" firstAttribute="centerX" secondItem="Fxt-OG-sDC" secondAttribute="centerX" id="1ao-hN-Jpn"/>
+                                    <constraint firstItem="1IC-8S-M70" firstAttribute="leading" secondItem="Fxt-OG-sDC" secondAttribute="leading" constant="50" id="4Fk-Cy-bm1"/>
                                     <constraint firstAttribute="trailing" secondItem="NKZ-cS-Qut" secondAttribute="trailing" constant="20" id="4GO-kQ-Opi"/>
                                     <constraint firstItem="NKZ-cS-Qut" firstAttribute="leading" secondItem="Fxt-OG-sDC" secondAttribute="leading" constant="20" id="5Dm-Vc-g1M"/>
                                     <constraint firstItem="yKP-D3-vVo" firstAttribute="centerX" secondItem="Fxt-OG-sDC" secondAttribute="centerX" id="7Yd-hq-cvs"/>
+                                    <constraint firstItem="fSe-BX-a3R" firstAttribute="top" secondItem="y5g-rP-z8t" secondAttribute="bottom" constant="10" id="7r7-XX-Upq"/>
                                     <constraint firstAttribute="trailing" secondItem="fSe-BX-a3R" secondAttribute="trailing" constant="50" id="9tO-PF-LsV"/>
+                                    <constraint firstAttribute="trailing" secondItem="1IC-8S-M70" secondAttribute="trailing" constant="50" id="DAP-St-ex5"/>
                                     <constraint firstItem="yKP-D3-vVo" firstAttribute="leading" secondItem="Fxt-OG-sDC" secondAttribute="leading" constant="50" id="Fas-yK-KRh"/>
                                     <constraint firstItem="Gw8-GH-9Sn" firstAttribute="leading" secondItem="Fxt-OG-sDC" secondAttribute="leading" constant="50" id="IDT-dP-yfN"/>
                                     <constraint firstItem="NKZ-cS-Qut" firstAttribute="top" secondItem="yKP-D3-vVo" secondAttribute="bottom" constant="10" id="IGE-ix-5ZO"/>
+                                    <constraint firstItem="y5g-rP-z8t" firstAttribute="top" secondItem="1IC-8S-M70" secondAttribute="bottom" constant="10" id="RJI-mX-vjR"/>
                                     <constraint firstItem="yKP-D3-vVo" firstAttribute="top" secondItem="Fxt-OG-sDC" secondAttribute="top" constant="20" id="YPG-Mf-aw0"/>
                                     <constraint firstItem="fSe-BX-a3R" firstAttribute="centerY" secondItem="Fxt-OG-sDC" secondAttribute="centerY" id="aQb-Lr-2cJ"/>
                                     <constraint firstItem="fSe-BX-a3R" firstAttribute="leading" secondItem="Fxt-OG-sDC" secondAttribute="leading" constant="50" id="d8p-j2-2K4"/>
+                                    <constraint firstItem="1IC-8S-M70" firstAttribute="top" secondItem="NKZ-cS-Qut" secondAttribute="bottom" constant="10" id="dJ1-tP-fCN"/>
+                                    <constraint firstAttribute="trailing" secondItem="y5g-rP-z8t" secondAttribute="trailing" constant="20" id="exr-Av-2sY"/>
                                     <constraint firstAttribute="bottom" secondItem="otn-tC-IbI" secondAttribute="bottom" constant="10" id="fyX-Wk-XWT"/>
                                     <constraint firstItem="WdZ-mE-GMw" firstAttribute="top" secondItem="Gw8-GH-9Sn" secondAttribute="bottom" constant="10" id="j1d-jO-25Y"/>
-                                    <constraint firstItem="fSe-BX-a3R" firstAttribute="top" secondItem="NKZ-cS-Qut" secondAttribute="bottom" constant="20" id="lJS-FE-S8o"/>
                                     <constraint firstAttribute="trailing" secondItem="yKP-D3-vVo" secondAttribute="trailing" constant="50" id="lwt-8Y-8Fl"/>
                                     <constraint firstItem="beG-0J-yMK" firstAttribute="top" secondItem="fSe-BX-a3R" secondAttribute="bottom" id="mnl-nH-r5m"/>
                                     <constraint firstItem="Gw8-GH-9Sn" firstAttribute="top" secondItem="beG-0J-yMK" secondAttribute="bottom" constant="10" id="q3q-5l-mmJ"/>
                                     <constraint firstAttribute="trailing" secondItem="Gw8-GH-9Sn" secondAttribute="trailing" constant="50" id="rOk-Na-HjN"/>
+                                    <constraint firstItem="y5g-rP-z8t" firstAttribute="leading" secondItem="Fxt-OG-sDC" secondAttribute="leading" constant="20" id="wWs-3W-B1z"/>
                                     <constraint firstItem="Gw8-GH-9Sn" firstAttribute="centerX" secondItem="Fxt-OG-sDC" secondAttribute="centerX" id="xLQ-Uv-nH9"/>
                                     <constraint firstItem="beG-0J-yMK" firstAttribute="centerX" secondItem="Fxt-OG-sDC" secondAttribute="centerX" id="zvE-q5-Xek"/>
                                 </constraints>
@@ -1951,7 +1975,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dateTime" destination="NKZ-cS-Qut" id="Hfw-sJ-Tw3"/>
+                        <outlet property="dateTime" destination="NKZ-cS-Qut" id="EHa-EF-exJ"/>
+                        <outlet property="endDateTime" destination="y5g-rP-z8t" id="Yp2-mm-BUh"/>
                         <outlet property="label" destination="Gw8-GH-9Sn" id="wA6-DJ-Eob"/>
                         <outlet property="slider" destination="WdZ-mE-GMw" id="Faj-ro-nNx"/>
                         <segue destination="MBF-58-bwo" kind="show" identifier="goto_nomigraine2fromyesmigraine" id="bSk-5G-CBA"/>
@@ -2034,7 +2059,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0f-Ax-ycZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1763" y="-448"/>
+            <point key="canvasLocation" x="1773" y="-462"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="7la-Hc-DUD">
@@ -2490,10 +2515,108 @@
             </objects>
             <point key="canvasLocation" x="7155" y="1197"/>
         </scene>
+        <!--Missing End TimeVC-->
+        <scene sceneID="gdt-g2-qhO">
+            <objects>
+                <viewController storyboardIdentifier="MissingEndTImeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EOS-Lx-Swe" customClass="MissingEndTimeVC" customModule="Migraine" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m94-OA-2YL"/>
+                        <viewControllerLayoutGuide type="bottom" id="VAF-Uj-w7Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GNO-aR-n3b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12l-ZX-1zM" userLabel="TextContainer">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When did your migraine end?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9j-lq-F30" userLabel="PageTitle">
+                                        <rect key="frame" x="194" y="281" width="213" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwc-em-8wU">
+                                        <rect key="frame" x="243" y="540" width="115" height="30"/>
+                                        <color key="backgroundColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="115" id="U9j-bL-js0"/>
+                                            <constraint firstAttribute="height" constant="30" id="yje-g1-4CW"/>
+                                        </constraints>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextActionButton:" destination="EOS-Lx-Swe" eventType="touchUpInside" id="yCO-6q-Ogx"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date and Time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8AT-YW-TsK">
+                                        <rect key="frame" x="20" y="309" width="560" height="30"/>
+                                        <color key="backgroundColor" red="0.78525641020000003" green="0.78525641020000003" blue="0.78525641020000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="dNO-Ni-Zuc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="startEndDateTimeAction:" destination="EOS-Lx-Swe" eventType="editingDidBegin" id="Oef-vr-zrT"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It has been " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKp-wp-xpJ">
+                                        <rect key="frame" x="20" y="244" width="560" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Migraine Started On" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oq9-f9-Hf0">
+                                        <rect key="frame" x="20" y="213" width="560" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.69803921570000005" green="0.63137254899999995" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8AT-YW-TsK" secondAttribute="trailing" constant="20" id="BMj-2c-tgY"/>
+                                    <constraint firstItem="c9j-lq-F30" firstAttribute="top" secondItem="rKp-wp-xpJ" secondAttribute="bottom" constant="20" id="BZc-5u-C4P"/>
+                                    <constraint firstItem="cwc-em-8wU" firstAttribute="centerX" secondItem="12l-ZX-1zM" secondAttribute="centerX" id="OfW-Mp-J9h"/>
+                                    <constraint firstItem="rKp-wp-xpJ" firstAttribute="leading" secondItem="12l-ZX-1zM" secondAttribute="leading" constant="20" id="V7b-Ae-TDX"/>
+                                    <constraint firstItem="8AT-YW-TsK" firstAttribute="leading" secondItem="12l-ZX-1zM" secondAttribute="leading" constant="20" id="df3-OO-dZJ"/>
+                                    <constraint firstItem="Oq9-f9-Hf0" firstAttribute="leading" secondItem="12l-ZX-1zM" secondAttribute="leading" constant="20" id="dtV-UJ-rP2"/>
+                                    <constraint firstItem="c9j-lq-F30" firstAttribute="centerX" secondItem="12l-ZX-1zM" secondAttribute="centerX" id="gUC-OF-oak"/>
+                                    <constraint firstAttribute="bottom" secondItem="cwc-em-8wU" secondAttribute="bottom" constant="10" id="isZ-6o-Zvt"/>
+                                    <constraint firstItem="c9j-lq-F30" firstAttribute="centerX" secondItem="12l-ZX-1zM" secondAttribute="centerX" id="kYm-gy-vYU"/>
+                                    <constraint firstAttribute="trailing" secondItem="Oq9-f9-Hf0" secondAttribute="trailing" constant="20" id="lpg-q3-Mdv"/>
+                                    <constraint firstItem="8AT-YW-TsK" firstAttribute="top" secondItem="c9j-lq-F30" secondAttribute="bottom" constant="10" id="shr-BR-wbA"/>
+                                    <constraint firstItem="c9j-lq-F30" firstAttribute="centerY" secondItem="12l-ZX-1zM" secondAttribute="centerY" id="ttH-K6-uuS"/>
+                                    <constraint firstItem="rKp-wp-xpJ" firstAttribute="top" secondItem="Oq9-f9-Hf0" secondAttribute="bottom" constant="14" id="vjq-V8-NLc"/>
+                                    <constraint firstAttribute="trailing" secondItem="rKp-wp-xpJ" secondAttribute="trailing" constant="20" id="xtM-q6-ndR"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="12l-ZX-1zM" secondAttribute="trailing" id="72V-EX-whb"/>
+                            <constraint firstItem="12l-ZX-1zM" firstAttribute="leading" secondItem="GNO-aR-n3b" secondAttribute="leading" id="7Pc-SG-tRN"/>
+                            <constraint firstItem="12l-ZX-1zM" firstAttribute="top" secondItem="m94-OA-2YL" secondAttribute="bottom" id="DFH-eD-pSK"/>
+                            <constraint firstItem="VAF-Uj-w7Y" firstAttribute="top" secondItem="12l-ZX-1zM" secondAttribute="bottom" id="PPD-oW-50U"/>
+                            <constraint firstItem="VAF-Uj-w7Y" firstAttribute="top" secondItem="12l-ZX-1zM" secondAttribute="bottom" id="fiT-dT-2Ic"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="endDateTime" destination="8AT-YW-TsK" id="XmW-qu-cG7"/>
+                        <outlet property="migraineDuration" destination="rKp-wp-xpJ" id="73w-iK-e99"/>
+                        <outlet property="migraineStarted" destination="Oq9-f9-Hf0" id="ToV-Jc-VbN"/>
+                        <segue destination="QGw-Dd-Bw5" kind="show" identifier="goto_welcomefrommissingenddate" id="3Pd-1y-LQs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZuM-od-7iS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1035" y="-1028"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VKv-Vy-skT"/>
-        <segue reference="MtC-yY-9au"/>
         <segue reference="5Fb-UV-2aT"/>
+        <segue reference="3Pd-1y-LQs"/>
+        <segue reference="bSk-5G-CBA"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,6 +21,33 @@ class WelcomeVC: BaseViewController {
         // Do any additional setup after loading the view.
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.addSlideMenuButton()
+        print("app started again view did load")
+        
+        let isEndTimeEntered = prefs.valueForKey("MIGRAINEENDENTERED") as? Bool
+        if isEndTimeEntered != nil {
+            if isEndTimeEntered == false {
+                let startDateTime = prefs.valueForKey("MISSINGMIGRAINESTART") as? String
+                if startDateTime != nil {
+                    if startDateTime != "" {
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+                        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
+                        let startDateTimeTemp = dateFormatter.dateFromString(startDateTime!)!
+                        let date = NSDate()
+                        let dif = datesOffset(startDateTimeTemp, date2: date)
+                        let alert = UIAlertController(title: "Warning", message: "You have had a migraine for " + dif + ". \n \n Please enter the End Time now.", preferredStyle: .Alert)
+                        let action = UIAlertAction(title: "Enter Now", style: .Default) { (action) -> Void in
+                            self.performSegueWithIdentifier("goto_missingendtimefromwelcome", sender: self)
+                        }
+                        let action2 = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
+                        alert.addAction(action)
+                        alert.addAction(action2)
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        return
+                    }
+                }
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,6 +61,7 @@ class WelcomeVC: BaseViewController {
             print("this is called here hah")
             self.performSegueWithIdentifier("goto_signin", sender: self)
         }
+        print("app started again view did appear")
     }
     
     @IBAction func logoutAction(sender: UITextField) {
