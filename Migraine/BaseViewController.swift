@@ -44,30 +44,36 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
             
             break
         case 3:
-            print("Triggers\n", terminator: "")
+            print("Other Medical Conditions\n", terminator: "")
             
-            self.openViewControllerBasedOnIdentifier("TriggersVC")
+            self.openViewControllerBasedOnIdentifier("OtherMedicalConditionsVC")
             
             break
         case 4:
-            print("Migraine Helpers\n", terminator: "")
-            
-            self.openViewControllerBasedOnIdentifier("WhatHelpsMigraineVC")
-            
-            break
-        case 5:
             print("List of Medications\n", terminator: "")
             
             self.openViewControllerBasedOnIdentifier("ListOfMedicationsVC")
             
             break
-        case 6:
+        case 5:
             print("Associated Symptoms\n", terminator: "")
             
             self.openViewControllerBasedOnIdentifier("SymptomsVC")
             
             break
+        case 6:
+            print("Triggers\n", terminator: "")
+            
+            self.openViewControllerBasedOnIdentifier("TriggersVC")
+            
+            break
         case 7:
+            print("Migraine Helpers\n", terminator: "")
+            
+            self.openViewControllerBasedOnIdentifier("WhatHelpsMigraineVC")
+            
+            break
+        case 8:
             print("Prompt Settings\n", terminator: "")
             
             self.openViewControllerBasedOnIdentifier("PromptsVC")

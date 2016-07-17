@@ -16,6 +16,7 @@ class TriggersVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     var sectionsArray = [Section]()
+    var allSelectedTriggers = [String]()
     
     var sectionH = Section(title: "Custom", objects: [""])
     let customIndex = 7
@@ -38,8 +39,6 @@ class TriggersVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
         sectionsArray.append(sectionF)
         sectionsArray.append(sectionG)
         sectionsArray.append(sectionH)
-        
-        var allSelectedTriggers = [String]()
         
         for section in sectionsArray {
             allSelectedTriggers.appendContentsOf(section.items)
@@ -157,14 +156,14 @@ class TriggersVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
     func saveAddedItem() {
         if other.text != "" {
             let newItem = other.text
-            if !selectedConditions.contains(newItem!) {
+            if !selectedConditions.contains(newItem!) && !sectionsArray[customIndex].items.contains(newItem!) && !allSelectedTriggers.contains(newItem!) {
                 sectionsArray[customIndex].items.append(newItem!)
                 selectedConditions.append(newItem!)
                 tableView.reloadData()
                 prefs.setObject(selectedConditions, forKey: "TRIGGERS")
                 prefs.synchronize()
             } else {
-                let alert = UIAlertController(title: "Error", message: "The item you tried to add is already selected!", preferredStyle: .Alert)
+                let alert = UIAlertController(title: "Error", message: "The item you tried to add is already in the list!", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alert.addAction(action)
                 self.presentViewController(alert, animated: true, completion: nil)

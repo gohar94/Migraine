@@ -25,12 +25,12 @@ class NoMigraineToday4VC: UIViewController {
         if conditionsInPrefs != nil {
             selectedConditions = prefs.valueForKey("HELPMIGRAINE") as! [String]
         }
-        conditions = HELP_MIGRAINE
-        for item in selectedConditions {
-            if (!HELP_MIGRAINE.contains(item)) {
-                conditions.append(item)
-            }
-        }
+        conditions = selectedConditions
+//        for item in selectedConditions {
+//            if (!HELP_MIGRAINE.contains(item)) {
+//                conditions.append(item)
+//            }
+//        }
         selectedConditions.removeAll()
     }
     

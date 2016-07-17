@@ -8,23 +8,34 @@
 
 import UIKit
 
-class OtherMedicalConditionsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class OtherMedicalConditionsVC: BaseViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
-    var conditions = ["High Blood Pressure", "Diabetes", "Heart Attack/Coronary Artery Disease", "Cancer", "Stroke", "Irritable Bowel Syndrome", "Thyroid Problem", "Benign Prostatic Hypertrophy", "Eating Disorders", "Polycystic Ovarian Disease", "Obesity", "HIV", "Depression", "Anxiety", "Schizophrenia/Bipolar Disorder", "Attention Deficit Hyperactivity Disorder", "Attention Deficit Disorder", "Panic Disorder", "Food Allergies"]
     var selectedConditions = [String]()
+    var conditions = CONDITIONS
+    @IBOutlet weak var other: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        other.delegate = self
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: #selector(OtherMedicalConditionsVC.skipTapped))
         
         let conditionsInPrefs = prefs.valueForKey("CONDITIONS") as? [String]
         if conditionsInPrefs != nil {
             selectedConditions = prefs.valueForKey("CONDITIONS") as! [String]
+            for condition in conditionsInPrefs! {
+                if (condition != "") {
+                    if (!conditions.contains(condition)) {
+                        conditions.append(condition)
+                        print(condition)
+                    }
+                }
+            }
         }
     }
     
@@ -72,6 +83,32 @@ class OtherMedicalConditionsVC: BaseViewController, UITableViewDelegate, UITable
                 prefs.synchronize()
             }
         }
+    }
+    
+    func saveAddedItem() {
+        if other.text != "" {
+            let newItem = other.text
+            if !selectedConditions.contains(newItem!) && !conditions.contains(newItem!) {
+                selectedConditions.append(newItem!)
+                conditions.append(newItem!)
+                tableView.reloadData()
+                prefs.setObject(selectedConditions, forKey: "CONDITIONS")
+                prefs.synchronize()
+            } else {
+                let alert = UIAlertController(title: "Error", message: "The item you tried to add is already in the list!", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alert.addAction(action)
+                self.presentViewController(alert, animated: true, completion: nil)
+                print("already added")
+            }
+            other.text = ""
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        saveAddedItem()
+        textField.resignFirstResponder()
+        return true;
     }
 
     @IBAction func nextAction(sender: UIButton) {

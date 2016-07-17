@@ -36,18 +36,19 @@ struct Section {
 }
 
 // for triggers
-let sectionA = Section(title: "Everyday Stressors", objects: ["Emotional Stress", "Hunger", "Dehydration", "Gaps in between meals", "Sexual Activity", "Infections", "Too much sleep", "Lack of sleep", "Tiring Activity", "Exercise"])
-let sectionB = Section(title: "Foods", objects: ["Alcohol", "MSG", "Onions", "Citrus/Bananas", "Cheese", "Chocolate", "Nitrites", "Processed Foods", "Gluten", "Tyramine", "Dyes in food", "Artificial Sweetners", "Aspartame", "Saccharin", "Sucralose - Chlorinated sucrose"])
+let sectionA = Section(title: "Everyday Stressors", objects: ["Emotional Stress", "Hunger", "Dehydration", "Gaps in Between Meals", "Sexual Activity", "Infections", "Too Much Sleep", "Lack of Sleep", "Tiring Activity", "Exercise"])
+let sectionB = Section(title: "Foods", objects: ["Alcohol", "MSG", "Onions", "Citrus/Bananas", "Cheese", "Chocolate", "Nitrites", "Processed Foods", "Gluten", "Tyramine", "Dyes in Food", "Artificial Sweetners", "Aspartame", "Saccharin", "Sucralose - Chlorinated Sucrose"])
 let sectionC = Section(title: "Hormonal", objects: ["Menstruation", "Birth Control Pill"])
 let sectionD = Section(title: "Sensory Overload", objects: ["Light", "Noise", "Motion", "Perfumes"])
-let sectionE = Section(title: "Weather", objects: ["High Barometeric Pressure", "High Humidity", "High Temperature", "Wind", "Change in temperature", "Cold Temperature", "Lightning", "Drop in barometric pressure", "Flying"])
+let sectionE = Section(title: "Weather", objects: ["High Barometeric Pressure", "High Humidity", "High Temperature", "Wind", "Change in Temperature", "Cold Temperature", "Lightning", "Drop in Barometric Pressure", "Flying"])
 let sectionF = Section(title: "Pollution", objects: ["Smoke", "Cigarette Smoke"])
 let sectionG = Section(title: "Other", objects: ["Headache Medication (Medication Rebound)"])
 
 let SYMPTOMS = ["Sensitivity to Light", "Sensitivity to Sound", "Sensitivity to Smells", "Dizziness", "Moodiness/Irritability", "Fatigue", "Cravings", "Tinnitus", "Fever", "Decreased Appetite", "Nausea", "Pale", "Hot/Cold", "Body Pain", "Nausea/Vomiting"]
-let HELP_MIGRAINE = ["Sleep", "Yoga", "Exercise", "Medications", "Hydration", "Glasses to prevent glare", "Caffeine"]
+let HELP_MIGRAINE = ["Sleep", "Yoga", "Exercise", "Medications", "Hydration", "Glasses to Prevent Glare", "Caffeine"]
 let KEYS = ["FULLNAME", "EMAIL", "TERMSAGREED", "BIRTHCONTROL", "AGE", "GENDER", "NEXTPERIOD", "BIRTHCONTROL", "LMP", "CONDITIONS", "MEDICATION", "HEADACHECONDITIONS", "HEADACHEDURATION", "SYMPTOMS", "TRIGGERS", "HELPMIGRAINE", "NUMBERPROMPTS", "SLEEP", "STRESS", "HEADACHELOCATIONS"]
 let DIARY_KEYS = ["SLEEPDURATIONHOURS", "SLEEPDURATIONMINUTES", "SLEEPQUALITY", "STRESSLEVEL", "HADMIGRAINE", "LURKINGMIGRAINE", "SYMPTOMSTODAY", "TRIGGERSTODAY", "HELPMIGRAINETODAY", "MIGRAINESEVERITY", "MIGRAINESEVERITY"]
+let CONDITIONS = ["High Blood Pressure", "Diabetes", "Heart Attack/Coronary Artery Disease", "Cancer", "Stroke", "Irritable Bowel Syndrome", "Thyroid Problem", "Benign Prostatic Hypertrophy", "Eating Disorders", "Polycystic Ovarian Disease", "Obesity", "HIV", "Depression", "Anxiety", "Schizophrenia/Bipolar Disorder", "Attention Deficit Hyperactivity Disorder", "Attention Deficit Disorder", "Panic Disorder", "Food Allergies"]
 
 var toAlert = true
 
