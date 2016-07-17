@@ -2518,7 +2518,7 @@
         <!--Missing End TimeVC-->
         <scene sceneID="gdt-g2-qhO">
             <objects>
-                <viewController storyboardIdentifier="MissingEndTImeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EOS-Lx-Swe" customClass="MissingEndTimeVC" customModule="Migraine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MissingEndTimeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EOS-Lx-Swe" customClass="MissingEndTimeVC" customModule="Migraine" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m94-OA-2YL"/>
                         <viewControllerLayoutGuide type="bottom" id="VAF-Uj-w7Y"/>
@@ -2542,7 +2542,7 @@
                                             <constraint firstAttribute="width" constant="115" id="U9j-bL-js0"/>
                                             <constraint firstAttribute="height" constant="30" id="yje-g1-4CW"/>
                                         </constraints>
-                                        <state key="normal" title="Next">
+                                        <state key="normal" title="Done">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>

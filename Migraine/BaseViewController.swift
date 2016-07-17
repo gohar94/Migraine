@@ -79,6 +79,12 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
             self.openViewControllerBasedOnIdentifier("PromptsVC")
             
             break
+        case 9:
+            print("Missing Migraine End Time\n", terminator: "")
+            
+            self.openViewControllerBasedOnIdentifier("MissingEndTimeVC")
+            
+            break
         default:
             print("default\n", terminator: "")
         }

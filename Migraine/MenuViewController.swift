@@ -65,7 +65,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         arrayMenuOptions.append(["title":"Triggers", "icon":"brain"])
         arrayMenuOptions.append(["title":"Migraine Helpers", "icon":"brain"])
         arrayMenuOptions.append(["title":"Prompt Settings", "icon":"brain"])
-        
+        arrayMenuOptions.append(["title":"Missing Migraine End Time", "icon":"brain"])
         tblMenuOptions.reloadData()
     }
     

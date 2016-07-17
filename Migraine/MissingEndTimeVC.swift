@@ -28,10 +28,14 @@ class MissingEndTimeVC: UIViewController {
                 let date = NSDate()
                 let dif = datesOffset(startDateTimeTemp, date2: date)
                 migraineDuration.text = "Duration of migraine is " + dif
+                return
             }
         }
         
-        
+        // this code only executes when the above does not return
+        migraineStarted.text = "Your don't have any missing migraine End Time!"
+        migraineDuration.hidden = true
+        endDateTime.enabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,7 +100,14 @@ class MissingEndTimeVC: UIViewController {
                 sendMissingEndDateToFirebase(endDateTimeTemp!)
             }
         }
-        self.performSegueWithIdentifier("goto_welcomefrommissingenddate", sender: self)
+        let alert = UIAlertController(title: "Success", message: "Missing Migraine End Time updated successfully!", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default) {
+            UIAlertAction in
+            self.performSegueWithIdentifier("goto_welcomefrommissingenddate", sender: self)
+        }
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
+        return
     }
     
     /*
