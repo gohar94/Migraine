@@ -14,6 +14,7 @@ class MissingEndTimeVC: UIViewController {
     @IBOutlet weak var migraineStarted: UILabel!
     @IBOutlet weak var migraineDuration: UILabel!
     @IBOutlet weak var boldText: UILabel!
+    var showAlert = true
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +35,8 @@ class MissingEndTimeVC: UIViewController {
         }
         
         // this code only executes when the above does not return
-        boldText.text = "Your don't have any missing migraine End Time!"
+        showAlert = false
+        boldText.text = "No missing Migraine End Time!"
         migraineDuration.hidden = true
         endDateTime.enabled = false
         endDateTime.hidden = true
@@ -79,37 +81,41 @@ class MissingEndTimeVC: UIViewController {
     }
     
     @IBAction func nextActionButton(sender: UIButton) {
-        let endDateTimeTemp = prefs.valueForKey("MIGRAINEENDTEMP") as? String
-        if endDateTimeTemp != nil {
-            if endDateTimeTemp != "" {
-                let startDateTime = prefs.valueForKey("MISSINGMIGRAINESTART") as? String
-                if startDateTime != nil {
-                    if startDateTime != "" {
-                        let dateFormatter = NSDateFormatter()
-                        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-                        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
-                        let startDateTimeTemp = dateFormatter.dateFromString(startDateTime!)!
-                        let endDateTimeTemp2 = dateFormatter.dateFromString(endDateTimeTemp!)!
-                        if startDateTimeTemp.compare(endDateTimeTemp2) == NSComparisonResult.OrderedDescending {
-                            // start is greater
-                            let alert = UIAlertController(title: "Error", message: "Migraine End Time can not be before the Start Time. Please try again!", preferredStyle: .Alert)
-                            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                            alert.addAction(action)
-                            self.presentViewController(alert, animated: true, completion: nil)
-                            return
+        if showAlert == true {
+            let endDateTimeTemp = prefs.valueForKey("MIGRAINEENDTEMP") as? String
+            if endDateTimeTemp != nil {
+                if endDateTimeTemp != "" {
+                    let startDateTime = prefs.valueForKey("MISSINGMIGRAINESTART") as? String
+                    if startDateTime != nil {
+                        if startDateTime != "" {
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+                            dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
+                            let startDateTimeTemp = dateFormatter.dateFromString(startDateTime!)!
+                            let endDateTimeTemp2 = dateFormatter.dateFromString(endDateTimeTemp!)!
+                            if startDateTimeTemp.compare(endDateTimeTemp2) == NSComparisonResult.OrderedDescending {
+                                // start is greater
+                                let alert = UIAlertController(title: "Error", message: "Migraine End Time can not be before the Start Time. Please try again!", preferredStyle: .Alert)
+                                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                                alert.addAction(action)
+                                self.presentViewController(alert, animated: true, completion: nil)
+                                return
+                            }
                         }
                     }
+                    sendMissingEndDateToFirebase(endDateTimeTemp!)
                 }
-                sendMissingEndDateToFirebase(endDateTimeTemp!)
             }
-        }
-        let alert = UIAlertController(title: "Success", message: "Missing Migraine End Time updated successfully!", preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default) {
-            UIAlertAction in
+            let alert = UIAlertController(title: "Success", message: "Missing Migraine End Time updated successfully!", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default) {
+                UIAlertAction in
+                self.performSegueWithIdentifier("goto_welcomefrommissingenddate", sender: self)
+            }
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
             self.performSegueWithIdentifier("goto_welcomefrommissingenddate", sender: self)
         }
-        alert.addAction(action)
-        self.presentViewController(alert, animated: true, completion: nil)
         return
     }
     

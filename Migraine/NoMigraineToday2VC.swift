@@ -15,7 +15,7 @@ class NoMigraineToday2VC: UIViewController {
     
     var selectedConditions = [String]()
     
-    var SYMPTOMSTOSHOW = SYMPTOMS
+    var SYMPTOMSTOSHOW = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
