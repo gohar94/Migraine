@@ -87,6 +87,7 @@ class YesMigraineTodayVC: UIViewController {
         dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
         let selectedDateStr = dateFormatter.stringFromDate(sender.date)
         print(selectedDateStr)
+        BFLog(selectedDateStr)
         dateTime.text = dateFormatter.stringFromDate(sender.date)
     }
     
@@ -102,6 +103,7 @@ class YesMigraineTodayVC: UIViewController {
         dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
         let selectedDateStr = dateFormatter.stringFromDate(sender.date)
         print(selectedDateStr)
+        BFLog(selectedDateStr)
         endDateTime.text = dateFormatter.stringFromDate(sender.date)
     }
     

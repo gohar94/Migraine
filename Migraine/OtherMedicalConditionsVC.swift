@@ -100,6 +100,7 @@ class OtherMedicalConditionsVC: BaseViewController, UITableViewDelegate, UITable
                 alert.addAction(action)
                 self.presentViewController(alert, animated: true, completion: nil)
                 print("already added")
+                BFLog("already added")
             }
             other.text = ""
         }
@@ -124,6 +125,7 @@ class OtherMedicalConditionsVC: BaseViewController, UITableViewDelegate, UITable
         sendDataToFirebase()
         self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
+        BFLog("skip")
     }
 }
 

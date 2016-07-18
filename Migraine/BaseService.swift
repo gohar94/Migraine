@@ -55,18 +55,21 @@ var toAlert = true
 // sends user data (profile) to firebase
 func sendDataToFirebase() {
     print("sending")
+    BFLog("sending")
     UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     // check if user is logged in
     if (NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil || CURRENT_USER.authData == nil) {
         return
     }
     print("user exists")
+    BFLog("user exists")
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     var dict = [String: AnyObject]()
     // iterate over keys
     for key in KEYS {
         print(key)
+        BFLog(key)
         // check if key exists
         var val = prefs.valueForKey(key)
         if (val != nil) {
@@ -79,12 +82,14 @@ func sendDataToFirebase() {
                 if (temp != nil) {
                     val = dateFormatter.stringFromDate(temp!)
                     print("converted date to string")
+                    BFLog("converted date to string")
                     print(val)
                 }
             }
             dict[key] = val
         } else {
             print("nil")
+            BFLog("nil")
         }
     }
     print(dict)
@@ -92,24 +97,28 @@ func sendDataToFirebase() {
     let usersRef = PATIENT_RECORDS_REF.childByAppendingPath("patient-info")
     usersRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).setValue(dict)
     print("done uploading")
+    BFLog("done uploading")
     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 }
 
 // sends user daily diary to firebase
 func sendDiaryToFirebase() {
     print("sending diary to firebase")
+    BFLog("sending diary to firebase")
     UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     // check if user is logged in
     if (NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil || CURRENT_USER.authData == nil) {
         return
     }
     print("user exists")
+    BFLog("user exists")
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     var dict = [String: AnyObject]()
     // iterate over keys
     for key in DIARY_KEYS {
         print(key)
+        BFLog(key)
         // check if key exists
         let val = prefs.valueForKey(key)
         if (val != nil) {
@@ -119,6 +128,7 @@ func sendDiaryToFirebase() {
             prefs.synchronize()
         } else {
             print("nil")
+            BFLog("nil")
         }
     }
     
@@ -138,22 +148,26 @@ func sendDiaryToFirebase() {
         prefs.setValue(curDate, forKey: "MISSINGMIGRAINEENTRY") // the entry ID to which the missing entry will later be updated to
         prefs.synchronize()
         print("missing end date case")
+        BFLog("missing end date case")
     }
     
     usersRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(curDate).setValue(dict)
     print("done uploading user diary")
+    BFLog("done uploading user diary")
     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 }
 
 // updates (added/removed) medication of the patient to firebase
 func sendMedicationToFirebase(medicine: String, isRemoved: Bool) {
     print("sending medication to firebase")
+    BFLog("sending medication to firebase")
     UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     // check if user is logged in
     if (NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil || CURRENT_USER.authData == nil) {
         return
     }
     print("user exists")
+    BFLog("user exists")
     
     var dict = [String: AnyObject]()
     dict["Status"] = "Added"
@@ -171,18 +185,21 @@ func sendMedicationToFirebase(medicine: String, isRemoved: Bool) {
     let curDate = dateFormatter.stringFromDate(date)
     medicationRef.childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath(curDate).setValue(dict)
     print("done uploading medication")
+    BFLog("done uploading medication")
     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 }
 
 // updates the missing end date of migraine
 func sendMissingEndDateToFirebase(missingDate: String) {
     print("sending missing end date to firebase")
+    BFLog("sending missing end date to firebase")
     UIApplication.sharedApplication().networkActivityIndicatorVisible = true
     // check if user is logged in
     if (NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil || CURRENT_USER.authData == nil) {
         return
     }
     print("user exists")
+    BFLog("user exists")
     
     let entryID = prefs.valueForKey("MISSINGMIGRAINEENTRY") as? String
     if entryID != nil && entryID != "" {
@@ -194,8 +211,10 @@ func sendMissingEndDateToFirebase(missingDate: String) {
         prefs.removeObjectForKey("MISSINGMIGRAINEENTRY")
         prefs.synchronize()
         print("done uploading missing end date")
+        BFLog("done uploading missing end date")
     } else {
         print("error uploading missing end date to firebase")
+        BFLog("error uploading missing end date to firebase")
     }
     
     UIApplication.sharedApplication().networkActivityIndicatorVisible = false

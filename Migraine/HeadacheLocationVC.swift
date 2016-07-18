@@ -109,6 +109,7 @@ class HeadacheLocationVC: BaseViewController {
         sendDataToFirebase()
         self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
+        BFLog("skip")
     }
 
     /*

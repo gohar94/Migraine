@@ -26,7 +26,9 @@ class PromptsVC: BaseViewController {
                     if (notification.userInfo!["TYPE"] as! String == "STRESS") {
                         UIApplication.sharedApplication().cancelLocalNotification(notification)
                         print("deleting notif")
-                        Logger.log("deleting")
+                        BFLog("deleting notif")
+                        print("deleting")
+                        BFLog("deleting")
                         break
                     }
                 }
@@ -54,6 +56,7 @@ class PromptsVC: BaseViewController {
         
         if settings.types == .None {
             print("settings none")
+            BFLog("settings none")
             // make sure this warning comes up only once on one app launch
             if toAlert {
                 let ac = UIAlertController(title: "Can't prompt!", message: "Notifications are not enabled by the user. \nEnable them from: \nSettings > Notifications > Migraine \n \nPlease come back to this page after enabling notifications and set prompt timings again. Thank you!", preferredStyle: .Alert)
@@ -62,6 +65,7 @@ class PromptsVC: BaseViewController {
                 toAlert = false
             } else {
                 print("to alert is false")
+                BFLog("to alert is false")
             }
             notice.hidden = false;
             return false
@@ -74,18 +78,22 @@ class PromptsVC: BaseViewController {
     func notifications(key: String) {
         if !checkNotificationsEnabled() {
             print("notifications not enabled")
+            BFLog("notifications not enabled")
             return
         }
         print("notifications enabled")
+        BFLog("notifications enabled")
         let inPrefs = prefs.valueForKey(key) as? NSDate
         if inPrefs != nil {
             print(inPrefs)
             print("Setting notif")
+            BFLog("Setting notif")
             for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
                 if (notification.userInfo!["TYPE"]) != nil {
                     if (notification.userInfo!["TYPE"] as! String == key) {
                         UIApplication.sharedApplication().cancelLocalNotification(notification)
                         print("deleting notif")
+                        BFLog("deleting notif")
                         break
                     }
                 }
@@ -199,6 +207,7 @@ class PromptsVC: BaseViewController {
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         let selectedDateStr = dateFormatter.stringFromDate(sender.date)
         print(selectedDateStr)
+        BFLog(selectedDateStr)
         sleepTime.text = dateFormatter.stringFromDate(sender.date)
         print(sender.date)
         prefs.setValue(sender.date, forKey: "SLEEP")
@@ -233,6 +242,7 @@ class PromptsVC: BaseViewController {
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         let selectedDateStr = dateFormatter.stringFromDate(sender.date)
         print(selectedDateStr)
+        BFLog(selectedDateStr)
         stressTime.text = dateFormatter.stringFromDate(sender.date)
         prefs.setValue(sender.date, forKey: "STRESS")
         prefs.synchronize()
@@ -259,6 +269,7 @@ class PromptsVC: BaseViewController {
         sendDataToFirebase()
         self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
+        BFLog("skip")
     }
 
     @IBAction func switchAction(sender: UISwitch) {
@@ -269,6 +280,7 @@ class PromptsVC: BaseViewController {
         prefs.setObject(selectedNumber, forKey: "NUMBERPROMPTS")
         prefs.synchronize()
         print(selectedNumber)
+        BFLog(selectedNumber)
         onlyOneNotification(true)
     }
     /*

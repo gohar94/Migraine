@@ -108,6 +108,7 @@ class HeadacheDetailsVC: BaseViewController, UITableViewDelegate, UITableViewDat
         }
         self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
+        BFLog("skip")
     }
     
     func checkOneOrBoth() -> Bool {

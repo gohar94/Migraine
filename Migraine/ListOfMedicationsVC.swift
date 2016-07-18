@@ -78,6 +78,7 @@ class ListOfMedicationsVC: BaseViewController, UITableViewDelegate, UITableViewD
                 alert.addAction(action)
                 self.presentViewController(alert, animated: true, completion: nil)
                 print("already added")
+                BFLog("already added")
             }
             addedMedicine.text = ""
         }
@@ -102,6 +103,7 @@ class ListOfMedicationsVC: BaseViewController, UITableViewDelegate, UITableViewD
         sendDataToFirebase()
         self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
+        BFLog("skip")
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

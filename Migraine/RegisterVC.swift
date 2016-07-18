@@ -41,14 +41,17 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
             FIREBASE_REF.createUser(emailStr, password: passwordStr, withValueCompletionBlock: { (error, authData) -> Void in
                 if (error == nil) {
                     print("created user")
+                    BFLog("created user")
                     FIREBASE_REF.authUser(emailStr, password: passwordStr, withCompletionBlock: { (error, authData) -> Void in
                         if (error == nil) {
                             print("authenticated user")
+                            BFLog("authenticated user")
                             NSUserDefaults.standardUserDefaults().setObject(emailStr, forKey: "EMAIL")
                             NSUserDefaults.standardUserDefaults().setObject(passwordStr, forKey: "PASSWORD")
                             NSUserDefaults.standardUserDefaults().setObject(fullNameStr, forKey: "FULLNAME")
                             NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                             print("Logged in!")
+                            BFLog("Logged in!")
                             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                             self.performSegueWithIdentifier("goto_welcomefromregister", sender: self)
                         } else {

@@ -217,6 +217,7 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     
     @IBAction func nextButtonAction(sender: UIButton) {
         print("Next")
+        BFLog("Next")
         if (hadMigraine.on == false) {
             prefs.setValue(hadMigraine.on, forKey: "HADMIGRAINE")
             self.performSegueWithIdentifier("goto_nomigrainetoday", sender: self)
@@ -282,7 +283,6 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
         }
         prefs.setValue(currentValue, forKey: "SLEEPQUALITY")
         prefs.synchronize()
-
     }
     /*
     // MARK: - Navigation

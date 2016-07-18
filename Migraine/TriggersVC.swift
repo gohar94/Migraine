@@ -52,6 +52,7 @@ class TriggersVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
                     if (!allSelectedTriggers.contains(condition)) {
                         sectionsArray[customIndex].items.append(condition)
                         print(condition)
+                        BFLog(condition)
                     }
                 }
             }
@@ -168,6 +169,7 @@ class TriggersVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
                 alert.addAction(action)
                 self.presentViewController(alert, animated: true, completion: nil)
                 print("already added")
+                BFLog("already added")
             }
             other.text = ""
         }
@@ -201,6 +203,7 @@ class TriggersVC: BaseViewController, UITableViewDelegate, UITableViewDataSource
         sendDataToFirebase()
         self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
+        BFLog("skip")
     }
     /*
     // MARK: - Navigation

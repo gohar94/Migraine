@@ -29,9 +29,11 @@ class SignInVC: UIViewController, UITextFieldDelegate {
         super.viewDidAppear(true)
         if (NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && CURRENT_USER.authData != nil) {
             print("already signed in")
+            BFLog("already signed in")
             self.performSegueWithIdentifier("goto_welcomefromsignin", sender: self)
         } else {
             print("not signed in")
+            BFLog("not signed in")
         }
     }
 
@@ -54,6 +56,7 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                 toAlert = false
             } else {
                 print("to alert is false")
+                BFLog("to alert is false")
             }
             return false
         } else {
@@ -64,13 +67,16 @@ class SignInVC: UIViewController, UITextFieldDelegate {
     func notifications(key: String) {
         if !checkNotificationsEnabled() {
             print("notifications not enabled")
+            BFLog("notifications not enabled")
             return
         }
         print("notifications enabled")
+        BFLog("notifications enabled")
         let inPrefs = prefs.valueForKey(key) as? NSDate
         if inPrefs != nil {
             print(inPrefs)
             print("Setting notif")
+            BFLog("Setting notif")
             for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
                 if (notification.userInfo!["TYPE"]) != nil {
                     if (notification.userInfo!["TYPE"] as! String == key) {
@@ -107,6 +113,7 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                     UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     print("Logged in!")
+                    BFLog("Logged in!")
                     self.prefs.setObject(emailStr, forKey: "EMAIL")
                     self.prefs.setObject(passwordStr, forKey: "PASSWORD")
                     self.prefs.synchronize()
@@ -125,14 +132,17 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                     // restore all user defaults from server
                     let ref = Firebase(url: "https://migraine-app.firebaseio.com/patient-records/patient-info/" + authData.uid)
                     print("getting user data for " + authData.uid)
+                    BFLog("getting user data for " + authData.uid)
                     ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
                         if (snapshot != nil) {
                             if snapshot.value is NSNull {
                                 print("snapshot.value is NSNull")
+                                BFLog("snapshot.value is NSNull")
                             } else {
                                 if (snapshot.value != nil) {
                                     for key in KEYS {
                                         print(key)
+                                        BFLog(key)
                                         // check if key exists
                                         var val = snapshot.value.objectForKey(key)
                                         if (val != nil) {
@@ -146,6 +156,7 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                                                 if (temp != nil) {
                                                     val = dateFormatter.dateFromString(temp!)
                                                     print("converted date to string")
+                                                    BFLog("converted date to string")
                                                     print(val)
                                                 }
                                             }
@@ -154,6 +165,7 @@ class SignInVC: UIViewController, UITextFieldDelegate {
                                             self.notifications(key)
                                         } else {
                                             print("nil")
+                                            BFLog("nil")
                                         }
                                     }
                                     print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())

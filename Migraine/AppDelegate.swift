@@ -20,10 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let type = userInfo["TYPE"] as! String
             if (type == "SLEEP") {
                 print("Sleep notification received")
+                BFLog("Sleep notification received")
             } else if (type == "STRESS") {
                 print("Stress notification received")
+                BFLog("Stress notification received")
             } else {
                 print("Some other notification type that is not supported appeared here")
+                BFLog("Some other notification type that is not supported appeared here")
             }
             // TODO this is not working properly, not taking to the desired VC
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

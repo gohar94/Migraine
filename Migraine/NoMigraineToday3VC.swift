@@ -56,7 +56,7 @@ class NoMigraineToday3VC: UIViewController, UITableViewDelegate, UITableViewData
                 if (condition != "") {
 //                    if (!allSelectedTriggers.contains(condition)) {
 //                        sectionHToInclude.append(condition)
-//                        print(condition)
+                    print(condition)
 //                    }
                     // i'm sleepy!
                     var found = false

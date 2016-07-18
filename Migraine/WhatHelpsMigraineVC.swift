@@ -36,6 +36,7 @@ class WhatHelpsMigraineVC: BaseViewController, UITableViewDelegate, UITableViewD
                 conditions.append(item)
             }
             print(item)
+            BFLog(item)
         }
     }
 
@@ -100,6 +101,7 @@ class WhatHelpsMigraineVC: BaseViewController, UITableViewDelegate, UITableViewD
                 alert.addAction(action)
                 self.presentViewController(alert, animated: true, completion: nil)
                 print("already added")
+                BFLog("already added")
             }
             other.text = ""
         }
@@ -125,6 +127,7 @@ class WhatHelpsMigraineVC: BaseViewController, UITableViewDelegate, UITableViewD
         sendDataToFirebase()
         self.openViewControllerBasedOnIdentifier("DailySurveyVC")
         print("skip")
+        BFLog("skip")
     }
     
     // TODO add other

@@ -10,6 +10,8 @@ import Foundation
 
 public class Logger {
     static func log(logMessage: String, fileName: String = #file, lineName: Int = #line, columnName: Int = #column, functionName: String = #function) {
-        print("File = \(fileName), Line = \(lineName), Column = \(columnName), Function = \(functionName) : \(logMessage)")
+        let str = "File = \(fileName), Line = \(lineName), Column = \(columnName), Function = \(functionName) : \(logMessage)"
+        print(str)
+        BFLog(str)
     }
 }

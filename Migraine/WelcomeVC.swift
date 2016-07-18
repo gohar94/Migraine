@@ -60,9 +60,11 @@ class WelcomeVC: BaseViewController {
         super.viewDidAppear(true)
         if (NSUserDefaults.standardUserDefaults().valueForKey("uid") == nil || CURRENT_USER.authData == nil) {
             print("this is called here hah")
+            BFLog("this is called here hah")
             self.performSegueWithIdentifier("goto_signin", sender: self)
         }
         print("app started again view did appear")
+        BFLog("app started again view did load")
     }
     
     @IBAction func logoutAction(sender: UITextField) {
@@ -73,6 +75,7 @@ class WelcomeVC: BaseViewController {
         for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
             UIApplication.sharedApplication().cancelLocalNotification(notification)
             print("deleting notif")
+            BFLog("deleting notif")
         }
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         self.performSegueWithIdentifier("goto_signin", sender: self)
@@ -83,11 +86,13 @@ class WelcomeVC: BaseViewController {
         if (termsAgreed != nil) {
             if (termsAgreed == false) {
                 print("ll1")
+                BFLog("ll1")
                 self.performSegueWithIdentifier("goto_introfromwelcome", sender: self)
                 return
             }
         } else {
             print("ll2")
+            BFLog("ll2")
             self.performSegueWithIdentifier("goto_introfromwelcome", sender: self)
             return
         }
