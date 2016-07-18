@@ -13,6 +13,7 @@ class MissingEndTimeVC: UIViewController {
     @IBOutlet weak var endDateTime: UITextField!
     @IBOutlet weak var migraineStarted: UILabel!
     @IBOutlet weak var migraineDuration: UILabel!
+    @IBOutlet weak var boldText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,9 +34,11 @@ class MissingEndTimeVC: UIViewController {
         }
         
         // this code only executes when the above does not return
-        migraineStarted.text = "Your don't have any missing migraine End Time!"
+        boldText.text = "Your don't have any missing migraine End Time!"
         migraineDuration.hidden = true
         endDateTime.enabled = false
+        endDateTime.hidden = true
+        migraineStarted.hidden = true
     }
 
     override func didReceiveMemoryWarning() {

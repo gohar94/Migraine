@@ -2603,6 +2603,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="boldText" destination="c9j-lq-F30" id="yaP-CY-2JJ"/>
                         <outlet property="endDateTime" destination="8AT-YW-TsK" id="XmW-qu-cG7"/>
                         <outlet property="migraineDuration" destination="rKp-wp-xpJ" id="73w-iK-e99"/>
                         <outlet property="migraineStarted" destination="Oq9-f9-Hf0" id="ToV-Jc-VbN"/>
