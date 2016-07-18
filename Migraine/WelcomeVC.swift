@@ -22,6 +22,7 @@ class WelcomeVC: BaseViewController {
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.addSlideMenuButton()
         print("app started again view did load")
+        BFLog("app started again view did load")
         
         let isEndTimeEntered = prefs.valueForKey("MIGRAINEENDENTERED") as? Bool
         if isEndTimeEntered != nil {

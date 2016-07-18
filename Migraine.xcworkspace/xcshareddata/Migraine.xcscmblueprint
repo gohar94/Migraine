@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4227C11F68E6B8A7136A8E2BB0C34E302113AB7F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "7CF6E56F945FE7E330C4E8A49C6C13D2D9043620" : 0,
+    "4227C11F68E6B8A7136A8E2BB0C34E302113AB7F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "38F5A7B6-F870-4721-9522-B1BD167C7563",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "7CF6E56F945FE7E330C4E8A49C6C13D2D9043620" : "AKSwiftSlideMenu\/",
+    "4227C11F68E6B8A7136A8E2BB0C34E302113AB7F" : "Migraine\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Migraine",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Migraine.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gohar94\/Migraine.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4227C11F68E6B8A7136A8E2BB0C34E302113AB7F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ashishkakkad8\/AKSwiftSlideMenu.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7CF6E56F945FE7E330C4E8A49C6C13D2D9043620"
+    }
+  ]
+}

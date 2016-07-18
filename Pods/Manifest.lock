@@ -1,10 +1,13 @@
 PODS:
+  - BugfenderSDK (0.3.18)
   - Firebase (2.5.1)
 
 DEPENDENCIES:
+  - BugfenderSDK (~> 0.3)
   - Firebase (>= 2.5.0)
 
 SPEC CHECKSUMS:
+  BugfenderSDK: c1b9972614c199d079a67aa0733fd55d0be25f30
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
 
 COCOAPODS: 0.39.0

@@ -216,3 +216,10 @@ func datesOffset(date:NSDate, date2:NSDate) -> String {
     if difference.second > 0 { return seconds }
     return ""
 }
+
+func BFLog(message: String, filename: String = #file, line: Int = #line, funcname: String = #function) {
+    Bugfender.logLineNumber(line, method: funcname, file: NSURL(fileURLWithPath: filename).lastPathComponent, level: BFLogLevel.Default, tag: nil, message: message)
+    #if DEBUG
+        NSLog("[\(filename.lastPathComponent):\(line)] \(funcname) - %@", message)
+    #endif
+}

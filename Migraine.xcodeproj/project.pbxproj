@@ -91,6 +91,7 @@
 		17683A4B1CB7B29B00F57596 /* DailySurveyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailySurveyVC.swift; sourceTree = "<group>"; };
 		17683A4D1CB7C4CD00F57596 /* NoMigraineTodayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoMigraineTodayVC.swift; sourceTree = "<group>"; };
 		176DCDEB1C86AF7C00551697 /* PromptsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptsVC.swift; sourceTree = "<group>"; };
+		17AAC3EA1D3D2FCE00F8C253 /* Migraine-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Migraine-Bridging-Header.h"; sourceTree = "<group>"; };
 		17B5B15F1C78AB06007F46E1 /* SymptomsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomsVC.swift; sourceTree = "<group>"; };
 		17B5B1611C78C5CC007F46E1 /* HeadacheLocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadacheLocationVC.swift; sourceTree = "<group>"; };
 		17B5B1631C78C5E3007F46E1 /* TriggersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggersVC.swift; sourceTree = "<group>"; };
@@ -188,6 +189,7 @@
 				1726F6CC1C70492600AAF671 /* Assets.xcassets */,
 				1726F6CE1C70492600AAF671 /* LaunchScreen.storyboard */,
 				1726F6D11C70492600AAF671 /* Info.plist */,
+				17AAC3EA1D3D2FCE00F8C253 /* Migraine-Bridging-Header.h */,
 			);
 			path = Migraine;
 			sourceTree = "<group>";
@@ -591,7 +593,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.goharirfan.migraineapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Migraine/Migraine-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -612,7 +614,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.goharirfan.migraineapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Migraine/Migraine-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
