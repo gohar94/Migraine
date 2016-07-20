@@ -22,71 +22,73 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
     }
     
     func slideMenuItemSelectedAtIndex(index: Int32) {
+        BFLog("slider items selection")
         let topViewController : UIViewController = self.navigationController!.topViewController!
         print("View Controller is : \(topViewController) \n", terminator: "")
         switch(index){
         case 0:
             print("Home\n", terminator: "")
-            
+            BFLog("Home")
             self.openViewControllerBasedOnIdentifier("WelcomeVC")
             
             break
         case 1:
             print("Daily Diary\n", terminator: "")
-            
+            BFLog("Daily Diary")
             self.openViewControllerBasedOnIdentifier("DailySurveyVC")
             
             break
         case 2:
             print("Personal Info\n", terminator: "")
-            
+            BFLog("Personal Info")
             self.openViewControllerBasedOnIdentifier("GettingToKnowVC")
             
             break
         case 3:
             print("Other Medical Conditions\n", terminator: "")
-            
+            BFLog("Other Medical Conditions")
             self.openViewControllerBasedOnIdentifier("OtherMedicalConditionsVC")
             
             break
         case 4:
             print("List of Medications\n", terminator: "")
-            
+            BFLog("List of Medications")
             self.openViewControllerBasedOnIdentifier("ListOfMedicationsVC")
             
             break
         case 5:
             print("Associated Symptoms\n", terminator: "")
-            
+            BFLog("Associated Symptoms")
             self.openViewControllerBasedOnIdentifier("SymptomsVC")
             
             break
         case 6:
             print("Triggers\n", terminator: "")
-            
+            BFLog("Triggers")
             self.openViewControllerBasedOnIdentifier("TriggersVC")
             
             break
         case 7:
             print("Migraine Helpers\n", terminator: "")
-            
+            BFLog("Migraine Helpers")
             self.openViewControllerBasedOnIdentifier("WhatHelpsMigraineVC")
             
             break
         case 8:
             print("Prompt Settings\n", terminator: "")
-            
+            BFLog("Prompt Settings")
             self.openViewControllerBasedOnIdentifier("PromptsVC")
             
             break
         case 9:
             print("Missing Migraine End Time\n", terminator: "")
-            
+            BFLog("Missing Migraine End Time")
             self.openViewControllerBasedOnIdentifier("MissingEndTimeVC")
             
             break
         default:
             print("default\n", terminator: "")
+            BFLog("default")
         }
     }
     

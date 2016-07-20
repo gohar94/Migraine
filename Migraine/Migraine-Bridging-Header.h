@@ -10,5 +10,6 @@
 #define Migraine_Bridging_Header_h
 
 #import <BugfenderSDK/BugfenderSDK.h>
+#import <HockeySDK/HockeySDK.h>
 
 #endif /* Migraine_Bridging_Header_h */

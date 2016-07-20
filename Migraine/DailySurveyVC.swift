@@ -24,6 +24,9 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
     @IBOutlet weak var labelSleep: UILabel!
     @IBOutlet weak var labelStress: UILabel!
     
+    var lastSelectedHour = ""
+    var lastSelectedMinute = ""
+    
     let hourOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
 //    let minuteOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]
     let minuteOptions = ["0", "15", "30", "45"]
@@ -143,8 +146,16 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
             switch tag {
             case .PickerViewSleepDurationHours:
                 sleepDurationHours.text = hourOptions[row]
+                lastSelectedHour = hourOptions[row]
+                print("last selected hour")
+                print(lastSelectedHour)
+                prefs.setObject(lastSelectedHour, forKey: "SLEEPDURATIONHOURS")
+                prefs.synchronize()
             case .PickerViewSleepDurationMinutes:
                 sleepDurationMinutes.text = minuteOptions[row]
+                lastSelectedMinute = minuteOptions[row]
+                prefs.setObject(lastSelectedMinute, forKey: "SLEEPDURATIONMINUTES")
+                prefs.synchronize()
             case .PickerViewSleepQuality:
                 sleepQuality.text = scaleOptions[row]
             case .PickerViewStress:
@@ -173,7 +184,7 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
         let textBtn = UIBarButtonItem(customView: label)
         toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
         sleepDurationHours.inputAccessoryView = toolBar
-        sleepDurationHours.text = hourOptions[0]
+//        sleepDurationHours.text = lastSelectedHour
         prefs.setObject(sleepDurationHours.text, forKey: "SLEEPDURATIONHOURS")
         prefs.synchronize()
     }
@@ -204,7 +215,7 @@ class DailySurveyVC: BaseViewController, UIPickerViewDataSource, UIPickerViewDel
         let textBtn = UIBarButtonItem(customView: label)
         toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
         sleepDurationMinutes.inputAccessoryView = toolBar
-        sleepDurationMinutes.text = minuteOptions[0]
+//        sleepDurationMinutes.text = lastSelectedMinute
         prefs.setObject(sleepDurationMinutes.text, forKey: "SLEEPDURATIONMINUTES")
         prefs.synchronize()
     }

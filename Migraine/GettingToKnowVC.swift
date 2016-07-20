@@ -98,7 +98,7 @@ class GettingToKnowVC: BaseViewController, UIPickerViewDataSource, UIPickerViewD
         let textBtn = UIBarButtonItem(customView: label)
         toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
         gender.inputAccessoryView = toolBar
-        gender.text = genderOptions[0]
+//        gender.text = genderOptions[0]
     }
     
     @IBAction func birthControlAction(sender: UITextField) {
@@ -121,7 +121,7 @@ class GettingToKnowVC: BaseViewController, UIPickerViewDataSource, UIPickerViewD
         let textBtn = UIBarButtonItem(customView: label)
         toolBar.setItems([textBtn,flexSpace,doneButton], animated: true)
         birthControl.inputAccessoryView = toolBar
-        birthControl.text = birthControlOptions[0]
+//        birthControl.text = birthControlOptions[0]
     }
     
     override func didReceiveMemoryWarning() {
@@ -196,8 +196,14 @@ class GettingToKnowVC: BaseViewController, UIPickerViewDataSource, UIPickerViewD
             switch tag {
             case .PickerViewGender:
                 gender.text = genderOptions[row]
+                prefs.setValue(gender.text, forKey: "GENDER")
+                prefs.synchronize()
+                print("gender")
+                print(gender.text)
             case .PickerViewBirthControl:
                 birthControl.text = birthControlOptions[row]
+                prefs.setValue(birthControl.text, forKey: "BIRTHCONTROL")
+                prefs.synchronize()
             }
         }
     }

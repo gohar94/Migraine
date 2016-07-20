@@ -23,6 +23,22 @@ class WelcomeVC: BaseViewController {
         self.addSlideMenuButton()
         print("app started again view did load")
         BFLog("app started again view did load")
+        // DEBUG ONLY
+        print(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())
+        let dict = NSUserDefaults.standardUserDefaults().dictionaryRepresentation()
+        for key in dict.keys {
+            print(key)
+            BFLog(key)
+            let val = dict[key] as? String
+            if val != nil {
+                print(val!)
+                BFLog(val!)
+            }
+        }
+        // induce crash
+//        let aa = [String]()
+//        let bb = aa[1]
+        //
         
         let isEndTimeEntered = prefs.valueForKey("MIGRAINEENDENTERED") as? Bool
         if isEndTimeEntered != nil {
@@ -70,8 +86,10 @@ class WelcomeVC: BaseViewController {
     @IBAction func logoutAction(sender: UITextField) {
         CURRENT_USER.unauth()
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+        prefs.synchronize()
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+        prefs.synchronize()
         for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
             UIApplication.sharedApplication().cancelLocalNotification(notification)
             print("deleting notif")

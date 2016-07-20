@@ -18,7 +18,11 @@ class PromptsVC: BaseViewController {
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     func onlyOneNotification(defaultValue: Bool) {
+        print("entered only one notification")
+        BFLog("entered only one notification")
         if (numberSwitch.on == false) {
+            print("number switch false")
+            BFLog("number switch false")
             stressTime.enabled = false
             stressTime.hidden = true
             for notification in (UIApplication.sharedApplication().scheduledLocalNotifications )! {
@@ -36,9 +40,13 @@ class PromptsVC: BaseViewController {
             prefs.setObject(nil, forKey: "STRESS")
             prefs.synchronize()
         } else {
+            print("in else")
+            BFLog("in else")
             stressTime.enabled = true
             stressTime.hidden = false
-            if (defaultValue) {
+            if (defaultValue == true) {
+                print("default val true")
+                BFLog("default val true")
                 // set default value here
                 let dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat =  "hh:mm a"
@@ -111,6 +119,9 @@ class PromptsVC: BaseViewController {
 //            let oldCount = UIApplication.sharedApplication().applicationIconBadgeNumber
 //            notification.applicationIconBadgeNumber = oldCount + 1
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        } else {
+            print("inprefs is nil")
+            BFLog("inprefs is nil")
         }
     }
     
@@ -118,28 +129,44 @@ class PromptsVC: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        print("entered prompt vc view did load")
+        BFLog("entered prompt vc view did load")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Skip", style: .Plain, target: self, action: #selector(PromptsVC.skipTapped))
-        
         
         var numbersInPrefs = prefs.valueForKey("NUMBERPROMPTS") as? String
         if numbersInPrefs != nil {
+            print("numbers in prefs is not nil")
+            BFLog("numbers in prefs is not nil")
             let selectedNumber = prefs.valueForKey("NUMBERPROMPTS") as! String
             if selectedNumber == "1" {
+                print("numbers in prefs is 1")
+                BFLog("numbers in prefs is 1")
                 numberSwitch.on = false
             } else {
+                print("numbers in prefs is not 1")
+                BFLog("numbers in prefs is not 1")
                 numberSwitch.on = true
             }
+            print("entering only one notification func")
+            BFLog("entering only one notification func")
             onlyOneNotification(false)
+            print("returned only one notification func")
+            BFLog("returned only one notification func")
         } else {
             // default number of prompts = 2
+            print("default num prompts is 2")
+            BFLog("default num prompts is 2")
             numbersInPrefs = "2"
             numberSwitch.on = true
             prefs.setObject(numbersInPrefs, forKey: "NUMBERPROMPTS")
             prefs.synchronize()
         }
         
+        print("entering check notification")
+        BFLog("entering check notification")
         checkNotificationsEnabled() // remind user to turn on notification
+        print("returned from check notification")
+        BFLog("returned from check notification")
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
@@ -147,30 +174,52 @@ class PromptsVC: BaseViewController {
         
         let sleepInPrefs = prefs.valueForKey("SLEEP") as? NSDate
         if sleepInPrefs != nil {
+            print("sleep in prefs is not nil")
+            BFLog("sleep in prefs is not nil")
             sleepTime.text = dateFormatter.stringFromDate(sleepInPrefs!)
         } else {
             // set default value here
+            print("sleep in prefs is nil")
+            BFLog("sleep in prefs is nil")
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat =  "hh:mm a"
             let date = dateFormatter.dateFromString("10:00 AM")
             prefs.setObject(date, forKey: "SLEEP")
             prefs.synchronize()
+            print("entering notification sleep")
+            BFLog("entering notification sleep")
             notifications("SLEEP")
+            print("returned from notification sleep")
+            BFLog("returned from notification sleep")
             sleepTime.text = dateFormatter.stringFromDate(date!)
         }
+        
         let stressInPrefs = prefs.valueForKey("STRESS") as? NSDate
         if stressInPrefs != nil {
+            print("stress in prefs is not nil")
+            BFLog("stress in prefs is not nil")
             stressTime.text = dateFormatter.stringFromDate(stressInPrefs!)
         } else {
+            print("stress in prefs is nil")
+            BFLog("stress in prefs is nil")
             if numbersInPrefs == "2" {
                 // set default value here
+                print("stress in prefs is 2")
+                BFLog("stress in prefs is 2")
                 let dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat =  "hh:mm a"
                 let date = dateFormatter.dateFromString("07:30 PM")
                 prefs.setObject(date, forKey: "STRESS")
                 prefs.synchronize()
+                print("entering notification stress")
+                BFLog("entering notification stress")
                 notifications("STRESS")
+                print("returned from notification stress")
+                BFLog("returned from notification stress")
                 stressTime.text = dateFormatter.stringFromDate(date!)
+            } else {
+                print("stress in prefs is not 2")
+                BFLog("stress in prefs is not 2")
             }
         }
     }
@@ -255,7 +304,11 @@ class PromptsVC: BaseViewController {
     }
     
     @IBAction func nextButtonAction(sender: UIButton) {
+        print("next button pressed")
+        BFLog("next button pressed")
         sendDataToFirebase()
+        print("returned from send data to firebase")
+        BFLog("returned from send data to firebase")
         let alert = UIAlertController(title: "Success", message: "Thank you! \nYour settings have been saved.", preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default) {
             UIAlertAction in
@@ -263,6 +316,8 @@ class PromptsVC: BaseViewController {
         }
         alert.addAction(action)
         self.presentViewController(alert, animated: true, completion: nil)
+        print("exiting")
+        BFLog("exiting")
     }
     
     func skipTapped() {
