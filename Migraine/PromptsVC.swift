@@ -12,7 +12,10 @@ class PromptsVC: BaseViewController {
     
     @IBOutlet var sleepTime: UITextField!
     @IBOutlet var stressTime: UITextField!
-    @IBOutlet weak var notice: UILabel!
+    // TODO THIS MIGHT BE CAUSING THE CRASH
+    // make a new label on the prompts VC before uncommenting this
+    // VERY IMPORTANT ^
+//    @IBOutlet weak var notice: UILabel!
     @IBOutlet weak var numberSwitch: UISwitch!
     
     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -66,7 +69,7 @@ class PromptsVC: BaseViewController {
             print("settings none")
             BFLog("settings none")
             // make sure this warning comes up only once on one app launch
-            if toAlert {
+            if toAlert == true {
                 let ac = UIAlertController(title: "Can't prompt!", message: "Notifications are not enabled by the user. \nEnable them from: \nSettings > Notifications > Migraine \n \nPlease come back to this page after enabling notifications and set prompt timings again. Thank you!", preferredStyle: .Alert)
                 ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 presentViewController(ac, animated: true, completion: nil)
@@ -75,10 +78,12 @@ class PromptsVC: BaseViewController {
                 print("to alert is false")
                 BFLog("to alert is false")
             }
-            notice.hidden = false;
+//            TODO THIS MIGHT BE CAUSING THE CRASH
+//            notice.hidden = false;
             return false
         } else {
-            notice.hidden = true;
+//            TODO THIS MIGHT BE CAUSING THE CRASH
+//            notice.hidden = true;
             return true
         }
     }

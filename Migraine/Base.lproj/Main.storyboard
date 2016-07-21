@@ -1473,15 +1473,6 @@
                                             <constraint firstItem="1SS-lj-Sdy" firstAttribute="centerY" secondItem="FAQ-iE-C8Z" secondAttribute="centerY" id="h9r-Ni-Pi8"/>
                                         </constraints>
                                     </view>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note: Notifications are disabled." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8v-bj-8oF">
-                                        <rect key="frame" x="196" y="254" width="208" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="lBq-WM-szU"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zxl-Px-7dB">
                                         <rect key="frame" x="276" y="49" width="51" height="31"/>
                                         <color key="onTintColor" red="0.54901960780000003" green="0.69803921570000005" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1515,12 +1506,10 @@
                                     <constraint firstAttribute="bottom" secondItem="F6V-J1-iKS" secondAttribute="bottom" constant="10" id="Pvp-7u-206"/>
                                     <constraint firstItem="zxl-Px-7dB" firstAttribute="leading" secondItem="jEz-Ro-pkE" secondAttribute="trailing" constant="20" id="VpW-m6-faM"/>
                                     <constraint firstItem="Ib6-Z1-nCe" firstAttribute="top" secondItem="jgO-Eq-mRA" secondAttribute="bottom" constant="20" id="Xf1-7q-jFP"/>
-                                    <constraint firstItem="j8v-bj-8oF" firstAttribute="top" secondItem="FAQ-iE-C8Z" secondAttribute="bottom" constant="20" id="cAf-8W-1Cb"/>
                                     <constraint firstItem="FAQ-iE-C8Z" firstAttribute="top" secondItem="j9m-zD-rl8" secondAttribute="bottom" constant="10" id="fJb-QY-rAl"/>
                                     <constraint firstItem="jgO-Eq-mRA" firstAttribute="centerX" secondItem="81j-i2-zuT" secondAttribute="centerX" id="fdz-dU-wLB"/>
                                     <constraint firstItem="zxl-Px-7dB" firstAttribute="centerX" secondItem="81j-i2-zuT" secondAttribute="centerX" id="hvM-az-sV5"/>
                                     <constraint firstItem="zxl-Px-7dB" firstAttribute="top" secondItem="jgO-Eq-mRA" secondAttribute="bottom" constant="15" id="kTr-4I-k9w"/>
-                                    <constraint firstItem="j8v-bj-8oF" firstAttribute="centerX" secondItem="81j-i2-zuT" secondAttribute="centerX" id="mxo-Qb-Eqg"/>
                                     <constraint firstItem="jgO-Eq-mRA" firstAttribute="top" secondItem="81j-i2-zuT" secondAttribute="top" constant="10" id="rM3-cL-HFQ"/>
                                     <constraint firstItem="Ib6-Z1-nCe" firstAttribute="leading" secondItem="zxl-Px-7dB" secondAttribute="trailing" constant="20" id="rn7-Fx-wfB"/>
                                     <constraint firstItem="jEz-Ro-pkE" firstAttribute="top" secondItem="jgO-Eq-mRA" secondAttribute="bottom" constant="20" id="sCW-Zm-qlp"/>
@@ -1537,7 +1526,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="notice" destination="j8v-bj-8oF" id="5ab-m0-KKj"/>
                         <outlet property="numberSwitch" destination="zxl-Px-7dB" id="DTI-vF-hfn"/>
                         <outlet property="sleepTime" destination="YQb-sC-dum" id="T8t-gC-Iwv"/>
                         <outlet property="stressTime" destination="x94-Se-w68" id="umP-jL-PfW"/>
