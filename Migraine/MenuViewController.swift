@@ -56,7 +56,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func updateArrayMenuOptions(){
-        arrayMenuOptions.append(["title":"Home", "icon":"AppIcon"]) // TODO change icons here
+        arrayMenuOptions.append(["title":"Home", "icon":"brain"]) // TODO change icons here
         arrayMenuOptions.append(["title":"Daily Diary", "icon":"brain"])
         arrayMenuOptions.append(["title":"Personal Info", "icon":"brain"])
         arrayMenuOptions.append(["title":"Other Medical Conditions", "icon":"brain"])
